@@ -1,0 +1,113 @@
+# Expo
+.expo/
+dist/
+web-build/
+
+# Dependencies
+node_modules/
+
+# Environment variables (CRITICAL: Never commit API keys!)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.env
+
+# AI Service Configuration (Protect API Keys)
+src/config/keys.js
+src/config/secrets.js
+openai-api-key.txt
+*.key
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory used by tools like istanbul
+coverage/
+.nyc_output/
+
+# AI Model Files (Large files)
+models/
+*.model
+*.h5
+*.pb
+*.tflite
+
+# TensorFlow.js cache
+.tfjs_cache/
+tensorflowjs_models/
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# Sensitive financial data
+sample_data/
+test_transactions/
+*.csv
+*.xlsx
+financial_data/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+*.tmp
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*.sublime-*
+
+# Temporary folders
+tmp/
+temp/
+cache/
+
+# React Native
+ios/build/
+android/build/
+android/app/build/
+android/.gradle/
+
+# Metro bundler cache
+.metro-health-check*
+.haste_cache/
+
+# Flipper
+ios/Flipper/
+
+# CocoaPods
+ios/Pods/
+Podfile.lock
+
+# Android
+android/app/src/main/assets/index.android.bundle
+android/app/src/main/res/drawable-*
+android/app/src/main/res/raw/
+
+# Security and compliance
+audit_logs/
+security_reports/
+compliance_docs/
+*.pem
+*.crt
+*.key
+certificates/
