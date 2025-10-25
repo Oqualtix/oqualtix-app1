@@ -70,8 +70,8 @@ OpenAI API account
 ### **Installation**
 ```bash
 # Clone the repository
-git clone https://github.com/[your-username]/oqualtix-ai-forensics.git
-cd oqualtix-ai-forensics
+git clone https://github.com/Oqualtix/oqualtix-app1.git
+cd oqualtix-app1
 
 # Install dependencies
 npm install
@@ -242,5 +242,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 **Built with ❤️ by the Oqualtix Team**  
 *Protecting financial integrity through advanced artificial intelligence*
 
-[![GitHub stars](https://img.shields.io/github/stars/[your-username]/oqualtix-ai-forensics.svg?style=social&label=Star)](https://github.com/[your-username]/oqualtix-ai-forensics)
-[![GitHub forks](https://img.shields.io/github/forks/[your-username]/oqualtix-ai-forensics.svg?style=social&label=Fork)](https://github.com/[your-username]/oqualtix-ai-forensics/fork)
+[![GitHub stars](https://img.shields.io/github/stars/Oqualtix/oqualtix-app1.svg?style=social&label=Star)](https://github.com/Oqualtix/oqualtix-app1)
+[![GitHub forks](https://img.shields.io/github/forks/Oqualtix/oqualtix-app1.svg?style=social&label=Fork)](https://github.com/Oqualtix/oqualtix-app1/fork)

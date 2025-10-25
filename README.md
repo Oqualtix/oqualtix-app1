@@ -240,6 +240,22 @@ performCrossCompanyAnalysis(transactions, companyId)
 }
 ```
 
+### Quick Start
+```bash
+# Clone the repository
+git clone https://github.com/Oqualtix/oqualtix-app1.git
+cd oqualtix-app1
+
+# Install dependencies
+npm install
+
+# Configure environment (add your OpenAI API key)
+cp .env.example .env
+
+# Start the development server
+expo start
+```
+
 ### Environment Setup
 1. Install Expo CLI: `npm install -g expo-cli`
 2. Clone repository: `git clone [repository-url]`
