@@ -1,9 +1,27 @@
 # Oqualtix AI-Powered Financial Forensics Platform
 
 ## Overview
-Oqualtix Forensics is an enterprise-grade financial fraud detection platform powered by advanced artificial intelligence and machine learning algorithms. The system features real AI integration with TensorFlow.js neural networks, OpenAI GPT conversational AI, and natural language processing for comprehensive fraud detection and financial investigation.
+Oqualtix Forensics is an enterprise-grade financial fraud detection platform powered by advanced artificial intelligence and machine learning algorithms. The system features real AI integration with TensorFlow.js neural networks, OpenAI GPT conversational AI, natural language processing for comprehensive fraud detection, **real-time push notifications**, and **professional dark mode** for enhanced user experience.
 
 ## Features
+
+### 🔔 **Real-Time Notification System**
+- **Fraud Alert Notifications**: Instant push notifications for high-risk transactions and suspicious patterns
+- **AI Analysis Alerts**: Real-time notifications when AI analysis completes and insights are available
+- **Risk Score Updates**: Push notifications for significant changes and daily summaries
+- **System Notifications**: App updates and maintenance alerts
+- **Quiet Hours Management**: Configurable silent periods with customizable time ranges
+- **Granular Controls**: Individual toggles for each notification category
+- **Permission Management**: Streamlined notification permission requests
+- **Test Functionality**: Send test notifications to verify setup
+
+### 🌙 **Professional Dark Mode**
+- **Automatic Theme Detection**: Respects system preferences with manual override capability
+- **Oqualtix Branding**: Blue/white theme expertly adapted for both light and dark modes
+- **Persistent Settings**: Theme preference saved and restored across app sessions
+- **Universal Coverage**: All screens, components, and navigation elements theme-aware
+- **Status Bar Integration**: Proper status bar styling for each theme mode
+- **Eye-Friendly Design**: Optimized for extended forensic analysis sessions
 
 ### 🤖 Real AI Integration
 - **TensorFlow.js Neural Networks**: Deep learning models for fraud detection with 90%+ accuracy
@@ -86,6 +104,8 @@ src/
 │   └── RealAIService.js            # TensorFlow.js & OpenAI integration
 ├── context/
 │   ├── EnhancedAuthContext.js      # Authentication & user management
+│   ├── ThemeContext.js             # Dark/light mode theme management
+│   ├── NotificationContext.js      # Push notification system
 │   └── AuthContext.js              # Original auth (legacy)
 ├── screens/
 │   ├── EnhancedLoginScreen.js      # Complete login/registration UI
@@ -95,7 +115,7 @@ src/
 │   ├── EnhancedOxulAIScreen.js     # Real AI fraud detection interface
 │   ├── OxulAIScreen.js            # Original AI interface (legacy)
 │   ├── FinancialTrackingScreen.js  # Transaction monitoring
-│   ├── SettingsScreen.js           # User preferences
+│   ├── SettingsScreen.js           # Enhanced settings with notifications & themes
 │   └── InvestigationScreen.js      # Detailed case analysis
 ├── utils/
 │   ├── EnhancedAnomalyDetectionUtils.js  # 6 ML algorithms with AI integration
@@ -236,7 +256,10 @@ performCrossCompanyAnalysis(transactions, companyId)
   "openai": "^4.24.0",
   "natural": "^6.5.0",
   "compromise": "^14.10.0",
-  "simple-statistics": "^7.8.3"
+  "simple-statistics": "^7.8.3",
+  "expo-notifications": "~0.28.18",
+  "@react-native-community/slider": "^4.5.2",
+  "@react-native-async-storage/async-storage": "^1.24.0"
 }
 ```
 
@@ -275,10 +298,13 @@ expo start
 1. **Login**: Use company email and password
 2. **Verify Email**: Enter 6-digit code from oqualtix@outlook.com
 3. **Accept Terms**: Read and accept terms & conditions
-4. **AI Dashboard**: View AI-powered analytics and risk assessments
-5. **AI Investigations**: Use TensorFlow.js models for fraud detection
-6. **AI Assistant**: Chat with Oxul AI for forensic guidance
-7. **Reports**: Generate AI-enhanced findings and analysis
+4. **Enable Notifications**: Configure real-time fraud alerts in Settings
+5. **Choose Theme**: Select light or dark mode in Settings → Appearance
+6. **AI Dashboard**: View AI-powered analytics and risk assessments
+7. **AI Investigations**: Use TensorFlow.js models for fraud detection
+8. **AI Assistant**: Chat with Oxul AI for forensic guidance
+9. **Reports**: Generate AI-enhanced findings and analysis
+10. **Real-time Alerts**: Receive push notifications for suspicious activities
 
 ### For Administrators
 1. **Admin Login**: Use admin@oqualtix.com credentials
@@ -313,7 +339,9 @@ expo start
 
 ---
 
-**Oqualtix AI-Powered Financial Forensics Platform** - Advanced AI-Driven Fraud Detection
-*Protecting your financial integrity with cutting-edge artificial intelligence and machine learning*
+**Oqualtix AI-Powered Financial Forensics Platform** - Advanced AI-Driven Fraud Detection with Real-Time Notifications
+*Protecting your financial integrity with cutting-edge artificial intelligence, machine learning, and instant fraud alerts*
 
-**Key AI Features**: TensorFlow.js Neural Networks | OpenAI GPT Integration | Natural Language Processing | Real-time Fraud Detection | Intelligent Risk Assessment
+**Key Features**: TensorFlow.js Neural Networks | OpenAI GPT Integration | Natural Language Processing | Real-time Fraud Detection | Push Notifications | Professional Dark Mode | Intelligent Risk Assessment
+
+**Latest Updates**: 🔔 Real-time push notification system | 🌙 Professional dark mode | ⚙️ Enhanced settings interface | 📱 Mobile-optimized user experience
