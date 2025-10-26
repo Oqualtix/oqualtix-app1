@@ -7,6 +7,9 @@ import { StatusBar } from 'expo-status-bar';
 import { Provider as PaperProvider } from 'react-native-paper';
 import { TouchableOpacity } from 'react-native';
 
+// Import brand configuration
+import BrandConfig from './src/config/BrandConfig';
+
 // Import screens
 import EnhancedLoginScreen from './src/screens/EnhancedLoginScreen';
 import EnhancedOxulAIScreen from './src/screens/EnhancedOxulAIScreen';
@@ -19,6 +22,9 @@ import AdminPanel from './src/screens/AdminPanel';
 
 // Import context
 import { EnhancedAuthProvider, useAuth } from './src/context/EnhancedAuthContext';
+
+// Import Error Boundary for crash prevention
+import { ErrorBoundary } from './src/components/ErrorHandling';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -45,12 +51,12 @@ function MainTabNavigator() {
 
           return <Ionicons name={iconName} size={size} color={color} />;
         },
-        tabBarActiveTintColor: '#FF6B6B',
-        tabBarInactiveTintColor: 'gray',
+        tabBarActiveTintColor: BrandConfig.colors.primary,
+        tabBarInactiveTintColor: BrandConfig.colors.textMuted,
         headerStyle: {
-          backgroundColor: '#FF6B6B',
+          backgroundColor: BrandConfig.colors.primary,
         },
-        headerTintColor: '#fff',
+        headerTintColor: BrandConfig.colors.textWhite,
         headerTitleStyle: {
           fontWeight: 'bold',
         },
@@ -62,7 +68,7 @@ function MainTabNavigator() {
             <Ionicons
               name="settings-outline"
               size={24}
-              color="#fff"
+              color={BrandConfig.colors.textWhite}
             />
           </TouchableOpacity>
         ),
@@ -105,9 +111,9 @@ function AppNavigator() {
               headerShown: true,
               title: 'Settings',
               headerStyle: {
-                backgroundColor: '#FF6B6B',
+                backgroundColor: BrandConfig.colors.primary,
               },
-              headerTintColor: '#fff',
+              headerTintColor: BrandConfig.colors.textWhite,
               headerTitleStyle: {
                 fontWeight: 'bold',
               },
@@ -137,13 +143,15 @@ function AppNavigator() {
 
 export default function App() {
   return (
-    <PaperProvider>
-      <EnhancedAuthProvider>
-        <NavigationContainer>
-          <AppNavigator />
-          <StatusBar style="light" />
-        </NavigationContainer>
-      </EnhancedAuthProvider>
-    </PaperProvider>
+    <ErrorBoundary>
+      <PaperProvider>
+        <EnhancedAuthProvider>
+          <NavigationContainer>
+            <AppNavigator />
+            <StatusBar style="light" />
+          </NavigationContainer>
+        </EnhancedAuthProvider>
+      </PaperProvider>
+    </ErrorBoundary>
   );
 }

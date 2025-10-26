@@ -9,24 +9,32 @@
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#0000FF"
     },
     "assetBundlePatterns": [
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.oqualtix.app"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#FFFFFF"
-      }
+        "backgroundColor": "#0000FF"
+      },
+      "package": "com.oqualtix.app"
     },
     "web": {
       "favicon": "./assets/favicon.png",
       "bundler": "metro"
     },
-    "platforms": ["ios", "android", "web"]
+    "platforms": ["ios", "android", "web"],
+    "extra": {
+      "eas": {
+        "projectId": "your-project-id-will-be-generated"
+      }
+    },
+    "owner": "oqualtix"
   }
 }

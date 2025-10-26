@@ -21,6 +21,17 @@ import AppFunctionalityUtils from '../utils/AppFunctionalityUtils';
 import { useAuth } from '../context/EnhancedAuthContext';
 import RealAIService from '../services/RealAIService';
 
+// Import brand configuration
+import BrandConfig from '../config/BrandConfig';
+
+// Import personality system
+import PersonalitySelector from '../components/PersonalitySelector';
+import PersonalityManager from '../services/PersonalityManager';
+
+// Import enhanced components
+import { LoadingComponents } from '../components/LoadingComponents';
+import { QuickActionWidgets } from '../components/QuickActionWidgets';
+
 const EnhancedOxulAIScreen = () => {
   // Sample transaction data for AI analysis
   const sampleTransactions = [
@@ -69,7 +80,7 @@ const EnhancedOxulAIScreen = () => {
     {
       id: 1,
       type: 'ai',
-      content: '🤖 Hello! I\'m Oxul, your advanced AI forensic accountant powered by real machine learning models. I can analyze financial records with neural networks, detect fraud patterns using NLP, and provide intelligent investigation guidance. How can I assist you today?',
+      content: BrandConfig.ai.greeting,
       timestamp: new Date(),
     }
   ]);
@@ -77,7 +88,14 @@ const EnhancedOxulAIScreen = () => {
   const [isTyping, setIsTyping] = useState(false);
   const [uploadedFiles, setUploadedFiles] = useState([]);
   const [analysisResults, setAnalysisResults] = useState(null);
+  
+  // Personality system states
+  const [currentPersonality, setCurrentPersonality] = useState(null);
+  const [showPersonalitySelector, setShowPersonalitySelector] = useState(false);
+  const [personalityLoaded, setPersonalityLoaded] = useState(false);
   const [isAnalyzing, setIsAnalyzing] = useState(false);
+  const [analysisProgress, setAnalysisProgress] = useState(0);
+  const [currentAnalysisStep, setCurrentAnalysisStep] = useState('');
   const [aiStatus, setAiStatus] = useState({ isInitialized: false, models: {} });
   const [realtimeAnalysis, setRealtimeAnalysis] = useState(null);
   const [aiProactiveMode, setAiProactiveMode] = useState(true); // Enable AI-initiated messages
@@ -88,6 +106,9 @@ const EnhancedOxulAIScreen = () => {
   useEffect(() => {
     // Initialize AI service and get status
     initializeAI();
+    
+    // Load personality settings
+    loadPersonality();
     
     // Set up proactive AI messaging
     if (aiProactiveMode) {
@@ -303,6 +324,68 @@ Would you like me to generate a detailed forensic analysis report of these findi
     }
   };
 
+  // Personality Management Functions
+  const loadPersonality = async () => {
+    try {
+      const personality = await PersonalityManager.getCurrentPersonality();
+      setCurrentPersonality(personality);
+      
+      // Update the initial greeting message with personality
+      setMessages(prev => {
+        const updated = [...prev];
+        if (updated[0] && updated[0].type === 'ai') {
+          updated[0] = {
+            ...updated[0],
+            content: personality.greeting
+          };
+        }
+        return updated;
+      });
+      
+      setPersonalityLoaded(true);
+    } catch (error) {
+      console.error('Error loading personality:', error);
+      setPersonalityLoaded(true); // Continue with default
+    }
+  };
+
+  const handlePersonalityChange = async (personality) => {
+    try {
+      await PersonalityManager.setPersonality(personality.id);
+      setCurrentPersonality(personality);
+      
+      // Add a system message about the personality change
+      const systemMessage = {
+        id: Date.now(),
+        type: 'system',
+        content: `🎭 Oxul's personality has been updated to "${personality.name}". Communication style and response patterns have been adjusted.`,
+        timestamp: new Date(),
+      };
+      
+      setMessages(prev => [...prev, systemMessage]);
+      
+      // Add new greeting from the personality
+      setTimeout(() => {
+        const greetingMessage = {
+          id: Date.now() + 1,
+          type: 'ai',
+          content: personality.greeting,
+          timestamp: new Date(),
+        };
+        setMessages(prev => [...prev, greetingMessage]);
+      }, 1000);
+      
+    } catch (error) {
+      console.error('Error changing personality:', error);
+      Alert.alert('Error', 'Failed to update personality. Please try again.');
+    }
+  };
+
+  const getPersonalityStarters = () => {
+    if (!currentPersonality) return [];
+    return PersonalityManager.getConversationStarters(currentPersonality);
+  };
+
   const handleSendMessage = async () => {
     if (!inputText.trim()) return;
 
@@ -340,10 +423,19 @@ Would you like me to generate a detailed forensic analysis report of these findi
     // Generate AI response with real AI capabilities
     setTimeout(async () => {
       const aiResponse = await generateRealAIResponse(sanitizedInput);
+      
+      // Apply personality to the response
+      const personalizedResponse = currentPersonality 
+        ? PersonalityManager.generateResponse(aiResponse.response, currentPersonality, {
+            userInput: sanitizedInput,
+            context: 'chat'
+          })
+        : aiResponse.response;
+      
       const aiMessage = {
         id: Date.now() + 1,
         type: 'ai',
-        content: aiResponse.response,
+        content: personalizedResponse,
         confidence: aiResponse.confidence,
         source: aiResponse.source,
         suggestions: aiResponse.suggestions,
@@ -534,11 +626,16 @@ Try asking me about fraud detection, AI capabilities, or upload financial data f
   // AI-enhanced forensic analysis
   const performForensicAnalysis = async () => {
     setIsAnalyzing(true);
+    setAnalysisProgress(0);
+    setCurrentAnalysisStep('Initializing AI analysis...');
     
     try {
       let allTransactions = sampleTransactions; // Start with sample data
       
-      // Process uploaded files if any
+      // Step 1: Process uploaded files
+      setCurrentAnalysisStep('Processing uploaded files...');
+      setAnalysisProgress(20);
+      
       for (const file of uploadedFiles) {
         const processResult = await FileProcessingUtils.processFinancialFile(file);
         if (processResult.success) {
@@ -546,11 +643,22 @@ Try asking me about fraud detection, AI capabilities, or upload financial data f
         }
       }
 
+      // Step 2: Prepare AI analysis
+      setCurrentAnalysisStep('Preparing AI models...');
+      setAnalysisProgress(40);
+      
       // Use real AI service for batch analysis
       const aiAnalysis = await RealAIService.analyzeBatch(allTransactions);
       
-      // Perform traditional forensic analysis as well
+      // Step 3: Traditional forensic analysis
+      setCurrentAnalysisStep('Running forensic algorithms...');
+      setAnalysisProgress(70);
+      
       const forensicResults = await ForensicAnalysisUtils.performComprehensiveAnalysis(allTransactions);
+      
+      // Step 4: Combine results
+      setCurrentAnalysisStep('Generating comprehensive report...');
+      setAnalysisProgress(90);
       
       // Combine AI and traditional analysis
       const combinedResults = {
@@ -600,7 +708,13 @@ An error occurred during the forensic analysis. Please check your uploaded files
 
 Error details: ${error.message}`;
     } finally {
-      setIsAnalyzing(false);
+      setCurrentAnalysisStep('Analysis complete');
+      setAnalysisProgress(100);
+      setTimeout(() => {
+        setIsAnalyzing(false);
+        setAnalysisProgress(0);
+        setCurrentAnalysisStep('');
+      }, 1000);
     }
   };
 
@@ -718,6 +832,20 @@ Error details: ${error.message}`;
       style={styles.container} 
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
     >
+      {/* Header with Personality Selector */}
+      <View style={styles.header}>
+        <Text style={styles.headerTitle}>
+          Oxul AI {currentPersonality ? `• ${currentPersonality.name}` : ''}
+        </Text>
+        <TouchableOpacity 
+          style={styles.personalityButton}
+          onPress={() => setShowPersonalitySelector(true)}
+        >
+          <Ionicons name="person-outline" size={20} color={BrandConfig.colors.primary} />
+          <Text style={styles.personalityButtonText}>Personality</Text>
+        </TouchableOpacity>
+      </View>
+
       <ScrollView
         ref={scrollViewRef}
         style={styles.messagesContainer}
@@ -725,6 +853,16 @@ Error details: ${error.message}`;
       >
         {/* AI Status Panel */}
         {renderAIStatus()}
+        
+        {/* Quick Chat Prompts - Show when conversation is just starting */}
+        {messages.length <= 2 && (
+          <QuickActionWidgets.QuickChatPrompts 
+            onPromptSelect={(prompt) => {
+              setInputText(prompt);
+              handleSendMessage(prompt);
+            }}
+          />
+        )}
         
         {/* Messages */}
         {messages.map(renderMessage)}
@@ -781,6 +919,22 @@ Error details: ${error.message}`;
           <Ionicons name="send" size={20} color={inputText.trim() ? "#fff" : "#ccc"} />
         </TouchableOpacity>
       </View>
+      
+      {/* Enhanced Loading Overlay */}
+      {isAnalyzing && (
+        <LoadingComponents.AIAnalysisLoader 
+          progress={analysisProgress}
+          currentStep={currentAnalysisStep}
+        />
+      )}
+
+      {/* Personality Selector Modal */}
+      <PersonalitySelector
+        visible={showPersonalitySelector}
+        onClose={() => setShowPersonalitySelector(false)}
+        onSelectPersonality={handlePersonalityChange}
+        currentPersonality={currentPersonality?.id}
+      />
     </KeyboardAvoidingView>
   );
 };
@@ -788,7 +942,39 @@ Error details: ${error.message}`;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f5f5f5',
+    backgroundColor: BrandConfig.colors.backgroundSecondary,
+  },
+  header: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingHorizontal: 16,
+    paddingVertical: 12,
+    backgroundColor: BrandConfig.colors.surface,
+    borderBottomWidth: 1,
+    borderBottomColor: BrandConfig.colors.border,
+  },
+  headerTitle: {
+    fontSize: 18,
+    fontWeight: '600',
+    color: BrandConfig.colors.textPrimary,
+    flex: 1,
+  },
+  personalityButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    backgroundColor: BrandConfig.colors.backgroundSecondary,
+    borderRadius: 8,
+    borderWidth: 1,
+    borderColor: BrandConfig.colors.primary,
+    gap: 6,
+  },
+  personalityButtonText: {
+    fontSize: 14,
+    color: BrandConfig.colors.primary,
+    fontWeight: '500',
   },
   messagesContainer: {
     flex: 1,
@@ -841,11 +1027,11 @@ const styles = StyleSheet.create({
     borderRadius: 16,
   },
   userBubble: {
-    backgroundColor: '#2196F3',
+    backgroundColor: BrandConfig.colors.primary,
     borderBottomRightRadius: 4,
   },
   aiBubble: {
-    backgroundColor: '#fff',
+    backgroundColor: BrandConfig.colors.surface,
     borderBottomLeftRadius: 4,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 1 },

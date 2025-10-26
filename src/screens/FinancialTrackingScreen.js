@@ -20,6 +20,10 @@ import EmbezzlementDetectionUtils from '../utils/EmbezzlementDetectionUtils';
 import EmbezzlementAlertModal from '../components/EmbezzlementAlertModal';
 import { useAuth } from '../context/AuthContext';
 
+// Import new components
+import { DataVisualizationComponents } from '../components/DataVisualizationComponents';
+import TemplateGenerator from '../utils/TemplateGenerator';
+
 const FinancialTrackingScreen = () => {
   const [transactions, setTransactions] = useState([]);
   const [filteredTransactions, setFilteredTransactions] = useState([]);
@@ -500,6 +504,38 @@ const FinancialTrackingScreen = () => {
     );
   };
 
+  // Chart data calculation functions
+  const calculateTransactionDistribution = () => {
+    const ranges = { '<$1K': 0, '$1-5K': 0, '$5-10K': 0, '$10K+': 0 };
+    
+    filteredTransactions.forEach(transaction => {
+      const amount = Math.abs(transaction.amount);
+      if (amount < 1000) ranges['<$1K']++;
+      else if (amount < 5000) ranges['$1-5K']++;
+      else if (amount < 10000) ranges['$5-10K']++;
+      else ranges['$10K+']++;
+    });
+
+    return Object.values(ranges);
+  };
+
+  const calculateFraudTypeBreakdown = () => {
+    const alertTypes = {};
+    embezzlementAlerts.forEach(alert => {
+      const type = alert.type.replace('_', ' ');
+      alertTypes[type] = (alertTypes[type] || 0) + 1;
+    });
+
+    const colors = ['#FF6B6B', '#4ECDC4', '#45B7D1', '#96CEB4', '#FFA726', '#9C27B0'];
+    return Object.keys(alertTypes).map((type, index) => ({
+      name: type,
+      population: alertTypes[type],
+      color: colors[index % colors.length],
+      legendFontColor: '#333',
+      legendFontSize: 15
+    }));
+  };
+
   const renderTransaction = (transaction) => (
     <TouchableOpacity
       key={transaction.id}
@@ -629,6 +665,26 @@ const FinancialTrackingScreen = () => {
         </TouchableOpacity>
       </View>
 
+      {/* Analytics Dashboard */}
+      <ScrollView
+        style={styles.analyticsContainer}
+        showsVerticalScrollIndicator={false}
+        nestedScrollEnabled={true}
+      >
+        {/* Transaction Distribution Chart */}
+        <DataVisualizationComponents.TransactionDistributionChart 
+          data={{
+            labels: ['<$1K', '$1-5K', '$5-10K', '$10K+'],
+            values: calculateTransactionDistribution()
+          }}
+        />
+
+        {/* Fraud Type Breakdown */}
+        <DataVisualizationComponents.FraudTypeChart 
+          data={calculateFraudTypeBreakdown()}
+        />
+      </ScrollView>
+
       {/* Transactions List */}
       <ScrollView
         style={styles.transactionsList}
@@ -750,6 +806,40 @@ const FinancialTrackingScreen = () => {
               </View>
             )}
             
+            {/* Template Generator Section */}
+            <View style={styles.templateSection}>
+              <Text style={styles.templateTitle}>Need a template?</Text>
+              <Text style={styles.templateDescription}>
+                Download structured templates to organize your financial data for optimal AI analysis.
+              </Text>
+              
+              <View style={styles.templateButtons}>
+                <TouchableOpacity
+                  style={styles.templateButton}
+                  onPress={() => TemplateGenerator.generateFinancialTemplate()}
+                >
+                  <Ionicons name="document-text" size={18} color="#4CAF50" />
+                  <Text style={styles.templateButtonText}>Financial Data</Text>
+                </TouchableOpacity>
+                
+                <TouchableOpacity
+                  style={styles.templateButton}
+                  onPress={() => TemplateGenerator.generateExpenseTemplate()}
+                >
+                  <Ionicons name="receipt" size={18} color="#2196F3" />
+                  <Text style={styles.templateButtonText}>Expense Report</Text>
+                </TouchableOpacity>
+                
+                <TouchableOpacity
+                  style={styles.templateButton}
+                  onPress={() => TemplateGenerator.generateVendorTemplate()}
+                >
+                  <Ionicons name="business" size={18} color="#FF9800" />
+                  <Text style={styles.templateButtonText}>Vendor List</Text>
+                </TouchableOpacity>
+              </View>
+            </View>
+            
             <View style={styles.uploadButtons}>
               <TouchableOpacity
                 style={[styles.uploadButton, isUploading && styles.uploadButtonDisabled]}
@@ -793,6 +883,11 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#f5f5f5',
+  },
+  analyticsContainer: {
+    maxHeight: 500,
+    marginHorizontal: 15,
+    marginVertical: 10,
   },
   alertBanner: {
     backgroundColor: '#FFE6E6',
@@ -1097,6 +1192,49 @@ const styles = StyleSheet.create({
   },
   removeFileButton: {
     padding: 4,
+  },
+  templateSection: {
+    backgroundColor: '#f8f9fa',
+    borderRadius: 12,
+    padding: 16,
+    marginVertical: 16,
+    borderWidth: 1,
+    borderColor: '#e9ecef',
+  },
+  templateTitle: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: '#333',
+    marginBottom: 8,
+  },
+  templateDescription: {
+    fontSize: 14,
+    color: '#666',
+    marginBottom: 16,
+    lineHeight: 20,
+  },
+  templateButtons: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between',
+  },
+  templateButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#fff',
+    paddingHorizontal: 12,
+    paddingVertical: 10,
+    borderRadius: 8,
+    borderWidth: 1,
+    borderColor: '#e9ecef',
+    marginBottom: 8,
+    width: '48%',
+  },
+  templateButtonText: {
+    fontSize: 12,
+    color: '#333',
+    marginLeft: 6,
+    fontWeight: '500',
   },
   uploadButtons: {
     marginTop: 'auto',

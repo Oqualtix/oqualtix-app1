@@ -15,6 +15,14 @@ import { useAuth } from '../context/AuthContext';
 import EnhancedAnomalyDetectionUtils from '../utils/EnhancedAnomalyDetectionUtils';
 import EmbezzlementDetectionUtils from '../utils/EmbezzlementDetectionUtils';
 
+// Import brand configuration
+import BrandConfig from '../config/BrandConfig';
+
+// Import new components
+import { QuickActionWidgets } from '../components/QuickActionWidgets';
+import { DataVisualizationComponents } from '../components/DataVisualizationComponents';
+import AlgorithmTrainer from '../components/AlgorithmTrainer';
+
 const { width } = Dimensions.get('window');
 
 const UserDashboard = ({ navigation }) => {
@@ -22,6 +30,8 @@ const UserDashboard = ({ navigation }) => {
   const [loading, setLoading] = useState(true);
   const [anomalies, setAnomalies] = useState([]);
   const [quickStats, setQuickStats] = useState({});
+  const [showAlgorithmTrainer, setShowAlgorithmTrainer] = useState(false);
+  const [customAlgorithms, setCustomAlgorithms] = useState([]);
   const { user, logout } = useAuth();
 
   useEffect(() => {
@@ -117,11 +127,31 @@ const UserDashboard = ({ navigation }) => {
   };
 
   const calculateQuickStats = (companyData, userStats) => {
+    // Calculate risk score based on anomalies and company data
+    const riskScore = companyData.riskScore || Math.min(
+      (anomalies.filter(a => a.severity === 'HIGH').length * 20) + 
+      (anomalies.filter(a => a.severity === 'MEDIUM').length * 10), 
+      100
+    );
+
+    // Generate sample risk trend data
+    const riskTrend = [
+      Math.max(riskScore - 30, 0),
+      Math.max(riskScore - 20, 0),
+      Math.max(riskScore - 10, 0),
+      riskScore,
+      Math.min(riskScore + 5, 100),
+      Math.min(riskScore + 10, 100)
+    ];
+
     return {
       totalValue: companyData.monthlyVolume,
       alertsToday: 3,
       riskReduction: 78, // Percentage
-      timesSaved: 24 // Hours per month
+      timesSaved: 24, // Hours per month
+      riskScore: riskScore,
+      aiConfidence: 85 + Math.random() * 10, // 85-95% confidence
+      riskTrend: riskTrend
     };
   };
 
@@ -149,6 +179,27 @@ const UserDashboard = ({ navigation }) => {
     }
   };
 
+  // Algorithm Management Functions
+  const handleSaveCustomAlgorithm = (algorithm) => {
+    setCustomAlgorithms(prev => [...prev, algorithm]);
+    
+    // Update dashboard data with new algorithm
+    setDashboardData(prev => ({
+      ...prev,
+      customAlgorithms: [...(prev.customAlgorithms || []), algorithm]
+    }));
+
+    Alert.alert(
+      'Algorithm Deployed!',
+      `${algorithm.name} is now active and monitoring your financial data.`,
+      [{ text: 'Awesome!' }]
+    );
+  };
+
+  const handleOpenAlgorithmTrainer = () => {
+    setShowAlgorithmTrainer(true);
+  };
+
   if (loading) {
     return (
       <View style={styles.loadingContainer}>
@@ -159,9 +210,10 @@ const UserDashboard = ({ navigation }) => {
   }
 
   return (
-    <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
-      {/* Header */}
-      <LinearGradient colors={['#007AFF', '#5856D6']} style={styles.header}>
+    <>
+      <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
+        {/* Header */}
+        <LinearGradient colors={['#007AFF', '#5856D6']} style={styles.header}>
         <View style={styles.headerContent}>
           <View>
             <Text style={styles.welcomeText}>Welcome back,</Text>
@@ -349,21 +401,79 @@ const UserDashboard = ({ navigation }) => {
         </View>
       </View>
 
+      {/* Enhanced Status Dashboard Widget */}
+      <QuickActionWidgets.StatusDashboard 
+        stats={{
+          filesProcessed: dashboardData.user?.filesProcessed || 0,
+          alertsActive: anomalies.length || 0,
+          riskScore: quickStats.riskScore || 0,
+          confidence: quickStats.aiConfidence || 85
+        }}
+      />
+
+      {/* Algorithm Training Quick Action */}
+      <TouchableOpacity style={styles.algorithmTrainerCard} onPress={handleOpenAlgorithmTrainer}>
+        <View style={styles.algorithmTrainerHeader}>
+          <View style={styles.algorithmTrainerIcon}>
+            <Ionicons name="settings-outline" size={24} color={BrandConfig.colors.primary} />
+          </View>
+          <View style={styles.algorithmTrainerInfo}>
+            <Text style={styles.algorithmTrainerTitle}>Train Custom Algorithms</Text>
+            <Text style={styles.algorithmTrainerSubtitle}>
+              Create specialized fraud detection models with your data
+            </Text>
+          </View>
+          <Ionicons name="chevron-forward" size={20} color={BrandConfig.colors.textSecondary} />
+        </View>
+        
+        {customAlgorithms.length > 0 && (
+          <View style={styles.algorithmTrainerStats}>
+            <Text style={styles.algorithmTrainerStatsText}>
+              {customAlgorithms.length} Custom Algorithm{customAlgorithms.length !== 1 ? 's' : ''} Active
+            </Text>
+          </View>
+        )}
+      </TouchableOpacity>
+
+      {/* Risk Trend Visualization */}
+      {quickStats.riskTrend && (
+        <DataVisualizationComponents.RiskTrendChart 
+          data={{
+            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+            values: quickStats.riskTrend || [20, 45, 28, 80, 99, 43]
+          }}
+          title="Risk Score Trend (Last 6 Months)"
+        />
+      )}
+
+      {/* AI Confidence Meter */}
+      <DataVisualizationComponents.AIConfidenceMeter 
+        confidence={quickStats.aiConfidence || 85}
+      />
+
       <View style={styles.bottomPadding} />
-    </ScrollView>
+      </ScrollView>
+
+      {/* Algorithm Trainer Modal */}
+      <AlgorithmTrainer
+        visible={showAlgorithmTrainer}
+        onClose={() => setShowAlgorithmTrainer(false)}
+        onSaveCustomAlgorithm={handleSaveCustomAlgorithm}
+      />
+    </>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F2F2F7',
+    backgroundColor: BrandConfig.colors.background,
   },
   loadingContainer: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F2F2F7',
+    backgroundColor: BrandConfig.colors.background,
   },
   loadingText: {
     marginTop: 16,
@@ -626,6 +736,57 @@ const styles = StyleSheet.create({
   },
   bottomPadding: {
     height: 40,
+  },
+  algorithmTrainerCard: {
+    backgroundColor: BrandConfig.colors.surface,
+    borderRadius: 12,
+    margin: 16,
+    padding: 16,
+    borderWidth: 1,
+    borderColor: BrandConfig.colors.border,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 3,
+  },
+  algorithmTrainerHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  algorithmTrainerIcon: {
+    width: 48,
+    height: 48,
+    borderRadius: 24,
+    backgroundColor: BrandConfig.colors.backgroundSecondary,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginRight: 12,
+  },
+  algorithmTrainerInfo: {
+    flex: 1,
+  },
+  algorithmTrainerTitle: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: BrandConfig.colors.textPrimary,
+    marginBottom: 4,
+  },
+  algorithmTrainerSubtitle: {
+    fontSize: 14,
+    color: BrandConfig.colors.textSecondary,
+    lineHeight: 18,
+  },
+  algorithmTrainerStats: {
+    marginTop: 12,
+    paddingTop: 12,
+    borderTopWidth: 1,
+    borderTopColor: BrandConfig.colors.border,
+  },
+  algorithmTrainerStatsText: {
+    fontSize: 13,
+    color: BrandConfig.colors.primary,
+    fontWeight: '500',
   },
 });
 
