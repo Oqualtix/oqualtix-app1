@@ -1,5 +1,7 @@
 // Brand Configuration for Oqualtix
-// Updated with custom blue and white color scheme
+// Updated with theme-aware blue and white color scheme
+
+import { lightTheme, darkTheme } from '../context/ThemeContext';
 
 export const BrandConfig = {
   // Company Information
@@ -20,33 +22,13 @@ export const BrandConfig = {
     greeting: '🤖 Hello! I\'m Oxul, your advanced AI forensic accountant powered by real machine learning models. I can analyze financial records with neural networks, detect fraud patterns using NLP, and provide intelligent investigation guidance. How can I assist you today?'
   },
 
-  // Color Scheme - Blue and White Theme
-  colors: {
-    // Primary Colors
-    primary: '#0000FF',        // Pure Blue (your specified color)
-    primaryLight: '#4169E1',   // Royal Blue (lighter variant)
-    primaryDark: '#00008B',    // Dark Blue (darker variant)
-    
-    // Secondary Colors  
-    secondary: '#FFFFFF',      // Pure White (your specified color)
-    secondaryLight: '#F8F9FA', // Very light gray-white
-    secondaryDark: '#E9ECEF',  // Light gray
-    
-    // Accent Colors (blue variants)
-    accent: '#1E90FF',         // Dodger Blue
-    accentLight: '#87CEEB',    // Sky Blue
-    accentDark: '#0066CC',     // Strong Blue
-    
-    // Status Colors (blue theme)
-    success: '#0066FF',        // Blue success
-    warning: '#4169E1',        // Royal blue warning  
-    error: '#FF0066',          // Pink-red error (contrast with blue)
-    info: '#87CEEB',           // Light blue info
-    
-    // Background Colors
-    background: '#FFFFFF',     // White background
-    backgroundSecondary: '#F0F8FF', // Alice Blue
-    backgroundTertiary: '#E6F3FF',  // Very light blue
+  // Theme-aware colors function
+  getColors: (isDarkMode = false) => {
+    return isDarkMode ? darkTheme.colors : lightTheme.colors;
+  },
+
+  // Legacy colors (light theme) - for backward compatibility
+  colors: lightTheme.colors,
     
     // Text Colors
     textPrimary: '#000080',    // Navy blue text

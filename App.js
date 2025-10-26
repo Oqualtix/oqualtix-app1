@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -20,8 +20,10 @@ import PurchaseConfirmationScreen from './src/screens/PurchaseConfirmationScreen
 import UserDashboard from './src/screens/UserDashboard';
 import AdminPanel from './src/screens/AdminPanel';
 
-// Import context
+// Import contexts
 import { EnhancedAuthProvider, useAuth } from './src/context/EnhancedAuthContext';
+import { ThemeProvider, ThemeContext } from './src/context/ThemeContext';
+import { NotificationProvider } from './src/context/NotificationContext';
 
 // Import Error Boundary for crash prevention
 import { ErrorBoundary } from './src/components/ErrorHandling';
@@ -32,6 +34,8 @@ const Tab = createBottomTabNavigator();
 // Tab Navigator for main app screens
 function MainTabNavigator() {
   const { user, isAdmin } = useAuth();
+  const { isDarkMode } = useContext(ThemeContext);
+  const colors = BrandConfig.getColors(isDarkMode);
 
   return (
     <Tab.Navigator
@@ -51,12 +55,16 @@ function MainTabNavigator() {
 
           return <Ionicons name={iconName} size={size} color={color} />;
         },
-        tabBarActiveTintColor: BrandConfig.colors.primary,
-        tabBarInactiveTintColor: BrandConfig.colors.textMuted,
-        headerStyle: {
-          backgroundColor: BrandConfig.colors.primary,
+        tabBarActiveTintColor: colors.primary,
+        tabBarInactiveTintColor: colors.textSecondary,
+        tabBarStyle: {
+          backgroundColor: colors.cardBackground,
+          borderTopColor: colors.border,
         },
-        headerTintColor: BrandConfig.colors.textWhite,
+        headerStyle: {
+          backgroundColor: colors.primary,
+        },
+        headerTintColor: colors.secondary,
         headerTitleStyle: {
           fontWeight: 'bold',
         },
@@ -68,7 +76,7 @@ function MainTabNavigator() {
             <Ionicons
               name="settings-outline"
               size={24}
-              color={BrandConfig.colors.textWhite}
+              color={colors.secondary}
             />
           </TouchableOpacity>
         ),
@@ -94,6 +102,8 @@ function MainTabNavigator() {
 // Main App Navigator
 function AppNavigator() {
   const { user, loading } = useAuth();
+  const { isDarkMode } = useContext(ThemeContext);
+  const colors = BrandConfig.getColors(isDarkMode);
 
   if (loading) {
     return null; // Or a loading screen component
@@ -111,9 +121,9 @@ function AppNavigator() {
               headerShown: true,
               title: 'Settings',
               headerStyle: {
-                backgroundColor: BrandConfig.colors.primary,
+                backgroundColor: colors.primary,
               },
-              headerTintColor: BrandConfig.colors.textWhite,
+              headerTintColor: colors.secondary,
               headerTitleStyle: {
                 fontWeight: 'bold',
               },
@@ -145,12 +155,16 @@ export default function App() {
   return (
     <ErrorBoundary>
       <PaperProvider>
-        <EnhancedAuthProvider>
-          <NavigationContainer>
-            <AppNavigator />
-            <StatusBar style="light" />
-          </NavigationContainer>
-        </EnhancedAuthProvider>
+        <ThemeProvider>
+          <NotificationProvider>
+            <EnhancedAuthProvider>
+              <NavigationContainer>
+                <AppNavigator />
+                <StatusBar style="auto" />
+              </NavigationContainer>
+            </EnhancedAuthProvider>
+          </NotificationProvider>
+        </ThemeProvider>
       </PaperProvider>
     </ErrorBoundary>
   );
