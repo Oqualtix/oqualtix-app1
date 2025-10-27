@@ -3,7 +3,7 @@
 
 import { lightTheme, darkTheme } from '../context/ThemeContext';
 
-export const BrandConfig = {
+const BrandConfig = {
   // Company Information
   company: {
     name: 'Oqualtix',
@@ -28,7 +28,19 @@ export const BrandConfig = {
   },
 
   // Legacy colors (light theme) - for backward compatibility
-  colors: lightTheme.colors,
+  colors: {
+    // Primary Brand Colors
+    primary: '#0000FF',        // Pure blue
+    secondary: '#4169E1',      // Royal blue
+    accent: '#87CEEB',         // Sky blue
+    background: '#FFFFFF',     // White background
+    cardBackground: '#F0F8FF', // Alice blue
+    
+    // Status Colors
+    success: '#34C759',        // Green
+    warning: '#FF9500',        // Orange
+    error: '#FF3B30',          // Red
+    info: '#007AFF',          // Blue
     
     // Text Colors
     textPrimary: '#000080',    // Navy blue text
