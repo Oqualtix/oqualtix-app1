@@ -17,7 +17,7 @@ node_modules/
 # AI Service Configuration (Protect API Keys)
 src/config/keys.js
 src/config/secrets.js
-openai-api-key.txt
+# No external AI keys needed - Oxul AI is proprietary
 *.key
 
 # Logs

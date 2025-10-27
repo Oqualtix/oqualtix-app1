@@ -72,19 +72,36 @@ d) Any financial decisions made based on App analysis
 7.3 We implement industry-standard security measures but cannot guarantee absolute security.
 7.4 You are responsible for ensuring you have proper authorization to upload and analyze financial data.
 
-8. AI PROGRAM LIMITATIONS
-8.1 The AI Program is designed to assist in detecting potential anomalies and patterns in financial data.
-8.2 The AI Program's analysis is based on statistical models and algorithms and may produce false positives or miss actual fraud.
-8.3 You acknowledge that human judgment and expertise are essential for interpreting AI Program results.
-8.4 The AI Program is not a substitute for professional forensic accounting, legal advice, or financial consultation.
+8. LOCATION SERVICES AND GEOGRAPHIC DATA
+8.1 LOCATION DATA COLLECTION: By using this App, you consent to the collection, processing, and storage of your precise geographic location data through GPS, network-based location services, and other location technologies.
+8.2 FRAUD DETECTION PURPOSES: Your location data is used to:
+   a) Detect impossible travel patterns that may indicate fraudulent card usage
+   b) Identify transactions occurring outside your normal geographic area (beyond 250-mile radius)
+   c) Flag purchases made in high-risk geographic locations known for financial fraud
+   d) Verify the authenticity of transactions by cross-referencing location with purchase patterns
+   e) Detect simultaneous transactions at different geographic locations
+8.3 LOCATION HISTORY: We maintain a secure history of your location data to establish patterns of normal activity and identify geographic anomalies that may indicate account compromise.
+8.4 REAL-TIME MONITORING: Location services operate in real-time to provide immediate fraud alerts when suspicious geographic activity is detected.
+8.5 LOCATION ACCURACY: We may access your precise location (within a few meters) when you are actively using the App and in the background for continuous fraud monitoring.
+8.6 DATA RETENTION: Location data is retained for the duration necessary to provide fraud detection services and may be anonymized for improving our fraud detection algorithms.
+8.7 LOCATION PERMISSIONS: You may disable location services in your device settings, but this will significantly reduce the App's ability to detect location-based fraud and may result in missed fraudulent activity.
+8.8 THIRD-PARTY SHARING: Location data may be shared with trusted fraud detection partners and financial institutions solely for the purpose of preventing fraudulent transactions.
+8.9 INTERNATIONAL TRANSACTIONS: Location data helps identify potentially fraudulent international transactions and assists in compliance with cross-border financial regulations.
 
-9. USER RESPONSIBILITIES
-9.1 You are solely responsible for verifying the accuracy of any transactions flagged by the AI Program.
-9.2 You must conduct proper due diligence before taking any action based on AI Program recommendations.
-9.3 You agree not to use the App for any illegal, fraudulent, or malicious purposes.
-9.4 You are responsible for compliance with all applicable laws and regulations in your jurisdiction.
+9. AI PROGRAM LIMITATIONS
+9.1 The AI Program is designed to assist in detecting potential anomalies and patterns in financial data.
+9.2 The AI Program's analysis is based on statistical models and algorithms and may produce false positives or miss actual fraud.
+9.3 You acknowledge that human judgment and expertise are essential for interpreting AI Program results.
+9.4 The AI Program is not a substitute for professional forensic accounting, legal advice, or financial consultation.
 
-10. INTELLECTUAL PROPERTY
+10. USER RESPONSIBILITIES
+10.1 You are solely responsible for verifying the accuracy of any transactions flagged by the AI Program.
+10.2 You must conduct proper due diligence before taking any action based on AI Program recommendations.
+10.3 You agree not to use the App for any illegal, fraudulent, or malicious purposes.
+10.4 You are responsible for compliance with all applicable laws and regulations in your jurisdiction.
+10.5 You acknowledge that disabling location services may reduce fraud detection effectiveness and accept this risk.
+
+11. INTELLECTUAL PROPERTY
 10.1 The App, AI Program, and all related content are the exclusive property of Oqualtix Forensics.
 10.2 You are granted a limited, non-exclusive, non-transferable license to use the App for its intended purpose.
 10.3 You may not reverse engineer, decompile, or attempt to extract the source code of the AI Program.
@@ -116,13 +133,16 @@ For questions about these Terms, please contact us at:
 Email: legal@oqualtix.com
 Address: Oqualtix Forensics Legal Department
 
-18. ACKNOWLEDGMENT
+19. ACKNOWLEDGMENT
 BY CLICKING "I ACCEPT" OR USING THE APP, YOU ACKNOWLEDGE THAT:
 a) You have read and understood these Terms and Conditions
 b) You agree to be bound by these Terms
 c) You understand the limitations and risks associated with AI-powered financial analysis
 d) You will not hold Oqualtix Forensics liable for any financial losses or decisions made based on AI Program recommendations
 e) You have the authority to agree to these Terms on behalf of your organization (if applicable)
+f) You consent to the collection and use of your precise location data for fraud detection purposes
+g) You understand that location services are essential for effective geographic fraud detection
+h) You acknowledge that disabling location services may reduce the App's fraud detection capabilities
 
 FINAL NOTICE: THE AI PROGRAM IS A TOOL TO ASSIST IN FINANCIAL ANALYSIS. IT IS NOT INFALLIBLE AND SHOULD NOT BE THE SOLE BASIS FOR FINANCIAL OR LEGAL DECISIONS. ALWAYS VERIFY AI PROGRAM RESULTS WITH QUALIFIED PROFESSIONALS.
 

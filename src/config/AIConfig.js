@@ -1,15 +1,16 @@
 // AI Configuration for Oqualtix Forensics
-// This file contains configuration settings for the AI services
+// This file contains configuration settings for the proprietary Oxul AI Engine
 
 export const AIConfig = {
-  // OpenAI Configuration
-  openai: {
-    apiKey: process.env.OPENAI_API_KEY || 'your-openai-api-key-here',
-    model: 'gpt-3.5-turbo',
-    maxTokens: 500,
-    temperature: 0.7,
-    // Set to true only for development - never in production
-    dangerouslyAllowBrowser: true
+  // Oxul AI Engine Configuration
+  oxul: {
+    version: '1.0.0',
+    vendor: 'Oqualtix',
+    type: 'proprietary',
+    privacy: '100% Local Processing',
+    dependencies: 'None - Fully Independent',
+    personality: 'Senior Forensic Accountant',
+    expertise: ['Fraud Detection', 'Financial Analysis', 'Compliance', 'Risk Assessment']
   },
 
   // TensorFlow.js Configuration
@@ -30,14 +31,19 @@ export const AIConfig = {
     accuracyTarget: 0.90
   },
 
-  // Natural Language Processing Configuration
+  // Oxul Natural Language Processing Configuration
   nlp: {
+    engine: 'oxul_proprietary',
     language: 'english',
     enableSentimentAnalysis: true,
     enableEntityRecognition: true,
+    enableIntentClassification: true,
+    conversationalAI: true,
+    personalityMode: 'forensic_accountant',
     fraudKeywords: [
       'urgent', 'immediate', 'cash', 'wire', 'transfer', 'personal',
-      'emergency', 'confidential', 'advance', 'bonus', 'refund'
+      'emergency', 'confidential', 'advance', 'bonus', 'refund',
+      'embezzlement', 'ghost', 'duplicate', 'suspicious', 'anomaly'
     ]
   },
 

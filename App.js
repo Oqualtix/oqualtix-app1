@@ -19,11 +19,15 @@ import InvestigationScreen from './src/screens/InvestigationScreen';
 import PurchaseConfirmationScreen from './src/screens/PurchaseConfirmationScreen';
 import UserDashboard from './src/screens/UserDashboard';
 import AdminPanel from './src/screens/AdminPanel';
+import BankIntegrationScreen from './src/screens/BankIntegrationScreen';
+import FraudComparisonScreen from './src/screens/FraudComparisonScreen';
+import FXFraudMonitoringScreen from './src/screens/FXFraudMonitoringScreen';
 
 // Import contexts
 import { EnhancedAuthProvider, useAuth } from './src/context/EnhancedAuthContext';
 import { ThemeProvider, ThemeContext } from './src/context/ThemeContext';
 import { NotificationProvider } from './src/context/NotificationContext';
+import { BankConnectionProvider } from './src/context/BankConnectionContext';
 
 // Import Error Boundary for crash prevention
 import { ErrorBoundary } from './src/components/ErrorHandling';
@@ -143,6 +147,35 @@ function AppNavigator() {
               headerShown: false,
             }}
           />
+          <Stack.Screen 
+            name="BankIntegration" 
+            component={BankIntegrationScreen}
+            options={{
+              headerShown: true,
+              title: 'Bank Connections',
+              headerStyle: {
+                backgroundColor: colors.primary,
+              },
+              headerTintColor: colors.secondary,
+              headerTitleStyle: {
+                fontWeight: 'bold',
+              },
+            }}
+          />
+          <Stack.Screen 
+            name="FraudComparison" 
+            component={FraudComparisonScreen}
+            options={{
+              headerShown: false,
+            }}
+          />
+          <Stack.Screen 
+            name="FXFraudMonitoring" 
+            component={FXFraudMonitoringScreen}
+            options={{
+              headerShown: false,
+            }}
+          />
         </>
       ) : (
         <Stack.Screen name="Login" component={EnhancedLoginScreen} />
@@ -157,12 +190,14 @@ export default function App() {
       <PaperProvider>
         <ThemeProvider>
           <NotificationProvider>
-            <EnhancedAuthProvider>
-              <NavigationContainer>
-                <AppNavigator />
-                <StatusBar style="auto" />
-              </NavigationContainer>
-            </EnhancedAuthProvider>
+            <BankConnectionProvider>
+              <EnhancedAuthProvider>
+                <NavigationContainer>
+                  <AppNavigator />
+                  <StatusBar style="auto" />
+                </NavigationContainer>
+              </EnhancedAuthProvider>
+            </BankConnectionProvider>
           </NotificationProvider>
         </ThemeProvider>
       </PaperProvider>

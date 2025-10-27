@@ -3,19 +3,19 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![React Native](https://img.shields.io/badge/React%20Native-0.70+-blue.svg)](https://reactnative.dev/)
 [![TensorFlow.js](https://img.shields.io/badge/TensorFlow.js-4.15+-orange.svg)](https://www.tensorflow.org/js)
-[![OpenAI](https://img.shields.io/badge/OpenAI-GPT--3.5-green.svg)](https://openai.com/)
+[![Oxul AI](https://img.shields.io/badge/Oxul_AI-Proprietary-blue.svg)](https://github.com/Oqualtix/oqualtix-app1)
 
 > **Enterprise-grade AI-powered financial fraud detection and forensic accounting platform with real machine learning capabilities**
 
 ## 🎯 **Overview**
 
-Oqualtix is a cutting-edge financial forensics platform that combines advanced artificial intelligence, machine learning, and traditional forensic accounting methods to detect fraud, embezzlement, and financial anomalies. Built with React Native and powered by TensorFlow.js neural networks and OpenAI integration.
+Oqualtix is a cutting-edge financial forensics platform that combines advanced artificial intelligence, machine learning, and traditional forensic accounting methods to detect fraud, embezzlement, and financial anomalies. Built with React Native and powered by the proprietary **Oxul AI Engine** with TensorFlow.js neural networks.
 
 ## 🤖 **AI & Machine Learning Features**
 
 ### **Real AI Integration**
 - **🧠 TensorFlow.js Neural Networks**: Deep learning fraud detection with 90%+ accuracy
-- **💬 OpenAI GPT Integration**: Conversational AI forensic assistant
+- **💬 Oxul AI Engine**: Proprietary conversational AI forensic assistant
 - **📝 Natural Language Processing**: Document and transaction analysis
 - **⚡ Real-time Pattern Recognition**: Live anomaly detection
 - **🎯 Intelligent Risk Scoring**: Multi-factor fraud probability assessment
@@ -64,7 +64,7 @@ Oqualtix is a cutting-edge financial forensics platform that combines advanced a
 Node.js 16+
 React Native CLI
 Expo CLI
-OpenAI API account
+No external AI services required
 ```
 
 ### **Installation**
@@ -77,11 +77,11 @@ cd oqualtix-app1
 npm install
 
 # Install AI/ML dependencies
-npm install @tensorflow/tfjs @tensorflow/tfjs-react-native openai natural
+npm install @tensorflow/tfjs @tensorflow/tfjs-react-native natural
 
 # Configure environment
 cp .env.example .env
-# Add your OpenAI API key to .env
+# Configure Oxul AI Engine (no external keys needed)
 
 # Start the development server
 expo start
@@ -90,7 +90,7 @@ expo start
 ### **Environment Configuration**
 Create a `.env` file with:
 ```env
-OPENAI_API_KEY=your_openai_api_key_here
+OXUL_AI_ENGINE=enabled
 SMTP_HOST=smtp.outlook.com
 SMTP_USER=oqualtix@outlook.com
 DATABASE_URL=your_database_url
@@ -117,7 +117,7 @@ JWT_SECRET=your_jwt_secret
 
 ### **AI & Machine Learning**
 - **TensorFlow.js**: Browser-based neural networks
-- **OpenAI GPT-3.5**: Conversational AI
+- **Oxul AI Engine**: Proprietary conversational AI
 - **Natural**: Natural language processing
 - **Compromise**: Advanced text analysis
 
@@ -135,7 +135,7 @@ src/
 │   ├── AIConfig.js              # AI service configuration
 │   └── AppConfig.js             # Application settings
 ├── services/
-│   ├── RealAIService.js         # TensorFlow.js & OpenAI integration
+│   ├── OxulAIService.js         # Proprietary Oxul AI Engine integration
 │   └── EmailService.js          # Email verification
 ├── context/
 │   ├── EnhancedAuthContext.js   # Authentication management
@@ -233,7 +233,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 🌟 **Acknowledgments**
 
 - **TensorFlow.js Team**: For browser-based machine learning
-- **OpenAI**: For advanced conversational AI capabilities
+- **Oxul AI Engine**: Proprietary conversational AI with forensic accounting expertise
 - **React Native Community**: For cross-platform development tools
 - **Financial Forensics Community**: For domain expertise and feedback
 

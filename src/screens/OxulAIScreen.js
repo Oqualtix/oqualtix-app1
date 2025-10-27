@@ -19,7 +19,7 @@ import ForensicAnalysisUtils from '../utils/ForensicAnalysisUtils';
 import FileProcessingUtils from '../utils/FileProcessingUtils';
 import AppFunctionalityUtils from '../utils/AppFunctionalityUtils';
 import { useAuth } from '../context/EnhancedAuthContext';
-import RealAIService from '../services/RealAIService';
+import OxulAIService from '../services/OxulAIService';
 
 const OxulAIScreen = () => {
   // Sample transaction data for AI analysis
@@ -104,7 +104,7 @@ const OxulAIScreen = () => {
   const initializeAI = async () => {
     try {
       // Get AI service status
-      const status = RealAIService.getAIStatus();
+      const status = OxulAIService.getStatus();
       setAiStatus(status);
       
       // Add AI status message if not fully initialized
@@ -119,14 +119,14 @@ const OxulAIScreen = () => {
         
         // Check status again in a few seconds
         setTimeout(() => {
-          const newStatus = RealAIService.getAIStatus();
+          const newStatus = OxulAIService.getStatus();
           setAiStatus(newStatus);
           
           if (newStatus.isInitialized) {
             const readyMessage = {
               id: Date.now(),
               type: 'system',
-              content: '🚀 AI models fully loaded! Now powered by TensorFlow.js neural networks, OpenAI GPT integration, and advanced NLP. Ready for sophisticated fraud analysis.',
+              content: '🚀 AI models fully loaded! Now powered by proprietary Oxul AI Engine with TensorFlow.js neural networks and advanced NLP. Ready for sophisticated fraud analysis.',
               timestamp: new Date(),
             };
             setMessages(prev => [...prev, readyMessage]);
@@ -215,16 +215,16 @@ const OxulAIScreen = () => {
       };
 
       // Get response from real AI service
-      const aiResponse = await RealAIService.getAIResponse(userInput, context);
+      const aiResponse = await OxulAIService.getConversationalResponse(userInput, context);
       
       // Add AI status information if relevant
-      const aiStatus = RealAIService.getAIStatus();
+      const aiStatus = OxulAIService.getStatus();
       let statusNote = '';
       
       if (!aiStatus.isInitialized) {
         statusNote = '\n\n🔄 *Note: AI models are still initializing. Using statistical analysis.*';
       } else if (aiStatus.capabilities.realTimeFraudDetection) {
-        statusNote = '\n\n🧠 *Powered by: Neural Networks + OpenAI GPT + NLP Analysis*';
+        statusNote = '\n\n🧠 *Powered by: Oxul AI Engine + Neural Networks + Proprietary NLP*';
       }
       
       return {
@@ -309,7 +309,7 @@ I'm powered by cutting-edge AI technology:
 • Continuous learning from new patterns
 
 **💬 Conversational AI:**
-• OpenAI GPT integration for natural dialogue
+• Oxul Personality Engine for natural dialogue
 • Context-aware responses
 • Financial domain expertise
 • Multi-turn conversation handling
@@ -323,7 +323,7 @@ I'm powered by cutting-edge AI technology:
 **📊 Current AI Status:**
 ${aiStatus.isInitialized ? '✅ All AI models loaded and ready' : '⚙️ AI models initializing...'}
 • Fraud Detection: ${aiStatus.models.fraudDetection ? 'Active' : 'Loading...'}
-• OpenAI Integration: ${aiStatus.models.openai ? 'Connected' : 'Connecting...'}
+• Oxul AI Engine: ${aiStatus.initialized ? 'Active' : 'Initializing...'}
 • NLP Processor: ${aiStatus.models.nlpProcessor ? 'Ready' : 'Loading...'}
 
 **🎯 Accuracy Metrics:**

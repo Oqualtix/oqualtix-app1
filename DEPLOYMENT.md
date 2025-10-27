@@ -5,19 +5,18 @@
 ### Prerequisites
 - [ ] Node.js 16+ installed
 - [ ] React Native CLI configured
-- [ ] OpenAI API account and key
+- [x] Oxul AI Engine (included - no external setup needed)
 - [ ] Email service (SMTP) configured
 - [ ] Database server ready
 - [ ] SSL certificates for production
 
 ### AI Service Configuration
 
-#### 1. OpenAI API Setup
+#### 1. Oxul AI Engine Setup
 ```bash
-# Sign up at https://platform.openai.com/
-# Generate API key
-# Add to environment variables
-export OPENAI_API_KEY="your-api-key-here"
+# No external setup required - Oxul AI Engine is built-in
+# All AI processing happens locally for maximum privacy
+export OXUL_AI_ENGINE="enabled"
 ```
 
 #### 2. TensorFlow.js Configuration

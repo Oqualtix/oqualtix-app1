@@ -1,7 +1,7 @@
 # Oqualtix AI-Powered Financial Forensics Platform
 
 ## Overview
-Oqualtix Forensics is an enterprise-grade financial fraud detection platform powered by advanced artificial intelligence and machine learning algorithms. The system features real AI integration with TensorFlow.js neural networks, OpenAI GPT conversational AI, natural language processing for comprehensive fraud detection, **real-time push notifications**, and **professional dark mode** for enhanced user experience.
+Oqualtix Forensics is an enterprise-grade financial fraud detection platform powered by advanced artificial intelligence and machine learning algorithms. The system features proprietary **Oxul AI Engine** with TensorFlow.js neural networks, conversational AI, and natural language processing for comprehensive fraud detection, **real-time push notifications**, and **professional dark mode** for enhanced user experience.
 
 ## Features
 
@@ -25,7 +25,7 @@ Oqualtix Forensics is an enterprise-grade financial fraud detection platform pow
 
 ### 🤖 Real AI Integration
 - **TensorFlow.js Neural Networks**: Deep learning models for fraud detection with 90%+ accuracy
-- **OpenAI GPT Integration**: Advanced conversational AI for forensic analysis assistance
+- **Oxul AI Engine**: Proprietary conversational AI for forensic analysis assistance
 - **Natural Language Processing**: Document and communication analysis for fraud indicators
 - **Real-time Pattern Recognition**: Live transaction monitoring and anomaly detection
 - **Intelligent Risk Scoring**: Multi-factor fraud probability assessment with AI models
@@ -101,7 +101,7 @@ src/
 ├── config/
 │   └── AIConfig.js                 # AI service configuration & settings
 ├── services/
-│   └── RealAIService.js            # TensorFlow.js & OpenAI integration
+│   └── OxulAIService.js            # Proprietary Oxul AI Engine integration
 ├── context/
 │   ├── EnhancedAuthContext.js      # Authentication & user management
 │   ├── ThemeContext.js             # Dark/light mode theme management
@@ -140,9 +140,8 @@ const model = tf.sequential({
   ]
 });
 
-// OpenAI GPT Integration
-const aiResponse = await openai.chat.completions.create({
-  model: 'gpt-3.5-turbo',
+// Oxul AI Engine Integration
+const aiResponse = await OxulAIService.getConversationalResponse(
   messages: [
     {role: 'system', content: forensicAccountantPrompt},
     {role: 'user', content: userQuery}
@@ -253,7 +252,7 @@ performCrossCompanyAnalysis(transactions, companyId)
   "@tensorflow/tfjs": "^4.15.0",
   "@tensorflow/tfjs-react-native": "^0.8.0",
   "@tensorflow/tfjs-platform-react-native": "^0.8.0",
-  "openai": "^4.24.0",
+
   "natural": "^6.5.0",
   "compromise": "^14.10.0",
   "simple-statistics": "^7.8.3",
@@ -272,7 +271,7 @@ cd oqualtix-app1
 # Install dependencies
 npm install
 
-# Configure environment (add your OpenAI API key)
+# Configure environment (Oxul AI - no external keys needed)
 cp .env.example .env
 
 # Start the development server
@@ -283,11 +282,11 @@ expo start
 1. Install Expo CLI: `npm install -g expo-cli`
 2. Clone repository: `git clone [repository-url]`
 3. Install dependencies: `npm install`
-4. Configure AI services: Add OpenAI API key to `src/config/AIConfig.js`
+4. Configure AI services: Oxul AI Engine configured automatically - no external setup needed
 5. Start development server: `expo start`
 
 ### AI Configuration
-1. **OpenAI API Key**: Sign up at https://platform.openai.com/api-keys
+1. **Oxul AI Engine**: No external API keys required - fully proprietary system
 2. **Update Config**: Edit `src/config/AIConfig.js` with your API key
 3. **Model Loading**: TensorFlow.js models load automatically on first use
 4. **Fallback Mode**: System uses statistical analysis if AI unavailable
@@ -318,7 +317,7 @@ expo start
 ## Support & Maintenance
 
 ### Monitoring
-- **AI Model Performance**: TensorFlow.js accuracy, OpenAI response times
+- **AI Model Performance**: TensorFlow.js accuracy, Oxul AI response times
 - **Fraud Detection Metrics**: Real-time accuracy rates, false positives
 - **User Activity**: Login patterns, AI feature usage analytics
 - **System Health**: Database performance, API status, AI service availability
@@ -342,6 +341,6 @@ expo start
 **Oqualtix AI-Powered Financial Forensics Platform** - Advanced AI-Driven Fraud Detection with Real-Time Notifications
 *Protecting your financial integrity with cutting-edge artificial intelligence, machine learning, and instant fraud alerts*
 
-**Key Features**: TensorFlow.js Neural Networks | OpenAI GPT Integration | Natural Language Processing | Real-time Fraud Detection | Push Notifications | Professional Dark Mode | Intelligent Risk Assessment
+**Key Features**: Proprietary Oxul AI Engine | TensorFlow.js Neural Networks | Natural Language Processing | Real-time Fraud Detection | Push Notifications | Professional Dark Mode | Intelligent Risk Assessment
 
 **Latest Updates**: 🔔 Real-time push notification system | 🌙 Professional dark mode | ⚙️ Enhanced settings interface | 📱 Mobile-optimized user experience

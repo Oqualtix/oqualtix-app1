@@ -19,7 +19,7 @@ import ForensicAnalysisUtils from '../utils/ForensicAnalysisUtils';
 import FileProcessingUtils from '../utils/FileProcessingUtils';
 import AppFunctionalityUtils from '../utils/AppFunctionalityUtils';
 import { useAuth } from '../context/EnhancedAuthContext';
-import RealAIService from '../services/RealAIService';
+import OxulAIService from '../services/OxulAIService';
 
 // Import brand configuration
 import BrandConfig from '../config/BrandConfig';
@@ -131,7 +131,7 @@ const EnhancedOxulAIScreen = () => {
   const initializeAI = async () => {
     try {
       // Get AI service status
-      const status = RealAIService.getAIStatus();
+      const status = OxulAIService.getStatus();
       setAiStatus(status);
       
       // Add AI status message if not fully initialized
@@ -146,14 +146,14 @@ const EnhancedOxulAIScreen = () => {
         
         // Check status again in a few seconds
         setTimeout(() => {
-          const newStatus = RealAIService.getAIStatus();
+          const newStatus = OxulAIService.getStatus();
           setAiStatus(newStatus);
           
           if (newStatus.isInitialized) {
             const readyMessage = {
               id: Date.now(),
               type: 'system',
-              content: '🚀 AI models fully loaded! Now powered by TensorFlow.js neural networks, OpenAI GPT integration, and advanced NLP. Ready for sophisticated fraud analysis.',
+              content: '🚀 AI models fully loaded! Now powered by proprietary Oxul AI Engine with TensorFlow.js neural networks and advanced NLP. Ready for sophisticated fraud analysis.',
               timestamp: new Date(),
             };
             setMessages(prev => [...prev, readyMessage]);
@@ -255,7 +255,7 @@ My neural networks have been learning and improving! Here's my current status:
 • Fraud Detection Neural Network: ${aiStatus.models.fraudDetection ? '✅ Online' : '❌ Offline'}
 • Natural Language Processing: ${aiStatus.models.nlpProcessor ? '✅ Online' : '❌ Offline'}  
 • Risk Assessment Engine: ${aiStatus.models.riskAssessment ? '✅ Online' : '❌ Offline'}
-• OpenAI Integration: ${aiStatus.models.openai ? '✅ Connected' : '❌ Disconnected'}
+• Oxul AI Engine: ${aiStatus.initialized ? '✅ Active' : '❌ Initializing'}
 
 **📊 Recent Performance:**
 • Fraud Detection Accuracy: 92%+
@@ -467,16 +467,16 @@ Would you like me to generate a detailed forensic analysis report of these findi
       };
 
       // Get response from real AI service
-      const aiResponse = await RealAIService.getAIResponse(userInput, context);
+      const aiResponse = await OxulAIService.getConversationalResponse(userInput, context);
       
       // Add AI status information if relevant
-      const aiStatus = RealAIService.getAIStatus();
+      const aiStatus = OxulAIService.getStatus();
       let statusNote = '';
       
       if (!aiStatus.isInitialized) {
         statusNote = '\n\n🔄 *Note: AI models are still initializing. Using statistical analysis.*';
       } else if (aiStatus.capabilities.realTimeFraudDetection) {
-        statusNote = '\n\n🧠 *Powered by: Neural Networks + OpenAI GPT + NLP Analysis*';
+        statusNote = '\n\n🧠 *Powered by: Oxul AI Engine + Neural Networks + Proprietary NLP*';
       }
       
       return {
@@ -561,7 +561,7 @@ I'm powered by cutting-edge AI technology:
 • Continuous learning from new patterns
 
 **💬 Conversational AI:**
-• OpenAI GPT integration for natural dialogue
+• Oxul Personality Engine for natural dialogue
 • Context-aware responses
 • Financial domain expertise
 • Multi-turn conversation handling
@@ -575,7 +575,7 @@ I'm powered by cutting-edge AI technology:
 **📊 Current AI Status:**
 ${aiStatus.isInitialized ? '✅ All AI models loaded and ready' : '⚙️ AI models initializing...'}
 • Fraud Detection: ${aiStatus.models.fraudDetection ? 'Active' : 'Loading...'}
-• OpenAI Integration: ${aiStatus.models.openai ? 'Connected' : 'Connecting...'}
+• Oxul AI Engine: ${aiStatus.initialized ? 'Active' : 'Initializing...'}
 • NLP Processor: ${aiStatus.models.nlpProcessor ? 'Ready' : 'Loading...'}
 
 **🎯 Accuracy Metrics:**
@@ -648,7 +648,7 @@ Try asking me about fraud detection, AI capabilities, or upload financial data f
       setAnalysisProgress(40);
       
       // Use real AI service for batch analysis
-      const aiAnalysis = await RealAIService.analyzeBatch(allTransactions);
+      const aiAnalysis = await OxulAIService.analyzeFraudData(allTransactions);
       
       // Step 3: Traditional forensic analysis
       setCurrentAnalysisStep('Running forensic algorithms...');
@@ -804,9 +804,9 @@ Error details: ${error.message}`;
         </Text>
       </View>
       <View style={styles.statusRow}>
-        <Text style={styles.statusLabel}>OpenAI Integration:</Text>
-        <Text style={[styles.statusValue, { color: aiStatus.models.openai ? '#4CAF50' : '#FF9500' }]}>
-          {aiStatus.models.openai ? 'Connected' : 'Connecting...'}
+        <Text style={styles.statusLabel}>Oxul AI Engine:</Text>
+        <Text style={[styles.statusValue, { color: aiStatus.initialized ? '#4CAF50' : '#FF9500' }]}>
+          {aiStatus.initialized ? 'Active' : 'Initializing...'}
         </Text>
       </View>
       <View style={styles.statusRow}>
