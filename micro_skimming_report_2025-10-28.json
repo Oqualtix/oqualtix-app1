@@ -1,0 +1,105 @@
+{
+  "timestamp": "2025-10-28T01:09:59.384Z",
+  "summary": {
+    "totalTransactions": 62,
+    "totalVendors": 6,
+    "totalAmount": 6557.487000000005,
+    "findingsCount": 3,
+    "criticalFindings": 2,
+    "warningFindings": 1,
+    "detectionParameters": {
+      "detectionOptions": {
+        "minVendorTransactions": 20,
+        "aggregationThresholds": {
+          "warning": 0.05,
+          "critical": 0.2
+        },
+        "useIntegerMath": true
+      },
+      "residueOptions": {
+        "minPatternOccurrences": 8,
+        "residueThresholds": {
+          "suspicious": 0.08,
+          "highly_suspicious": 0.15
+        },
+        "useIntegerMath": true
+      }
+    }
+  },
+  "findings": [
+    {
+      "residue": 0,
+      "type": "fractional_residue_pattern",
+      "severity": "warning",
+      "occurrences": 12,
+      "frequency": 19.35,
+      "expectedFrequency": 10,
+      "deviation": 9.35,
+      "totalAmount": 4690.35,
+      "details": {
+        "totalTransactions": 62,
+        "suspiciousPattern": false
+      }
+    },
+    {
+      "residue": 1,
+      "type": "fractional_residue_pattern",
+      "severity": "critical",
+      "occurrences": 22,
+      "frequency": 35.48,
+      "expectedFrequency": 10,
+      "deviation": 25.48,
+      "totalAmount": 0.02,
+      "details": {
+        "totalTransactions": 62,
+        "suspiciousPattern": true
+      }
+    },
+    {
+      "residue": 3,
+      "type": "fractional_residue_pattern",
+      "severity": "critical",
+      "occurrences": 17,
+      "frequency": 27.42,
+      "expectedFrequency": 10,
+      "deviation": 17.42,
+      "totalAmount": 1867.05,
+      "details": {
+        "totalTransactions": 62,
+        "suspiciousPattern": true
+      }
+    }
+  ],
+  "recommendations": [
+    {
+      "priority": "critical",
+      "action": "Immediate Investigation Required",
+      "description": "2 critical micro-skimming pattern(s) detected. Begin forensic analysis immediately."
+    },
+    {
+      "priority": "critical",
+      "action": "Analyze residue pattern 1",
+      "description": "Suspicious .1 cent pattern detected in 22 transactions (35.48% frequency)."
+    },
+    {
+      "priority": "critical",
+      "action": "Analyze residue pattern 3",
+      "description": "Suspicious .3 cent pattern detected in 17 transactions (27.42% frequency)."
+    },
+    {
+      "priority": "warning",
+      "action": "Enhanced Monitoring",
+      "description": "1 warning-level pattern(s) detected. Increase monitoring frequency."
+    },
+    {
+      "priority": "info",
+      "action": "Document Findings",
+      "description": "Create detailed investigation report with transaction IDs and timestamps for audit trail."
+    },
+    {
+      "priority": "info",
+      "action": "Review Access Controls",
+      "description": "Verify who has access to payment processing systems and transaction modification capabilities."
+    }
+  ]
+}

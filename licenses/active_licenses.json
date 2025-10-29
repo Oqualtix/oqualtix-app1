@@ -1,0 +1,40 @@
+{
+  "OQX-MH9X14M7-EE5A53B88D9D2224-A22C": {
+    "licenseId": "71436f77181a22be700f9fa75c18a810",
+    "licenseKey": "OQX-MH9X14M7-EE5A53B88D9D2224-A22C",
+    "companyName": "Test Corp",
+    "contactEmail": "test@company.com",
+    "bankAccounts": [
+      {
+        "id": "BANK_001",
+        "type": "bank_account",
+        "name": "Primary Account"
+      }
+    ],
+    "companyCards": [
+      {
+        "id": "CARD_001",
+        "type": "company_card",
+        "name": "Corporate Card"
+      }
+    ],
+    "maxUsers": 2,
+    "issuedBy": "oqualtix@outlook.com",
+    "issuedDate": "2025-10-28T01:56:25.385Z",
+    "expirationDate": "2026-10-28T01:56:25.417Z",
+    "status": "ACTIVE",
+    "activatedDate": "2025-10-28T01:56:25.517Z",
+    "lastAccessDate": "2025-10-28T01:56:25.523Z",
+    "accessCount": 1,
+    "activationHash": "0528bd0d5858349f9208b77da58a74d6dbd4a14c03649bc81b9936557c110784",
+    "ipRestrictions": [],
+    "features": {
+      "realTimeFraudDetection": true,
+      "microSkimmingDetection": true,
+      "bankStatementAnalysis": true,
+      "notificationSystem": true,
+      "auditReporting": true,
+      "apiAccess": false
+    }
+  }
+}

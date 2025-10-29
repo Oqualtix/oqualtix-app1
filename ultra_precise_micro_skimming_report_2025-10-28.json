@@ -1,0 +1,193 @@
+{
+  "timestamp": "2025-10-28T01:09:50.021Z",
+  "precision": "HUNDREDTH_CENT",
+  "detectionCapability": "$0.0001",
+  "summary": {
+    "totalTransactions": 62,
+    "totalVendors": 6,
+    "totalAmount": 6557.487000000005,
+    "findingsCount": 8,
+    "criticalFindings": 5,
+    "warningFindings": 3,
+    "ultraTinyFindings": 3,
+    "detectionParameters": {
+      "microOptions": {
+        "microThreshold": 0.01,
+        "tinyThreshold": 0.001,
+        "ultraTinyThreshold": 0.0001,
+        "cumulativeThreshold": 0.01,
+        "minCount": 10,
+        "useIntegerMath": true
+      },
+      "residueOptions": {
+        "minPatternOccurrences": 8,
+        "residueThresholds": {
+          "suspicious": 0.08,
+          "highly_suspicious": 0.15
+        },
+        "useIntegerMath": true
+      }
+    }
+  },
+  "findings": [
+    {
+      "vendor": "TechCorp",
+      "type": "micro_skimming",
+      "severity": "warning",
+      "microTransactionCount": 14,
+      "tinyTransactionCount": 1,
+      "ultraTinyTransactionCount": 0,
+      "totalMicroAmount": 0.071,
+      "averageMicroAmount": 0.00507,
+      "detectionLevel": "MICRO_TRANSACTION",
+      "precisionMode": "DECI_MILLI_CENTS",
+      "details": {
+        "totalTransactions": 18,
+        "microTransactionRatio": 77.78,
+        "ultraTinyRatio": 0,
+        "minimumAmount": 0.001,
+        "maximumAmount": 0.009
+      }
+    },
+    {
+      "vendor": "MicroTheftVendor",
+      "type": "micro_skimming",
+      "severity": "warning",
+      "microTransactionCount": 21,
+      "tinyTransactionCount": 21,
+      "ultraTinyTransactionCount": 0,
+      "totalMicroAmount": 0.021,
+      "averageMicroAmount": 0.001,
+      "detectionLevel": "MICRO_TRANSACTION",
+      "precisionMode": "DECI_MILLI_CENTS",
+      "details": {
+        "totalTransactions": 21,
+        "microTransactionRatio": 100,
+        "ultraTinyRatio": 0,
+        "minimumAmount": 0.001,
+        "maximumAmount": 0.001
+      }
+    },
+    {
+      "residue": 0,
+      "type": "ultra_precise_fractional_residue_pattern",
+      "severity": "critical",
+      "occurrences": 12,
+      "frequency": 19.35,
+      "expectedFrequency": 1,
+      "deviation": 18.35,
+      "totalAmount": 4690.35,
+      "detectionLevel": "HUNDREDTH_CENT",
+      "residueDescription": "0.0000 cent residue",
+      "precisionMode": "DECI_MILLI_CENTS",
+      "details": {
+        "totalTransactions": 62,
+        "suspiciousPattern": true
+      }
+    },
+    {
+      "residue": 10,
+      "type": "ultra_precise_fractional_residue_pattern",
+      "severity": "critical",
+      "occurrences": 22,
+      "frequency": 35.48,
+      "expectedFrequency": 1,
+      "deviation": 34.48,
+      "totalAmount": 0.022,
+      "detectionLevel": "HUNDREDTH_CENT",
+      "residueDescription": "0.1000 cent residue",
+      "precisionMode": "DECI_MILLI_CENTS",
+      "details": {
+        "totalTransactions": 62,
+        "suspiciousPattern": true
+      }
+    },
+    {
+      "residue": 30,
+      "type": "ultra_precise_fractional_residue_pattern",
+      "severity": "critical",
+      "occurrences": 17,
+      "frequency": 27.42,
+      "expectedFrequency": 1,
+      "deviation": 26.42,
+      "totalAmount": 1867.051,
+      "detectionLevel": "HUNDREDTH_CENT",
+      "residueDescription": "0.3000 cent residue",
+      "precisionMode": "DECI_MILLI_CENTS",
+      "details": {
+        "totalTransactions": 62,
+        "suspiciousPattern": true
+      }
+    },
+    {
+      "residue": 0,
+      "type": "fractional_residue_pattern",
+      "severity": "warning",
+      "occurrences": 12,
+      "frequency": 19.35,
+      "expectedFrequency": 10,
+      "deviation": 9.35,
+      "totalAmount": 4690.35,
+      "detectionLevel": "TENTH_CENT",
+      "precisionMode": "DECI_MILLI_CENTS",
+      "details": {
+        "totalTransactions": 62,
+        "suspiciousPattern": false
+      }
+    },
+    {
+      "residue": 1,
+      "type": "fractional_residue_pattern",
+      "severity": "critical",
+      "occurrences": 22,
+      "frequency": 35.48,
+      "expectedFrequency": 10,
+      "deviation": 25.48,
+      "totalAmount": 0.02,
+      "detectionLevel": "TENTH_CENT",
+      "precisionMode": "DECI_MILLI_CENTS",
+      "details": {
+        "totalTransactions": 62,
+        "suspiciousPattern": true
+      }
+    },
+    {
+      "residue": 3,
+      "type": "fractional_residue_pattern",
+      "severity": "critical",
+      "occurrences": 17,
+      "frequency": 27.42,
+      "expectedFrequency": 10,
+      "deviation": 17.42,
+      "totalAmount": 1867.05,
+      "detectionLevel": "TENTH_CENT",
+      "precisionMode": "DECI_MILLI_CENTS",
+      "details": {
+        "totalTransactions": 62,
+        "suspiciousPattern": true
+      }
+    }
+  ],
+  "recommendations": [
+    {
+      "priority": "critical",
+      "action": "Immediate Investigation Required",
+      "description": "5 critical ultra-precise pattern(s) detected. Begin forensic analysis immediately."
+    },
+    {
+      "priority": "critical",
+      "action": "Ultra-Precise Fraud Investigation",
+      "description": "3 hundredth-cent level pattern(s) detected. This indicates sophisticated micro-skimming requiring advanced forensic techniques."
+    },
+    {
+      "priority": "info",
+      "action": "Enhance Monitoring Precision",
+      "description": "Implement continuous ultra-precise monitoring for amounts below $0.001 to catch sophisticated micro-fraud."
+    },
+    {
+      "priority": "info",
+      "action": "Audit Payment Processing Systems",
+      "description": "Review payment processing code for potential rounding manipulation and fractional amount handling."
+    }
+  ]
+}

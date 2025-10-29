@@ -1,5 +1,5 @@
 import moment from 'moment';
-import AppFunctionalityUtils from './AppFunctionalityUtils';
+import AppFunctionalityUtils from './AppFunctionalityUtils.js';
 
 // Embezzlement detection and alert system
 export const EmbezzlementDetectionUtils = {

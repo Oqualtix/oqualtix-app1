@@ -1,0 +1,18 @@
+{
+  "OQX-MH9X14M7-EE5A53B88D9D2224-A22C": {
+    "BANK_001": {
+      "accountId": "BANK_001",
+      "accountType": "bank_account",
+      "userEmail": "user@testcorp.com",
+      "userName": "Test User",
+      "assignedDate": "2025-10-28T01:56:25.507Z",
+      "role": "USER",
+      "permissions": [
+        "view_transactions",
+        "run_fraud_analysis",
+        "view_reports"
+      ],
+      "status": "ACTIVE"
+    }
+  }
+}
