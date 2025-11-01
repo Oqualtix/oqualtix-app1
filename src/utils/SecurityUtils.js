@@ -60,7 +60,7 @@ export const ValidationUtils = {
       return { isValid: false, error: 'Password must contain at least one number' };
     }
     
-    if (SECURITY_CONFIG.PASSWORD_REQUIRE_SPECIAL && !/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(password)) {
+    if (SECURITY_CONFIG.PASSWORD_REQUIRE_SPECIAL && !/[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]/.test(password)) {
       return { isValid: false, error: 'Password must contain at least one special character' };
     }
     

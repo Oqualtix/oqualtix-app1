@@ -1,8 +1,21 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, Alert } from 'react-native';
+import { 
+  View, 
+  Text, 
+  TouchableOpacity, 
+  StyleSheet, 
+  Alert 
+} from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import * as FileSystem from 'expo-file-system';
 import { AuditUtils } from '../utils/SecurityUtils';
+
+let FileSystem;
+try {
+  FileSystem = require('expo-file-system');
+} catch (error) {
+  console.warn('expo-file-system not available, file operations will be limited');
+  FileSystem = null;
+}
 
 // Error Boundary Component
 export class ErrorBoundary extends Component {
@@ -37,14 +50,14 @@ export class ErrorBoundary extends Component {
     });
   }
 
-  handleRetry = () => {
+  handleRetry() {
     this.setState(prevState => ({
       hasError: false,
       error: null,
       errorInfo: null,
       retryCount: prevState.retryCount + 1
     }));
-  };
+  }
 
   render() {
     if (this.state.hasError) {
@@ -53,7 +66,7 @@ export class ErrorBoundary extends Component {
           <Ionicons name="warning" size={64} color="#FF6B6B" />
           <Text style={styles.errorTitle}>Oops! Something went wrong</Text>
           <Text style={styles.errorMessage}>
-            We encountered an unexpected error. Don't worry, your data is safe.
+            We encountered an unexpected error. Don&apos;t worry, your data is safe.
           </Text>
           
           <TouchableOpacity
@@ -77,7 +90,7 @@ export class ErrorBoundary extends Component {
     return this.props.children;
   }
 
-  reportError = () => {
+  reportError() {
     Alert.alert(
       'Report Error',
       'Would you like to send an error report to help us improve the app?',
@@ -86,9 +99,9 @@ export class ErrorBoundary extends Component {
         { text: 'Send Report', onPress: () => this.sendErrorReport() }
       ]
     );
-  };
+  }
 
-  sendErrorReport = async () => {
+  async sendErrorReport() {
     try {
       const errorReport = {
         timestamp: new Date().toISOString(),
@@ -105,7 +118,7 @@ export class ErrorBoundary extends Component {
     } catch (error) {
       console.error('Failed to send error report:', error);
     }
-  };
+  }
 }
 
 // Network Error Handler
@@ -236,41 +249,26 @@ export const AIErrorHandler = {
 
 const styles = StyleSheet.create({
   errorContainer: {
+    alignItems: 'center',
+    backgroundColor: '#f8f9fa',
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center',
     padding: 32,
-    backgroundColor: '#f8f9fa',
-  },
-  errorTitle: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    color: '#333',
-    marginTop: 24,
-    marginBottom: 16,
-    textAlign: 'center',
   },
   errorMessage: {
-    fontSize: 16,
     color: '#666',
-    textAlign: 'center',
-    marginBottom: 32,
-    lineHeight: 24,
-  },
-  retryButton: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: '#FF6B6B',
-    paddingHorizontal: 24,
-    paddingVertical: 12,
-    borderRadius: 8,
-    marginBottom: 16,
-  },
-  retryButtonText: {
-    color: '#fff',
     fontSize: 16,
-    fontWeight: '600',
-    marginLeft: 8,
+    lineHeight: 24,
+    marginBottom: 32,
+    textAlign: 'center',
+  },
+  errorTitle: {
+    color: '#333',
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 16,
+    marginTop: 24,
+    textAlign: 'center',
   },
   reportButton: {
     paddingHorizontal: 24,
@@ -280,6 +278,21 @@ const styles = StyleSheet.create({
     color: '#007AFF',
     fontSize: 16,
     fontWeight: '500',
+  },
+  retryButton: {
+    alignItems: 'center',
+    backgroundColor: '#FF6B6B',
+    borderRadius: 8,
+    flexDirection: 'row',
+    marginBottom: 16,
+    paddingHorizontal: 24,
+    paddingVertical: 12,
+  },
+  retryButtonText: {
+    color: '#fff',
+    fontSize: 16,
+    fontWeight: '600',
+    marginLeft: 8,
   },
 });
 

@@ -38,7 +38,7 @@ export const PersonalityPresets = {
       analysisIntro: "My investigation reveals the following patterns...",
       recommendations: "The evidence points to these investigative steps:",
       uncertainty: "The current data shows indications, but we'll need to examine additional evidence to draw definitive conclusions.",
-      farewell: "Let me know when you're ready for the next phase of investigation."
+      farewell: "Let me know when you&apos;re ready for the next phase of investigation."
     },
     expertise: {
       embezzlement: 0.92,
@@ -84,7 +84,7 @@ export const PersonalityPresets = {
       analysisIntro: "From a compliance perspective, the analysis shows...",
       recommendations: "To ensure regulatory compliance, please consider:",
       uncertainty: "The compliance status requires additional documentation to provide a complete assessment.",
-      farewell: "Please don't hesitate to reach out for any compliance-related questions."
+      farewell: "Please don&apos;t hesitate to reach out for any compliance-related questions."
     },
     expertise: {
       embezzlement: 0.75,

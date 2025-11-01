@@ -69,83 +69,89 @@ export const LoadingComponents = {
 };
 
 const styles = StyleSheet.create({
+  closeButton: {
+    padding: 4,
+  },
   loaderContainer: {
-    flex: 1,
-    justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'rgba(0,0,0,0.5)',
+    flex: 1,
+    justifyContent: 'center',
   },
   loaderContent: {
+    alignItems: 'center',
     backgroundColor: '#fff',
     borderRadius: 16,
-    padding: 32,
-    alignItems: 'center',
     minWidth: 280,
-  },
-  loaderTitle: {
-    fontSize: 18,
-    fontWeight: '600',
-    color: '#333',
-    marginTop: 16,
-    marginBottom: 8,
+    padding: 32,
   },
   loaderStep: {
-    fontSize: 14,
     color: '#666',
+    fontSize: 14,
     marginBottom: 20,
   },
-  progressContainer: {
-    width: '100%',
-    marginBottom: 20,
+  loaderTitle: {
+    color: '#333',
+    fontSize: 18,
+    fontWeight: '600',
+    marginBottom: 8,
+    marginTop: 16,
   },
   progressBar: {
-    height: 8,
     backgroundColor: '#e9ecef',
     borderRadius: 4,
+    height: 8,
     overflow: 'hidden',
   },
+  progressContainer: {
+    marginBottom: 20,
+    width: '100%',
+  },
   progressFill: {
-    height: '100%',
     backgroundColor: '#FF6B6B',
     borderRadius: 4,
+    height: '100%',
   },
   progressText: {
-    textAlign: 'center',
-    marginTop: 8,
+    color: '#333',
     fontSize: 14,
     fontWeight: '500',
-    color: '#333',
+    marginTop: 8,
+    textAlign: 'center',
+  },
+  skeletonContainer: {
+    padding: 16,
+  },
+  skeletonLine: {
+    backgroundColor: '#e9ecef',
+    borderRadius: 4,
+    height: 16,
+    marginBottom: 8,
   },
   spinner: {
     marginTop: 16,
   },
-  uploadContainer: {
-    flexDirection: 'row',
+  statusContainer: {
     alignItems: 'center',
     backgroundColor: '#f8f9fa',
-    padding: 16,
     borderRadius: 8,
+    flexDirection: 'row',
     margin: 16,
+    padding: 16,
   },
-  uploadTitle: {
+  statusMessage: {
+    color: '#666',
+    fontSize: 14,
+    marginTop: 4,
+  },
+  statusText: {
     flex: 1,
     marginLeft: 12,
-    fontSize: 16,
-    fontWeight: '500',
+  },
+  statusTitle: {
     color: '#333',
-  },
-  statusContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    padding: 16,
-    margin: 16,
-    borderRadius: 8,
-    backgroundColor: '#f8f9fa',
-  },
-  status_success: {
-    backgroundColor: '#d4edda',
-    borderColor: '#c3e6cb',
-    borderWidth: 1,
+    fontSize: 16,
+    fontWeight: '600',
   },
   status_error: {
     backgroundColor: '#f8d7da',
@@ -157,31 +163,25 @@ const styles = StyleSheet.create({
     borderColor: '#bee5eb',
     borderWidth: 1,
   },
-  statusText: {
-    flex: 1,
-    marginLeft: 12,
+  status_success: {
+    backgroundColor: '#d4edda',
+    borderColor: '#c3e6cb',
+    borderWidth: 1,
   },
-  statusTitle: {
-    fontSize: 16,
-    fontWeight: '600',
-    color: '#333',
-  },
-  statusMessage: {
-    fontSize: 14,
-    color: '#666',
-    marginTop: 4,
-  },
-  closeButton: {
-    padding: 4,
-  },
-  skeletonContainer: {
+  uploadContainer: {
+    alignItems: 'center',
+    backgroundColor: '#f8f9fa',
+    borderRadius: 8,
+    flexDirection: 'row',
+    margin: 16,
     padding: 16,
   },
-  skeletonLine: {
-    height: 16,
-    backgroundColor: '#e9ecef',
-    borderRadius: 4,
-    marginBottom: 8,
+  uploadTitle: {
+    color: '#333',
+    flex: 1,
+    fontSize: 16,
+    fontWeight: '500',
+    marginLeft: 12,
   },
 });
 

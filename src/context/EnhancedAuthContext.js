@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { Alert } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import SecurityUtils from '../utils/SecurityUtils';
 
 const AuthContext = createContext();
@@ -173,7 +174,7 @@ export const AuthProvider = ({ children }) => {
   const checkExistingSession = async () => {
     try {
       // In a real app, this would check for stored tokens
-      const storedUser = localStorage.getItem('oqualtix_user');
+      const storedUser = await AsyncStorage.getItem('oqualtix_user');
       if (storedUser) {
         const userData = JSON.parse(storedUser);
         if (userData.verificationStatus === 'VERIFIED' && userData.termsAccepted) {
@@ -307,7 +308,7 @@ Oqualtix Forensics Team
       userDatabase[verifiedUser.email] = verifiedUser;
       
       // Store session
-      localStorage.setItem('oqualtix_user', JSON.stringify(verifiedUser));
+      await AsyncStorage.setItem('oqualtix_user', JSON.stringify(verifiedUser));
       
       setUser(verifiedUser);
       setPendingVerification(null);
@@ -349,7 +350,7 @@ Oqualtix Forensics Team
       }
       
       // Clear session
-      localStorage.removeItem('oqualtix_user');
+      await AsyncStorage.removeItem('oqualtix_user');
       setUser(null);
       setPendingVerification(null);
       

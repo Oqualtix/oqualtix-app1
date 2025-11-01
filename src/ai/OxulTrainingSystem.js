@@ -2,7 +2,13 @@
 // Custom machine learning training pipeline for financial fraud detection
 // Proprietary training algorithms and data processing
 
-import * as tf from '@tensorflow/tfjs';
+// Optional TensorFlow import - only if available
+let tf = null;
+try {
+  tf = require('@tensorflow/tfjs');
+} catch (e) {
+  console.log('TensorFlow.js not available - using fallback training algorithms');
+}
 
 class OxulTrainingSystem {
   constructor() {

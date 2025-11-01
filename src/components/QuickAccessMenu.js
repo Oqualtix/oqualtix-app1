@@ -232,13 +232,46 @@ const QuickAccessMenu = ({ visible, onClose, navigation }) => {
 };
 
 const styles = StyleSheet.create({
-  overlay: {
-    flex: 1,
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
-    justifyContent: 'flex-end',
+  categoryTab: {
+    alignItems: 'center',
+    backgroundColor: '#F8F9FA',
+    borderRadius: 20,
+    elevation: 2,
+    flexDirection: 'row',
+    marginRight: 10,
+    paddingHorizontal: 15,
+    paddingVertical: 8,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.1,
+    shadowRadius: 2,
   },
-  overlayTouch: {
-    flex: 1,
+  categoryTabText: {
+    fontSize: 12,
+    fontWeight: '600',
+    marginLeft: 8,
+  },
+  categoryTabs: {
+    maxHeight: 70,
+    paddingHorizontal: 20,
+    paddingVertical: 15,
+  },
+  categoryTabsContent: {
+    paddingRight: 20,
+  },
+  categoryTitle: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginBottom: 15,
+    marginTop: 5,
+  },
+  closeButton: {
+    backgroundColor: 'rgba(255, 255, 255, 0.2)',
+    borderRadius: 12,
+    padding: 8,
+  },
+  menuBottom: {
+    height: 30,
   },
   menuContainer: {
     backgroundColor: 'white',
@@ -252,91 +285,58 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
   },
   menuHeaderGradient: {
+    alignItems: 'center',
     flexDirection: 'row',
     justifyContent: 'space-between',
-    alignItems: 'center',
     padding: 20,
     paddingTop: 25,
   },
-  menuTitle: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    color: 'white',
-  },
-  closeButton: {
-    backgroundColor: 'rgba(255, 255, 255, 0.2)',
-    padding: 8,
-    borderRadius: 12,
-  },
-  categoryTabs: {
-    paddingHorizontal: 20,
-    paddingVertical: 15,
-    maxHeight: 70,
-  },
-  categoryTabsContent: {
-    paddingRight: 20,
-  },
-  categoryTab: {
-    flexDirection: 'row',
+  menuItem: {
     alignItems: 'center',
-    paddingHorizontal: 15,
-    paddingVertical: 8,
-    borderRadius: 20,
-    marginRight: 10,
     backgroundColor: '#F8F9FA',
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.1,
-    shadowRadius: 2,
-    elevation: 2,
+    borderRadius: 12,
+    flexDirection: 'row',
+    marginBottom: 10,
+    paddingHorizontal: 15,
+    paddingVertical: 15,
   },
-  categoryTabText: {
+  menuItemContent: {
+    flex: 1,
+  },
+  menuItemDescription: {
+    color: BrandConfig.colors.textSecondary,
     fontSize: 12,
+  },
+  menuItemIcon: {
+    alignItems: 'center',
+    borderRadius: 22.5,
+    height: 45,
+    justifyContent: 'center',
+    marginRight: 15,
+    width: 45,
+  },
+  menuItemName: {
+    color: BrandConfig.colors.text,
+    fontSize: 16,
     fontWeight: '600',
-    marginLeft: 8,
+    marginBottom: 2,
   },
   menuItems: {
     flex: 1,
     paddingHorizontal: 20,
   },
-  categoryTitle: {
-    fontSize: 18,
+  menuTitle: {
+    color: 'white',
+    fontSize: 20,
     fontWeight: 'bold',
-    marginBottom: 15,
-    marginTop: 5,
   },
-  menuItem: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    paddingVertical: 15,
-    paddingHorizontal: 15,
-    backgroundColor: '#F8F9FA',
-    borderRadius: 12,
-    marginBottom: 10,
-  },
-  menuItemIcon: {
-    width: 45,
-    height: 45,
-    borderRadius: 22.5,
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginRight: 15,
-  },
-  menuItemContent: {
+  overlay: {
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
     flex: 1,
+    justifyContent: 'flex-end',
   },
-  menuItemName: {
-    fontSize: 16,
-    fontWeight: '600',
-    color: BrandConfig.colors.text,
-    marginBottom: 2,
-  },
-  menuItemDescription: {
-    fontSize: 12,
-    color: BrandConfig.colors.textSecondary,
-  },
-  menuBottom: {
-    height: 30,
+  overlayTouch: {
+    flex: 1,
   },
 });
 

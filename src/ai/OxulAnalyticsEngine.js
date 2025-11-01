@@ -2,9 +2,16 @@
 // Proprietary analytics and reporting system with predictive capabilities
 // Complete independence from external analytics services
 
-import * as tf from '@tensorflow/tfjs';
 import OxulAIEngine from './OxulAIEngine';
 import OxulDataProcessor from './OxulDataProcessor';
+
+let tf;
+try {
+  tf = require('@tensorflow/tfjs');
+} catch (error) {
+  console.warn('TensorFlow.js not available, ML features will be limited');
+  tf = null;
+}
 
 class OxulAnalyticsEngine {
   constructor() {

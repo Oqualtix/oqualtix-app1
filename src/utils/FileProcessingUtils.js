@@ -1,4 +1,3 @@
-import * as CSV from 'react-native-csv';
 import moment from 'moment';
 
 // File processing and analysis utilities

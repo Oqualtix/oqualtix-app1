@@ -6,13 +6,14 @@
 export class GAAPComplianceDetection {
   
   // GAAP compliance categories and thresholds
-  static GAAP_STANDARDS = {
-    REVENUE_RECOGNITION: {
-      name: 'Revenue Recognition (ASC 606)',
-      patterns: ['premature_revenue', 'channel_stuffing', 'round_trip_sales'],
-      thresholds: { suspicious_timing: 5, amount_variance: 0.15 }
-    },
-    EXPENSE_MATCHING: {
+  static get GAAP_STANDARDS() {
+    return {
+      REVENUE_RECOGNITION: {
+        name: 'Revenue Recognition (ASC 606)',
+        patterns: ['premature_revenue', 'channel_stuffing', 'round_trip_sales'],
+        thresholds: { suspicious_timing: 5, amount_variance: 0.15 }
+      },
+      EXPENSE_MATCHING: {
       name: 'Expense Matching Principle',
       patterns: ['expense_shifting', 'cost_capitalization', 'accrual_manipulation'],
       thresholds: { period_shift: 30, capitalization_ratio: 0.20 }
@@ -37,11 +38,13 @@ export class GAAPComplianceDetection {
       patterns: ['lease_classification', 'off_balance_sheet', 'sale_leaseback'],
       thresholds: { lease_term: 12, present_value_threshold: 0.90 }
     }
-  };
+    };
+  }
 
   // Reporting thresholds and materiality levels
-  static MATERIALITY_THRESHOLDS = {
-    PUBLIC_COMPANY: {
+  static get MATERIALITY_THRESHOLDS() {
+    return {
+      PUBLIC_COMPANY: {
       quantitative: 0.05, // 5% of net income
       qualitative_factors: ['management_compensation', 'debt_covenants', 'analyst_expectations']
     },
@@ -53,7 +56,8 @@ export class GAAPComplianceDetection {
       quantitative: 0.15, // 15% of net income
       qualitative_factors: ['cash_flow', 'operational_decisions', 'credit_agreements']
     }
-  };
+    };
+  }
 
   /**
    * Analyze transaction for GAAP compliance violations

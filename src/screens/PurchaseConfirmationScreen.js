@@ -111,7 +111,7 @@ const PurchaseConfirmationScreen = ({ route, navigation }) => {
           <Text style={styles.thankYouTitle}>Thank you for confirming your purchase!</Text>
           
           <Text style={styles.confirmationMessage}>
-            We've updated your profile to better recognize similar transactions in the future.
+            We&apos;ve updated your profile to better recognize similar transactions in the future.
           </Text>
 
           {/* Transaction Summary */}
@@ -203,165 +203,129 @@ const PurchaseConfirmationScreen = ({ route, navigation }) => {
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
+  actionButtons: {
+    gap: 12,
+    width: '100%',
   },
-  loadingContainer: {
-    flex: 1,
+  aiIconContainer: {
+    alignItems: 'center',
+    backgroundColor: '#FFFFFF',
+    borderRadius: 24,
+    height: 48,
     justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F2F2F7',
+    marginBottom: 12,
+    width: 48,
   },
-  loadingText: {
-    marginTop: 16,
+  aiLearningSection: {
+    alignItems: 'center',
+    backgroundColor: '#E3F2FD',
+    borderRadius: 12,
+    marginBottom: 24,
+    padding: 20,
+    width: '100%',
+  },
+  aiLearningText: {
+    color: '#1976D2',
+    fontSize: 14,
+    lineHeight: 20,
+    textAlign: 'center',
+  },
+  aiLearningTitle: {
+    color: '#1976D2',
     fontSize: 16,
-    color: '#8E8E93',
-  },
-  header: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    paddingTop: 50,
-    paddingBottom: 20,
-    paddingHorizontal: 20,
+    fontWeight: 'bold',
+    marginBottom: 8,
   },
   backButton: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
-    backgroundColor: 'rgba(255, 255, 255, 0.2)',
-    justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor: 'rgba(255, 255, 255, 0.2)',
+    borderRadius: 20,
+    height: 40,
+    justifyContent: 'center',
     marginRight: 16,
+    width: 40,
   },
-  headerTitle: {
-    fontSize: 24,
+  benefitItem: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    marginBottom: 12,
+  },
+  benefitText: {
+    color: '#000000',
+    fontSize: 14,
+    marginLeft: 12,
+  },
+  benefitsSection: {
+    marginBottom: 30,
+    width: '100%',
+  },
+  benefitsTitle: {
+    color: '#000000',
+    fontSize: 16,
     fontWeight: 'bold',
-    color: '#FFFFFF',
-  },
-  content: {
-    flex: 1,
-    backgroundColor: '#F2F2F7',
-    borderTopLeftRadius: 30,
-    borderTopRightRadius: 30,
-    paddingHorizontal: 20,
-    paddingTop: 30,
+    marginBottom: 16,
   },
   confirmationCard: {
+    alignItems: 'center',
     backgroundColor: '#FFFFFF',
     borderRadius: 20,
+    elevation: 8,
     padding: 30,
-    alignItems: 'center',
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.1,
     shadowRadius: 16,
-    elevation: 8,
+  },
+  confirmationMessage: {
+    color: '#8E8E93',
+    fontSize: 16,
+    lineHeight: 22,
+    marginBottom: 30,
+    textAlign: 'center',
+  },
+  container: {
+    flex: 1,
+  },
+  content: {
+    backgroundColor: '#F2F2F7',
+    borderTopLeftRadius: 30,
+    borderTopRightRadius: 30,
+    flex: 1,
+    paddingHorizontal: 20,
+    paddingTop: 30,
+  },
+  header: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    paddingBottom: 20,
+    paddingHorizontal: 20,
+    paddingTop: 50,
+  },
+  headerTitle: {
+    color: '#FFFFFF',
+    fontSize: 24,
+    fontWeight: 'bold',
   },
   iconContainer: {
     marginBottom: 24,
   },
-  thankYouTitle: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    color: '#000000',
-    textAlign: 'center',
-    marginBottom: 12,
-  },
-  confirmationMessage: {
-    fontSize: 16,
-    color: '#8E8E93',
-    textAlign: 'center',
-    lineHeight: 22,
-    marginBottom: 30,
-  },
-  transactionSummary: {
-    width: '100%',
-    backgroundColor: '#F8F9FA',
-    borderRadius: 12,
-    padding: 20,
-    marginBottom: 24,
-  },
-  summaryTitle: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    color: '#000000',
-    marginBottom: 16,
-  },
-  summaryRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
+  loadingContainer: {
     alignItems: 'center',
-    marginBottom: 12,
-  },
-  summaryLabel: {
-    fontSize: 14,
-    color: '#8E8E93',
-    fontWeight: '500',
-  },
-  summaryValue: {
-    fontSize: 14,
-    color: '#000000',
-    fontWeight: '600',
-  },
-  aiLearningSection: {
-    width: '100%',
-    backgroundColor: '#E3F2FD',
-    borderRadius: 12,
-    padding: 20,
-    marginBottom: 24,
-    alignItems: 'center',
-  },
-  aiIconContainer: {
-    width: 48,
-    height: 48,
-    borderRadius: 24,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: '#F2F2F7',
+    flex: 1,
     justifyContent: 'center',
-    alignItems: 'center',
-    marginBottom: 12,
   },
-  aiLearningTitle: {
+  loadingText: {
+    color: '#8E8E93',
     fontSize: 16,
-    fontWeight: 'bold',
-    color: '#1976D2',
-    marginBottom: 8,
-  },
-  aiLearningText: {
-    fontSize: 14,
-    color: '#1976D2',
-    textAlign: 'center',
-    lineHeight: 20,
-  },
-  benefitsSection: {
-    width: '100%',
-    marginBottom: 30,
-  },
-  benefitsTitle: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    color: '#000000',
-    marginBottom: 16,
-  },
-  benefitItem: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginBottom: 12,
-  },
-  benefitText: {
-    fontSize: 14,
-    color: '#000000',
-    marginLeft: 12,
-  },
-  actionButtons: {
-    width: '100%',
-    gap: 12,
+    marginTop: 16,
   },
   primaryButton: {
-    backgroundColor: '#007AFF',
-    paddingVertical: 14,
-    paddingHorizontal: 24,
-    borderRadius: 12,
     alignItems: 'center',
+    backgroundColor: '#007AFF',
+    borderRadius: 12,
+    paddingHorizontal: 24,
+    paddingVertical: 14,
   },
   primaryButtonText: {
     color: '#FFFFFF',
@@ -369,18 +333,54 @@ const styles = StyleSheet.create({
     fontWeight: '600',
   },
   secondaryButton: {
-    backgroundColor: 'transparent',
-    borderWidth: 1,
-    borderColor: '#007AFF',
-    paddingVertical: 14,
-    paddingHorizontal: 24,
-    borderRadius: 12,
     alignItems: 'center',
+    backgroundColor: 'transparent',
+    borderColor: '#007AFF',
+    borderRadius: 12,
+    borderWidth: 1,
+    paddingHorizontal: 24,
+    paddingVertical: 14,
   },
   secondaryButtonText: {
     color: '#007AFF',
     fontSize: 16,
     fontWeight: '600',
+  },
+  summaryLabel: {
+    color: '#8E8E93',
+    fontSize: 14,
+    fontWeight: '500',
+  },
+  summaryRow: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginBottom: 12,
+  },
+  summaryTitle: {
+    color: '#000000',
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginBottom: 16,
+  },
+  summaryValue: {
+    color: '#000000',
+    fontSize: 14,
+    fontWeight: '600',
+  },
+  thankYouTitle: {
+    color: '#000000',
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 12,
+    textAlign: 'center',
+  },
+  transactionSummary: {
+    backgroundColor: '#F8F9FA',
+    borderRadius: 12,
+    marginBottom: 24,
+    padding: 20,
+    width: '100%',
   },
 });
 

@@ -8,33 +8,39 @@ import * as Location from 'expo-location';
 export class LocationFraudDetection {
   
   // Location fraud patterns and thresholds
-  static LOCATION_PATTERNS = {
-    IMPOSSIBLE_TRAVEL: 'impossible_travel_time',
-    UNUSUAL_LOCATION: 'unusual_geographic_location',
-    HIGH_RISK_AREA: 'high_risk_geographic_area',
-    MULTIPLE_LOCATIONS: 'multiple_simultaneous_locations',
-    FOREIGN_TRANSACTION: 'foreign_country_transaction',
-    VELOCITY_ANOMALY: 'location_velocity_anomaly',
-    GEOFENCE_VIOLATION: 'geofence_boundary_violation'
-  };
+  static get LOCATION_PATTERNS() {
+    return {
+      IMPOSSIBLE_TRAVEL: 'impossible_travel_time',
+      UNUSUAL_LOCATION: 'unusual_geographic_location',
+      HIGH_RISK_AREA: 'high_risk_geographic_area',
+      MULTIPLE_LOCATIONS: 'multiple_simultaneous_locations',
+      FOREIGN_TRANSACTION: 'foreign_country_transaction',
+      VELOCITY_ANOMALY: 'location_velocity_anomaly',
+      GEOFENCE_VIOLATION: 'geofence_boundary_violation'
+    };
+  }
 
   // High-risk locations and countries
-  static HIGH_RISK_LOCATIONS = {
-    COUNTRIES: [
-      'Unknown', 'Offshore', 'Anonymous', 'VPN Location'
-    ],
-    CITIES: [
-      'Unknown City', 'Unregistered Location', 'Virtual Location'
-    ]
-  };
+  static get HIGH_RISK_LOCATIONS() {
+    return {
+      COUNTRIES: [
+        'Unknown', 'Offshore', 'Anonymous', 'VPN Location'
+      ],
+      CITIES: [
+        'Unknown City', 'Unregistered Location', 'Virtual Location'
+      ]
+    };
+  }
 
   // Maximum realistic travel speeds (km/h)
-  static TRAVEL_SPEEDS = {
-    WALKING: 5,
-    DRIVING: 120,
-    COMMERCIAL_FLIGHT: 900,
-    PRIVATE_JET: 1000
-  };
+  static get TRAVEL_SPEEDS() {
+    return {
+      WALKING: 5,
+      DRIVING: 120,
+      COMMERCIAL_FLIGHT: 900,
+      PRIVATE_JET: 1000
+    };
+  }
 
   /**
    * Initialize location services and get user's current location

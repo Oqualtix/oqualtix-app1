@@ -1,12 +1,37 @@
-import * as tf from '@tensorflow/tfjs';
-import '@tensorflow/tfjs-react-native';
+// Optional TensorFlow import - only if available
 import { Platform } from 'react-native';
-import OpenAI from 'openai';
-import axios from 'axios';
-import { Matrix } from 'ml-matrix';
-import { SimpleLinearRegression, MultivariateLinearRegression } from 'ml-regression';
 import natural from 'natural';
 import nlp from 'compromise';
+
+// Optional Matrix and ML imports - only if available
+let Matrix = null;
+let SimpleLinearRegression = null;
+let MultivariateLinearRegression = null;
+try {
+  const mlMatrix = require('ml-matrix');
+  Matrix = mlMatrix.Matrix;
+  const mlRegression = require('ml-regression');
+  SimpleLinearRegression = mlRegression.SimpleLinearRegression;
+  MultivariateLinearRegression = mlRegression.MultivariateLinearRegression;
+} catch (e) {
+  console.log('ml-matrix/ml-regression not available - using fallback algorithms');
+}
+
+let tf = null;
+try {
+  tf = require('@tensorflow/tfjs');
+  require('@tensorflow/tfjs-react-native');
+} catch (e) {
+  console.log('TensorFlow.js not available - using fallback algorithms');
+}
+
+// Optional OpenAI import - only if available
+let OpenAI = null;
+try {
+  OpenAI = require('openai').default;
+} catch (e) {
+  console.log('OpenAI not available - using local AI processing');
+}
 
 class RealAIService {
   constructor() {

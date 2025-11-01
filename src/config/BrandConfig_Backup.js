@@ -29,7 +29,8 @@ const BrandConfig = {
   },
 
   // Legacy colors (light theme) - for backward compatibility
-  colors: lightTheme.colors,
+  colors: {
+    ...lightTheme.colors,
     
     // Text Colors
     textPrimary: '#000080',    // Navy blue text

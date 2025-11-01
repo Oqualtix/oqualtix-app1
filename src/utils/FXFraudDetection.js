@@ -6,16 +6,18 @@
 export class FXFraudDetection {
   
   // Common FX rate manipulation patterns
-  static FX_FRAUD_PATTERNS = {
-    RATE_ARBITRAGE: 'favorable_rate_timing',
-    RATE_MANIPULATION: 'artificial_rate_adjustment',
-    CURRENCY_LAYERING: 'multiple_currency_conversion',
-    FX_STRUCTURING: 'split_fx_transactions',
-    ROUND_TRIP_FX: 'buy_sell_same_currency',
-    OFF_MARKET_RATES: 'rates_outside_market_range',
-    HIGH_FREQUENCY_FX: 'rapid_fx_transactions',
-    WEEKEND_FX: 'weekend_rate_exploitation'
-  };
+  static getFXFraudPatterns() {
+    return {
+      RATE_ARBITRAGE: 'favorable_rate_timing',
+      RATE_MANIPULATION: 'artificial_rate_adjustment',
+      CURRENCY_LAYERING: 'multiple_currency_conversion',
+      FX_STRUCTURING: 'split_fx_transactions',
+      ROUND_TRIP_FX: 'buy_sell_same_currency',
+      OFF_MARKET_RATES: 'rates_outside_market_range',
+      HIGH_FREQUENCY_FX: 'rapid_fx_transactions',
+      WEEKEND_FX: 'weekend_rate_exploitation'
+    };
+  }
 
   /**
    * Real-time FX rate monitoring and fraud detection

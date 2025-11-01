@@ -2,12 +2,15 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import BrandConfig from '../config/BrandConfig';
 
 class PersonalityManager {
-  static STORAGE_KEY = '@oxul_personality';
+  static get STORAGE_KEY() {
+    return '@oxul_personality';
+  }
   
   // Default personality configurations
-  static personalities = {
-    professional: {
-      id: 'professional',
+  static get personalities() {
+    return {
+      professional: {
+        id: 'professional',
       name: 'Professional Forensic Expert',
       greeting: '🤖 Good day. I am Oxul, your certified forensic accounting AI. I provide comprehensive financial analysis using advanced algorithms and regulatory compliance standards. How may I assist with your investigation today?',
       responseStyle: {
@@ -95,7 +98,8 @@ class PersonalityManager {
         explanations: 'customized_explanation'
       }
     }
-  };
+    };
+  }
 
   // Get current personality
   static async getCurrentPersonality() {

@@ -227,46 +227,66 @@ const DashboardNavigation = ({ navigation, currentScreen = 'Overview' }) => {
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#F8F9FA',
+  bottomSpacing: {
+    height: 20,
   },
-  header: {
-    padding: 20,
-    paddingTop: 10,
-    borderBottomLeftRadius: 25,
-    borderBottomRightRadius: 25,
+  categoryTab: {
+    alignItems: 'center',
+    backgroundColor: 'white',
+    borderRadius: 20,
+    elevation: 2,
+    flexDirection: 'row',
+    marginRight: 10,
+    paddingHorizontal: 15,
+    paddingVertical: 8,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.1,
+    shadowRadius: 2,
   },
-  headerTitle: {
-    fontSize: 22,
+  categoryTabText: {
+    fontSize: 12,
+    fontWeight: '600',
+    marginLeft: 5,
+  },
+  categoryTabs: {
+    maxHeight: 60,
+    paddingHorizontal: 20,
+  },
+  categoryTabsContent: {
+    paddingRight: 20,
+  },
+  categoryTitle: {
+    fontSize: 20,
     fontWeight: 'bold',
-    color: 'white',
-    marginBottom: 5,
-  },
-  headerSubtitle: {
-    fontSize: 14,
-    color: 'rgba(255, 255, 255, 0.9)',
-  },
-  quickActionsContainer: {
-    padding: 20,
-    paddingBottom: 10,
-  },
-  sectionTitle: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    color: BrandConfig.colors.text,
     marginBottom: 15,
   },
-  quickActionsGrid: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
+  container: {
+    backgroundColor: '#F8F9FA',
+    flex: 1,
+  },
+  header: {
+    borderBottomLeftRadius: 25,
+    borderBottomRightRadius: 25,
+    padding: 20,
+    paddingTop: 10,
+  },
+  headerSubtitle: {
+    color: 'rgba(255, 255, 255, 0.9)',
+    fontSize: 14,
+  },
+  headerTitle: {
+    color: 'white',
+    fontSize: 22,
+    fontWeight: 'bold',
+    marginBottom: 5,
   },
   quickAction: {
-    flex: 1,
     alignItems: 'center',
-    padding: 15,
     borderRadius: 12,
+    flex: 1,
     marginHorizontal: 3,
+    padding: 15,
   },
   quickActionText: {
     fontSize: 12,
@@ -274,81 +294,61 @@ const styles = StyleSheet.create({
     marginTop: 5,
     textAlign: 'center',
   },
-  categoryTabs: {
-    paddingHorizontal: 20,
-    maxHeight: 60,
+  quickActionsContainer: {
+    padding: 20,
+    paddingBottom: 10,
   },
-  categoryTabsContent: {
-    paddingRight: 20,
-  },
-  categoryTab: {
+  quickActionsGrid: {
     flexDirection: 'row',
-    alignItems: 'center',
-    paddingHorizontal: 15,
-    paddingVertical: 8,
-    borderRadius: 20,
-    marginRight: 10,
+    justifyContent: 'space-between',
+  },
+  screenCard: {
     backgroundColor: 'white',
+    borderLeftWidth: 4,
+    borderRadius: 12,
+    elevation: 2,
+    marginBottom: 10,
+    padding: 15,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 1 },
     shadowOpacity: 0.1,
-    shadowRadius: 2,
-    elevation: 2,
+    shadowRadius: 3,
   },
-  categoryTabText: {
+  screenCardHeader: {
+    alignItems: 'center',
+    flexDirection: 'row',
+  },
+  screenDescription: {
+    color: BrandConfig.colors.textSecondary,
     fontSize: 12,
+  },
+  screenIcon: {
+    alignItems: 'center',
+    borderRadius: 20,
+    height: 40,
+    justifyContent: 'center',
+    marginRight: 12,
+    width: 40,
+  },
+  screenInfo: {
+    flex: 1,
+  },
+  screenName: {
+    color: BrandConfig.colors.text,
+    fontSize: 16,
     fontWeight: '600',
-    marginLeft: 5,
+    marginBottom: 2,
   },
   screensContainer: {
     flex: 1,
     padding: 20,
     paddingTop: 10,
   },
-  categoryTitle: {
-    fontSize: 20,
+  sectionTitle: {
+    color: BrandConfig.colors.text,
+    fontSize: 18,
     fontWeight: 'bold',
     marginBottom: 15,
-  },
-  screenCard: {
-    backgroundColor: 'white',
-    borderRadius: 12,
-    padding: 15,
-    marginBottom: 10,
-    borderLeftWidth: 4,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.1,
-    shadowRadius: 3,
-    elevation: 2,
-  },
-  screenCardHeader: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  screenIcon: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginRight: 12,
-  },
-  screenInfo: {
-    flex: 1,
-  },
-  screenName: {
-    fontSize: 16,
-    fontWeight: '600',
-    color: BrandConfig.colors.text,
-    marginBottom: 2,
-  },
-  screenDescription: {
-    fontSize: 12,
-    color: BrandConfig.colors.textSecondary,
-  },
-  bottomSpacing: {
-    height: 20,
   },
 });
 

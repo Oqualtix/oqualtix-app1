@@ -144,42 +144,42 @@ const styles = StyleSheet.create({
   container: {
     marginVertical: 8,
   },
-  personalityButton: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    backgroundColor: BrandConfig.colors.backgroundSecondary,
-    padding: 12,
-    borderRadius: 8,
-    borderWidth: 1,
-    borderColor: BrandConfig.colors.borderLight,
-  },
-  personalityInfo: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  personalityText: {
-    marginLeft: 12,
-  },
-  personalityName: {
-    fontSize: 14,
-    fontWeight: '600',
-    color: BrandConfig.colors.textPrimary,
-  },
-  personalityMode: {
-    fontSize: 12,
-    color: BrandConfig.colors.textMuted,
-  },
   modalContainer: {
-    flex: 1,
     backgroundColor: BrandConfig.colors.background,
+    flex: 1,
   },
   modalHeader: {
+    borderBottomColor: BrandConfig.colors.borderLight,
+    borderBottomWidth: 1,
     flexDirection: 'row',
     justifyContent: 'flex-end',
     padding: 16,
-    borderBottomWidth: 1,
-    borderBottomColor: BrandConfig.colors.borderLight,
+  },
+  personalityButton: {
+    alignItems: 'center',
+    backgroundColor: BrandConfig.colors.backgroundSecondary,
+    borderColor: BrandConfig.colors.borderLight,
+    borderRadius: 8,
+    borderWidth: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    padding: 12,
+  },
+  personalityInfo: {
+    alignItems: 'center',
+    flexDirection: 'row',
+  },
+  personalityMode: {
+    color: BrandConfig.colors.textMuted,
+    fontSize: 12,
+  },
+  personalityName: {
+    color: BrandConfig.colors.textPrimary,
+    fontSize: 14,
+    fontWeight: '600',
+  },
+  personalityText: {
+    marginLeft: 12,
   },
 });
 

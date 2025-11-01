@@ -22,12 +22,19 @@ npm start
 ## 🔐 Demo Login Credentials
 
 ### Admin Account (Full Access)
-- **Email:** admin@oqualtix.com  
-- **Password:** admin123
+- **Email:** Oqualtix@outlook.com  
+- **Password:** OqualtixAdmin2025!
 
-### User Account (Limited Access)
-- **Email:** user@oqualtix.com
-- **Password:** user123
+### User Account (Code-Based Access)
+- **Email:** Any valid email address
+- **Access Code:** DEMO2025 (Demo code - expires in 30 days)
+- **Instructions:** Enter your email and the access code provided by admin
+
+### How User Access Works
+1. **Admin generates access codes** for new users
+2. **Users enter their email + access code** (not password)
+3. **System automatically creates account** on first login with valid code
+4. **Code becomes single-use** after successful registration
 
 ## 🎯 Key Features to Test
 

@@ -3,7 +3,14 @@
 // No external dependencies or cloud services
 
 import CryptoJS from 'crypto-js';
-import * as tf from '@tensorflow/tfjs';
+
+let tf;
+try {
+  tf = require('@tensorflow/tfjs');
+} catch (error) {
+  console.warn('TensorFlow.js not available, ML features will be limited');
+  tf = null;
+}
 
 class OxulDataProcessor {
   constructor() {

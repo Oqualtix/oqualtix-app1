@@ -2,8 +2,14 @@
 // Custom neural network and machine learning system
 // No external dependencies on OpenAI or other AI services
 
-import * as tf from '@tensorflow/tfjs';
-import '@tensorflow/tfjs-react-native';
+// Optional TensorFlow import - only if available
+let tf = null;
+try {
+  tf = require('@tensorflow/tfjs');
+  require('@tensorflow/tfjs-react-native');
+} catch (e) {
+  console.log('TensorFlow.js not available - using fallback AI algorithms');
+}
 
 class OxulAIEngine {
   constructor() {

@@ -20,7 +20,7 @@ import BrandConfig from '../config/BrandConfig';
 const { width } = Dimensions.get('window');
 
 // Security Status Widget
-export const SecurityStatusWidget = ({ onPress, data = {} }) => {
+const SecurityStatusWidget = ({ onPress, data = {} }) => {
   const getStatusColor = (riskLevel) => {
     switch (riskLevel) {
       case 'LOW': return '#34C759';
@@ -59,7 +59,7 @@ export const SecurityStatusWidget = ({ onPress, data = {} }) => {
 };
 
 // AI Assistant Widget
-export const AIAssistantWidget = ({ onPress, data = {} }) => {
+const AIAssistantWidget = ({ onPress, data = {} }) => {
   return (
     <TouchableOpacity style={styles.widget} onPress={onPress}>
       <LinearGradient
@@ -88,7 +88,7 @@ export const AIAssistantWidget = ({ onPress, data = {} }) => {
 };
 
 // Banking Overview Widget
-export const BankingOverviewWidget = ({ onPress, data = {} }) => {
+const BankingOverviewWidget = ({ onPress, data = {} }) => {
   return (
     <TouchableOpacity style={styles.widget} onPress={onPress}>
       <LinearGradient
@@ -117,7 +117,7 @@ export const BankingOverviewWidget = ({ onPress, data = {} }) => {
 };
 
 // Real-Time Monitoring Widget
-export const RealTimeMonitoringWidget = ({ onPress, data = {} }) => {
+const RealTimeMonitoringWidget = ({ onPress, data = {} }) => {
   const [isMonitoring, setIsMonitoring] = useState(data.isActive || false);
 
   return (
@@ -154,7 +154,7 @@ export const RealTimeMonitoringWidget = ({ onPress, data = {} }) => {
 };
 
 // Compliance Score Widget
-export const ComplianceScoreWidget = ({ onPress, data = {} }) => {
+const ComplianceScoreWidget = ({ onPress, data = {} }) => {
   const score = data.complianceScore || 0;
   const getScoreColor = () => {
     if (score >= 90) return '#34C759';
@@ -188,7 +188,7 @@ export const ComplianceScoreWidget = ({ onPress, data = {} }) => {
 };
 
 // Quick Stats Widget
-export const QuickStatsWidget = ({ data = {} }) => {
+const QuickStatsWidget = ({ data = {} }) => {
   const stats = [
     {
       label: 'Transactions',
@@ -233,7 +233,7 @@ export const QuickStatsWidget = ({ data = {} }) => {
 };
 
 // AI Recommendations Widget
-export const AIRecommendationsWidget = ({ onPress, data = {} }) => {
+const AIRecommendationsWidget = ({ onPress, data = {} }) => {
   const recommendations = data.recommendations || [];
   const highPriorityCount = recommendations.filter(r => r.priority === 'HIGH').length;
 
@@ -274,7 +274,7 @@ export const AIRecommendationsWidget = ({ onPress, data = {} }) => {
 };
 
 // Recent Alerts Widget
-export const RecentAlertsWidget = ({ onPress, data = {} }) => {
+const RecentAlertsWidget = ({ onPress, data = {} }) => {
   const alerts = data.recentAlerts || [];
 
   return (
@@ -304,210 +304,210 @@ export const RecentAlertsWidget = ({ onPress, data = {} }) => {
 };
 
 const styles = StyleSheet.create({
-  widget: {
-    width: (width - 45) / 2,
-    height: 140,
+  alertContent: {
+    flex: 1,
+  },
+  alertDot: {
+    borderRadius: 4,
+    height: 8,
+    marginRight: 12,
+    width: 8,
+  },
+  alertItem: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    marginBottom: 12,
+  },
+  alertText: {
+    color: BrandConfig.colors.text,
+    fontSize: 14,
+    marginBottom: 2,
+  },
+  alertTime: {
+    color: BrandConfig.colors.textSecondary,
+    fontSize: 12,
+  },
+  alertsCount: {
+    backgroundColor: '#FF3B3020',
+    borderRadius: 10,
+    color: '#FF3B30',
+    fontSize: 14,
+    fontWeight: 'bold',
+    paddingHorizontal: 8,
+    paddingVertical: 4,
+  },
+  alertsHeader: {
+    alignItems: 'center',
+    flexDirection: 'row',
     marginBottom: 15,
+  },
+  alertsTitle: {
+    color: BrandConfig.colors.text,
+    flex: 1,
+    fontSize: 16,
+    fontWeight: 'bold',
+    marginLeft: 10,
+  },
+  alertsWidget: {
+    backgroundColor: 'white',
     borderRadius: 15,
-    overflow: 'hidden',
+    elevation: 3,
+    marginBottom: 20,
+    padding: 20,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
     shadowRadius: 4,
-    elevation: 3,
   },
-  widgetGradient: {
-    flex: 1,
-    padding: 15,
-    justifyContent: 'space-between',
-  },
-  widgetHeader: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  widgetTitle: {
+  moreRecommendations: {
+    color: BrandConfig.colors.primary,
     fontSize: 12,
     fontWeight: '600',
-    color: 'white',
-    marginLeft: 8,
-    flex: 1,
+    marginTop: 10,
+    textAlign: 'center',
   },
-  widgetMainValue: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    color: 'white',
-    marginVertical: 5,
-  },
-  widgetSubtext: {
-    fontSize: 10,
-    color: 'rgba(255, 255, 255, 0.8)',
-  },
-  widgetFooter: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-  },
-  widgetFooterText: {
-    fontSize: 10,
-    color: 'rgba(255, 255, 255, 0.9)',
-    flex: 1,
+  priorityIndicator: {
+    borderRadius: 4,
+    height: 8,
+    marginRight: 10,
+    width: 8,
   },
   quickStatsContainer: {
     backgroundColor: 'white',
     borderRadius: 15,
-    padding: 20,
+    elevation: 3,
     marginBottom: 20,
+    padding: 20,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
     shadowRadius: 4,
-    elevation: 3,
-  },
-  quickStatsTitle: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    color: BrandConfig.colors.text,
-    marginBottom: 15,
   },
   quickStatsGrid: {
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'space-between',
   },
-  statCard: {
-    width: '48%',
-    alignItems: 'center',
-    padding: 15,
-    backgroundColor: '#F8F9FA',
-    borderRadius: 10,
-    marginBottom: 10,
-    borderTopWidth: 3,
-  },
-  statValue: {
-    fontSize: 18,
-    fontWeight: 'bold',
+  quickStatsTitle: {
     color: BrandConfig.colors.text,
-    marginTop: 8,
+    fontSize: 16,
+    fontWeight: 'bold',
+    marginBottom: 15,
   },
-  statLabel: {
-    fontSize: 12,
-    color: BrandConfig.colors.textSecondary,
-    marginTop: 4,
+  recommendationItem: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    marginBottom: 10,
   },
-  recommendationsWidget: {
-    backgroundColor: 'white',
-    borderRadius: 15,
-    padding: 20,
-    marginBottom: 20,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 3,
+  recommendationText: {
+    color: BrandConfig.colors.text,
+    flex: 1,
+    fontSize: 14,
   },
   recommendationsHeader: {
-    flexDirection: 'row',
     alignItems: 'center',
+    flexDirection: 'row',
     marginBottom: 15,
   },
   recommendationsIcon: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
-    backgroundColor: '#FF950020',
     alignItems: 'center',
+    backgroundColor: '#FF950020',
+    borderRadius: 20,
+    height: 40,
     justifyContent: 'center',
     marginRight: 12,
+    width: 40,
+  },
+  recommendationsMainTitle: {
+    color: BrandConfig.colors.text,
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+  recommendationsSubtitle: {
+    color: BrandConfig.colors.textSecondary,
+    fontSize: 12,
   },
   recommendationsTitle: {
     flex: 1,
   },
-  recommendationsMainTitle: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    color: BrandConfig.colors.text,
-  },
-  recommendationsSubtitle: {
-    fontSize: 12,
-    color: BrandConfig.colors.textSecondary,
-  },
-  recommendationItem: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginBottom: 10,
-  },
-  priorityIndicator: {
-    width: 8,
-    height: 8,
-    borderRadius: 4,
-    marginRight: 10,
-  },
-  recommendationText: {
-    fontSize: 14,
-    color: BrandConfig.colors.text,
-    flex: 1,
-  },
-  moreRecommendations: {
-    fontSize: 12,
-    color: BrandConfig.colors.primary,
-    fontWeight: '600',
-    textAlign: 'center',
-    marginTop: 10,
-  },
-  alertsWidget: {
+  recommendationsWidget: {
     backgroundColor: 'white',
     borderRadius: 15,
-    padding: 20,
+    elevation: 3,
     marginBottom: 20,
+    padding: 20,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
     shadowRadius: 4,
-    elevation: 3,
   },
-  alertsHeader: {
-    flexDirection: 'row',
+  statCard: {
     alignItems: 'center',
-    marginBottom: 15,
-  },
-  alertsTitle: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    color: BrandConfig.colors.text,
-    flex: 1,
-    marginLeft: 10,
-  },
-  alertsCount: {
-    fontSize: 14,
-    fontWeight: 'bold',
-    color: '#FF3B30',
-    backgroundColor: '#FF3B3020',
-    paddingHorizontal: 8,
-    paddingVertical: 4,
+    backgroundColor: '#F8F9FA',
     borderRadius: 10,
+    borderTopWidth: 3,
+    marginBottom: 10,
+    padding: 15,
+    width: '48%',
   },
-  alertItem: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginBottom: 12,
-  },
-  alertDot: {
-    width: 8,
-    height: 8,
-    borderRadius: 4,
-    marginRight: 12,
-  },
-  alertContent: {
-    flex: 1,
-  },
-  alertText: {
-    fontSize: 14,
-    color: BrandConfig.colors.text,
-    marginBottom: 2,
-  },
-  alertTime: {
-    fontSize: 12,
+  statLabel: {
     color: BrandConfig.colors.textSecondary,
+    fontSize: 12,
+    marginTop: 4,
+  },
+  statValue: {
+    color: BrandConfig.colors.text,
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginTop: 8,
+  },
+  widget: {
+    borderRadius: 15,
+    elevation: 3,
+    height: 140,
+    marginBottom: 15,
+    overflow: 'hidden',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    width: (width - 45) / 2,
+  },
+  widgetFooter: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  widgetFooterText: {
+    color: 'rgba(255, 255, 255, 0.9)',
+    flex: 1,
+    fontSize: 10,
+  },
+  widgetGradient: {
+    flex: 1,
+    justifyContent: 'space-between',
+    padding: 15,
+  },
+  widgetHeader: {
+    alignItems: 'center',
+    flexDirection: 'row',
+  },
+  widgetMainValue: {
+    color: 'white',
+    fontSize: 20,
+    fontWeight: 'bold',
+    marginVertical: 5,
+  },
+  widgetSubtext: {
+    color: 'rgba(255, 255, 255, 0.8)',
+    fontSize: 10,
+  },
+  widgetTitle: {
+    color: 'white',
+    flex: 1,
+    fontSize: 12,
+    fontWeight: '600',
+    marginLeft: 8,
   },
 });
 

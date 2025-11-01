@@ -38,9 +38,9 @@ const EnhancedLoginScreen = () => {
 
   // Pre-filled demo accounts for easy testing
   const demoAccounts = [
-    { email: 'admin@oqualtix.com', password: 'AdminPass123!', role: 'Admin' },
-    { email: 'john.doe@companyA.com', password: 'UserPass123!', role: 'Company A User' },
-    { email: 'mike.wilson@companyB.com', password: 'UserPass123!', role: 'Company B User' }
+    { email: 'Oqualtix@outlook.com', password: 'OqualtixAdmin2025!', role: 'Admin' },
+    { email: 'user@example.com', password: 'DEMO2025', role: 'User (with access code)' },
+    { email: 'test@company.com', password: 'DEMO2025', role: 'User (with access code)' }
   ];
 
   const handleLogin = async () => {
@@ -421,7 +421,7 @@ const EnhancedLoginScreen = () => {
               style={styles.linkButton}
               onPress={() => setShowCreateAccount(true)}
             >
-              <Text style={styles.linkButtonText}>Don't have an account? Sign Up</Text>
+              <Text style={styles.linkButtonText}>Don&apos;t have an account? Sign Up</Text>
             </TouchableOpacity>
 
             <View style={styles.securityNotice}>
@@ -447,160 +447,160 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-  keyboardAvoid: {
-    flex: 1,
-  },
-  scrollContent: {
-    flexGrow: 1,
-    justifyContent: 'center',
-    paddingHorizontal: 20,
-  },
-  logoContainer: {
+  demoAccount: {
     alignItems: 'center',
-    marginBottom: 40,
-  },
-  logoCircle: {
-    width: 80,
-    height: 80,
-    borderRadius: 40,
-    backgroundColor: 'rgba(255, 255, 255, 0.2)',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginBottom: 16,
-  },
-  logoText: {
-    fontSize: 32,
-    fontWeight: 'bold',
-    color: '#FFFFFF',
+    backgroundColor: '#FFFFFF',
+    borderColor: '#E5E5EA',
+    borderRadius: 8,
+    borderWidth: 1,
+    flexDirection: 'row',
     marginBottom: 8,
+    paddingHorizontal: 12,
+    paddingVertical: 8,
   },
-  logoSubtext: {
-    fontSize: 16,
-    color: '#FFFFFF',
-    opacity: 0.8,
+  demoAccountText: {
+    color: '#007AFF',
+    fontSize: 12,
+    fontWeight: '500',
+    marginLeft: 8,
+  },
+  demoSection: {
+    backgroundColor: '#F0F8FF',
+    borderRadius: 12,
+    marginBottom: 20,
+    padding: 16,
+  },
+  demoTitle: {
+    color: '#007AFF',
+    fontSize: 14,
+    fontWeight: '600',
+    marginBottom: 12,
+    textAlign: 'center',
   },
   formContainer: {
     backgroundColor: 'rgba(255, 255, 255, 0.95)',
     borderRadius: 20,
+    elevation: 10,
     padding: 24,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 10 },
     shadowOpacity: 0.3,
     shadowRadius: 20,
-    elevation: 10,
   },
-  demoSection: {
+  infoCard: {
+    alignItems: 'center',
+    backgroundColor: '#E3F2FD',
+    borderRadius: 12,
+    flexDirection: 'row',
     marginBottom: 20,
     padding: 16,
-    backgroundColor: '#F0F8FF',
-    borderRadius: 12,
   },
-  demoTitle: {
+  infoText: {
+    color: '#1976D2',
+    flex: 1,
     fontSize: 14,
-    fontWeight: '600',
-    color: '#007AFF',
-    marginBottom: 12,
-    textAlign: 'center',
-  },
-  demoAccount: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    paddingVertical: 8,
-    paddingHorizontal: 12,
-    backgroundColor: '#FFFFFF',
-    borderRadius: 8,
-    marginBottom: 8,
-    borderWidth: 1,
-    borderColor: '#E5E5EA',
-  },
-  demoAccountText: {
-    fontSize: 12,
-    color: '#007AFF',
-    marginLeft: 8,
-    fontWeight: '500',
+    lineHeight: 20,
+    marginLeft: 12,
   },
   inputContainer: {
-    flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: '#F8F9FA',
+    borderColor: '#E5E5EA',
     borderRadius: 12,
+    borderWidth: 1,
+    flexDirection: 'row',
+    marginBottom: 16,
     paddingHorizontal: 16,
     paddingVertical: 12,
-    marginBottom: 16,
-    borderWidth: 1,
-    borderColor: '#E5E5EA',
+  },
+  inputIcon: {
+    marginRight: 12,
   },
   inputRow: {
     flexDirection: 'row',
     marginBottom: 0,
   },
-  inputIcon: {
-    marginRight: 12,
-  },
-  textInput: {
+  keyboardAvoid: {
     flex: 1,
-    fontSize: 16,
-    color: '#000000',
-  },
-  loginButton: {
-    backgroundColor: '#007AFF',
-    borderRadius: 12,
-    paddingVertical: 16,
-    alignItems: 'center',
-    marginTop: 8,
-    marginBottom: 16,
-    shadowColor: '#007AFF',
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.3,
-    shadowRadius: 8,
-    elevation: 6,
-  },
-  loginButtonDisabled: {
-    opacity: 0.7,
-  },
-  loginButtonText: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    color: '#FFFFFF',
   },
   linkButton: {
     alignItems: 'center',
     paddingVertical: 12,
   },
   linkButtonText: {
-    fontSize: 14,
     color: '#007AFF',
+    fontSize: 14,
     textDecorationLine: 'underline',
   },
-  infoCard: {
-    flexDirection: 'row',
+  loginButton: {
     alignItems: 'center',
-    backgroundColor: '#E3F2FD',
+    backgroundColor: '#007AFF',
     borderRadius: 12,
-    padding: 16,
-    marginBottom: 20,
+    elevation: 6,
+    marginBottom: 16,
+    marginTop: 8,
+    paddingVertical: 16,
+    shadowColor: '#007AFF',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.3,
+    shadowRadius: 8,
   },
-  infoText: {
-    fontSize: 14,
-    color: '#1976D2',
-    marginLeft: 12,
-    flex: 1,
-    lineHeight: 20,
+  loginButtonDisabled: {
+    opacity: 0.7,
+  },
+  loginButtonText: {
+    color: '#FFFFFF',
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
+  logoCircle: {
+    alignItems: 'center',
+    backgroundColor: 'rgba(255, 255, 255, 0.2)',
+    borderRadius: 40,
+    height: 80,
+    justifyContent: 'center',
+    marginBottom: 16,
+    width: 80,
+  },
+  logoContainer: {
+    alignItems: 'center',
+    marginBottom: 40,
+  },
+  logoSubtext: {
+    color: '#FFFFFF',
+    fontSize: 16,
+    opacity: 0.8,
+  },
+  logoText: {
+    color: '#FFFFFF',
+    fontSize: 32,
+    fontWeight: 'bold',
+    marginBottom: 8,
+  },
+  scrollContent: {
+    flexGrow: 1,
+    justifyContent: 'center',
+    paddingHorizontal: 20,
   },
   securityNotice: {
-    flexDirection: 'row',
     alignItems: 'center',
+    borderTopColor: '#E5E5EA',
+    borderTopWidth: 1,
+    flexDirection: 'row',
     justifyContent: 'center',
     marginTop: 16,
     paddingTop: 16,
-    borderTopWidth: 1,
-    borderTopColor: '#E5E5EA',
   },
   securityNoticeText: {
-    fontSize: 12,
     color: '#34C759',
-    marginLeft: 6,
+    fontSize: 12,
     fontWeight: '500',
+    marginLeft: 6,
+  },
+  textInput: {
+    color: '#000000',
+    flex: 1,
+    fontSize: 16,
   },
 });
 

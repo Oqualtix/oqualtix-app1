@@ -1,6 +1,4 @@
 import moment from 'moment';
-import EmbezzlementDetectionUtils from './EmbezzlementDetectionUtils.js';
-import SecurityUtils from './SecurityUtils.js';
 import RealAIService from '../services/RealAIService.js';
 
 // Import authentication middleware
@@ -51,18 +49,16 @@ export const EnhancedAnomalyDetectionUtils = {
   // Advanced anomaly detection with machine learning algorithms and real AI
   detectAdvancedAnomalies: async (transactions, userProfile = {}, companyProfiles = []) => {
     const anomalies = [];
-    const startTime = Date.now();
     
     try {
       console.log('🔍 Starting AI-enhanced anomaly detection...');
       
       // Check if AI service is available
       const aiStatus = RealAIService.getAIStatus();
-      let aiResults = null;
       
       if (aiStatus.isInitialized && EnhancedAnomalyDetectionUtils.ENHANCED_CONFIG.AI_ENABLED) {
         console.log('🧠 Running AI-powered fraud detection...');
-        aiResults = await RealAIService.analyzeBatch(transactions);
+        await RealAIService.analyzeBatch(transactions);
       }
       
       // Build comprehensive user behavioral profile

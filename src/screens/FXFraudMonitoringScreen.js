@@ -324,90 +324,30 @@ const FXFraudMonitoringScreen = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  header: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    paddingHorizontal: 16,
-    paddingVertical: 12,
-    paddingTop: 48,
-  },
-  headerTitle: {
-    fontSize: 18,
+  amountText: {
+    fontSize: 16,
     fontWeight: 'bold',
-  },
-  tabContainer: {
-    flexDirection: 'row',
-    paddingHorizontal: 16,
-    paddingVertical: 8,
-  },
-  tab: {
-    flex: 1,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingVertical: 8,
-    paddingHorizontal: 12,
-    borderRadius: 8,
-    marginHorizontal: 4,
-  },
-  tabText: {
-    fontSize: 14,
-    fontWeight: '600',
-    marginLeft: 4,
-  },
-  content: {
-    flex: 1,
-    paddingHorizontal: 16,
-  },
-  overviewContainer: {
-    paddingVertical: 16,
-  },
-  summaryCard: {
-    borderRadius: 12,
-    padding: 16,
-    marginBottom: 16,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 3,
+    marginBottom: 2,
   },
   cardTitle: {
     fontSize: 16,
     fontWeight: 'bold',
     marginBottom: 16,
   },
-  summaryGrid: {
-    flexDirection: 'row',
-    marginBottom: 16,
-  },
-  summaryItem: {
-    flex: 1,
-    alignItems: 'center',
-  },
-  summaryValue: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    marginBottom: 4,
-  },
-  summaryLabel: {
-    fontSize: 12,
-    textAlign: 'center',
-  },
-  riskIndicator: {
-    paddingVertical: 8,
-    paddingHorizontal: 16,
-    borderRadius: 8,
-    alignItems: 'center',
-  },
-  riskIndicatorText: {
-    fontSize: 14,
+  categoryText: {
+    fontSize: 11,
     fontWeight: '600',
-    color: '#FFFFFF',
+  },
+  container: {
+    flex: 1,
+  },
+  content: {
+    flex: 1,
+    paddingHorizontal: 16,
+  },
+  currencyCode: {
+    fontSize: 12,
+    fontWeight: '600',
   },
   currencyGrid: {
     flexDirection: 'row',
@@ -415,26 +355,19 @@ const styles = StyleSheet.create({
     marginBottom: 12,
   },
   currencyItem: {
+    borderRadius: 16,
+    marginBottom: 8,
+    marginRight: 8,
     paddingHorizontal: 12,
     paddingVertical: 6,
-    borderRadius: 16,
-    marginRight: 8,
-    marginBottom: 8,
-  },
-  currencyCode: {
-    fontSize: 12,
-    fontWeight: '600',
   },
   currencyNote: {
     fontSize: 12,
     textAlign: 'center',
   },
-  featuresList: {
-    gap: 12,
-  },
   featureItem: {
-    flexDirection: 'row',
     alignItems: 'center',
+    flexDirection: 'row',
     paddingVertical: 8,
   },
   featureText: {
@@ -442,27 +375,105 @@ const styles = StyleSheet.create({
     fontSize: 14,
     marginLeft: 12,
   },
-  patternsContainer: {
-    paddingVertical: 16,
+  featuresList: {
+    gap: 12,
   },
-  sectionTitle: {
+  fxAnalysis: {
+    alignItems: 'center',
+    borderTopColor: '#F0F0F0',
+    borderTopWidth: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingTop: 8,
+  },
+  fxDetails: {
+    fontFamily: 'monospace',
+    fontSize: 11,
+  },
+  header: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingHorizontal: 16,
+    paddingTop: 48,
+    paddingVertical: 12,
+  },
+  headerTitle: {
     fontSize: 18,
     fontWeight: 'bold',
-    marginBottom: 16,
   },
-  patternCard: {
+  noPatterns: {
+    alignItems: 'center',
     borderRadius: 12,
-    padding: 16,
-    marginBottom: 12,
+    elevation: 3,
+    padding: 32,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
     shadowRadius: 4,
+  },
+  noPatternsDesc: {
+    fontSize: 14,
+    textAlign: 'center',
+  },
+  noPatternsTitle: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    marginBottom: 4,
+    marginTop: 12,
+  },
+  noTransactions: {
+    alignItems: 'center',
+    borderRadius: 12,
     elevation: 3,
+    padding: 32,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+  },
+  noTransactionsDesc: {
+    fontSize: 14,
+    textAlign: 'center',
+  },
+  noTransactionsTitle: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    marginBottom: 4,
+    marginTop: 12,
+  },
+  overviewContainer: {
+    paddingVertical: 16,
+  },
+  patternCard: {
+    borderRadius: 12,
+    elevation: 3,
+    marginBottom: 12,
+    padding: 16,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+  },
+  patternCount: {
+    alignItems: 'center',
+    borderRadius: 16,
+    height: 32,
+    justifyContent: 'center',
+    width: 32,
+  },
+  patternCountText: {
+    color: '#FFFFFF',
+    fontSize: 14,
+    fontWeight: 'bold',
+  },
+  patternDescription: {
+    fontSize: 13,
+    lineHeight: 18,
   },
   patternHeader: {
-    flexDirection: 'row',
     alignItems: 'center',
+    flexDirection: 'row',
   },
   patternInfo: {
     flex: 1,
@@ -473,54 +484,100 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     marginBottom: 4,
   },
-  patternDescription: {
-    fontSize: 13,
-    lineHeight: 18,
-  },
-  patternCount: {
-    width: 32,
-    height: 32,
-    borderRadius: 16,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  patternCountText: {
-    fontSize: 14,
-    fontWeight: 'bold',
-    color: '#FFFFFF',
-  },
-  noPatterns: {
-    borderRadius: 12,
-    padding: 32,
-    alignItems: 'center',
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 3,
-  },
-  noPatternsTitle: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    marginTop: 12,
-    marginBottom: 4,
-  },
-  noPatternsDesc: {
-    fontSize: 14,
-    textAlign: 'center',
+  patternsContainer: {
+    paddingVertical: 16,
   },
   realTimeContainer: {
     paddingVertical: 16,
   },
-  transactionCard: {
+  riskBadge: {
+    borderRadius: 6,
+    paddingHorizontal: 8,
+    paddingVertical: 4,
+  },
+  riskBadgeText: {
+    color: '#FFFFFF',
+    fontSize: 11,
+    fontWeight: '600',
+  },
+  riskIndicator: {
+    alignItems: 'center',
+    borderRadius: 8,
+    paddingHorizontal: 16,
+    paddingVertical: 8,
+  },
+  riskIndicatorText: {
+    color: '#FFFFFF',
+    fontSize: 14,
+    fontWeight: '600',
+  },
+  sectionTitle: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginBottom: 16,
+  },
+  summaryCard: {
     borderRadius: 12,
+    elevation: 3,
+    marginBottom: 16,
     padding: 16,
-    marginBottom: 12,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
     shadowRadius: 4,
+  },
+  summaryGrid: {
+    flexDirection: 'row',
+    marginBottom: 16,
+  },
+  summaryItem: {
+    alignItems: 'center',
+    flex: 1,
+  },
+  summaryLabel: {
+    fontSize: 12,
+    textAlign: 'center',
+  },
+  summaryValue: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 4,
+  },
+  tab: {
+    alignItems: 'center',
+    borderRadius: 8,
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    marginHorizontal: 4,
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+  },
+  tabContainer: {
+    flexDirection: 'row',
+    paddingHorizontal: 16,
+    paddingVertical: 8,
+  },
+  tabText: {
+    fontSize: 14,
+    fontWeight: '600',
+    marginLeft: 4,
+  },
+  transactionAmount: {
+    alignItems: 'flex-end',
+  },
+  transactionCard: {
+    borderRadius: 12,
     elevation: 3,
+    marginBottom: 12,
+    padding: 16,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+  },
+  transactionDescription: {
+    fontSize: 12,
   },
   transactionHeader: {
     flexDirection: 'row',
@@ -534,63 +591,6 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: '600',
     marginBottom: 2,
-  },
-  transactionDescription: {
-    fontSize: 12,
-  },
-  transactionAmount: {
-    alignItems: 'flex-end',
-  },
-  amountText: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    marginBottom: 2,
-  },
-  categoryText: {
-    fontSize: 11,
-    fontWeight: '600',
-  },
-  fxAnalysis: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    paddingTop: 8,
-    borderTopWidth: 1,
-    borderTopColor: '#F0F0F0',
-  },
-  riskBadge: {
-    paddingHorizontal: 8,
-    paddingVertical: 4,
-    borderRadius: 6,
-  },
-  riskBadgeText: {
-    fontSize: 11,
-    fontWeight: '600',
-    color: '#FFFFFF',
-  },
-  fxDetails: {
-    fontSize: 11,
-    fontFamily: 'monospace',
-  },
-  noTransactions: {
-    borderRadius: 12,
-    padding: 32,
-    alignItems: 'center',
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 3,
-  },
-  noTransactionsTitle: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    marginTop: 12,
-    marginBottom: 4,
-  },
-  noTransactionsDesc: {
-    fontSize: 14,
-    textAlign: 'center',
   },
 });
 

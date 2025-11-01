@@ -108,59 +108,59 @@ export const DataVisualizationComponents = {
 };
 
 const styles = StyleSheet.create({
+  chart: {
+    borderRadius: 16,
+    marginVertical: 8,
+  },
   chartContainer: {
     backgroundColor: '#fff',
     borderRadius: 12,
-    padding: 16,
+    elevation: 3,
     marginVertical: 8,
+    padding: 16,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
     shadowRadius: 4,
-    elevation: 3,
   },
   chartTitle: {
+    color: '#333',
     fontSize: 18,
     fontWeight: '600',
-    color: '#333',
     marginBottom: 12,
     textAlign: 'center',
-  },
-  chart: {
-    marginVertical: 8,
-    borderRadius: 16,
   },
   confidenceContainer: {
     backgroundColor: '#f8f9fa',
     borderRadius: 12,
-    padding: 16,
     marginVertical: 8,
-  },
-  confidenceTitle: {
-    fontSize: 16,
-    fontWeight: '600',
-    color: '#333',
-    marginBottom: 8,
-  },
-  confidenceMeter: {
-    height: 30,
-    backgroundColor: '#e9ecef',
-    borderRadius: 15,
-    position: 'relative',
-    justifyContent: 'center',
+    padding: 16,
   },
   confidenceFill: {
-    height: '100%',
     backgroundColor: '#28a745',
     borderRadius: 15,
-    position: 'absolute',
+    height: '100%',
     left: 0,
+    position: 'absolute',
+  },
+  confidenceMeter: {
+    backgroundColor: '#e9ecef',
+    borderRadius: 15,
+    height: 30,
+    justifyContent: 'center',
+    position: 'relative',
   },
   confidenceText: {
-    textAlign: 'center',
-    fontWeight: 'bold',
     color: '#333',
+    fontWeight: 'bold',
+    textAlign: 'center',
     zIndex: 1,
+  },
+  confidenceTitle: {
+    color: '#333',
+    fontSize: 16,
+    fontWeight: '600',
+    marginBottom: 8,
   },
 });
 

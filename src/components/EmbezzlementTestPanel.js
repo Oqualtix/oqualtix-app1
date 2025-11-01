@@ -37,7 +37,7 @@ const EmbezzlementTestPanel = ({ onTriggerAlert, transactions, userProfile }) =>
         };
         break;
         
-      case 'OFF_HOURS':
+      case 'OFF_HOURS': {
         const offHoursDate = new Date();
         offHoursDate.setHours(2, 30, 0, 0); // 2:30 AM
         testTransaction = {
@@ -52,6 +52,7 @@ const EmbezzlementTestPanel = ({ onTriggerAlert, transactions, userProfile }) =>
           reference: 'TEST-HOURS-001',
         };
         break;
+      }
         
       case 'ROUND_NUMBER':
         testTransaction = {
@@ -146,23 +147,20 @@ const EmbezzlementTestPanel = ({ onTriggerAlert, transactions, userProfile }) =>
 };
 
 const styles = StyleSheet.create({
-  container: {
-    backgroundColor: '#FFFFFF',
-    borderRadius: 16,
-    padding: 20,
-    margin: 16,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 8,
-    elevation: 4,
+  analysisButton: {
+    alignItems: 'center',
+    backgroundColor: '#007AFF',
+    borderRadius: 12,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    paddingHorizontal: 20,
+    paddingVertical: 14,
   },
-  title: {
+  analysisButtonText: {
+    color: '#FFFFFF',
     fontSize: 16,
     fontWeight: 'bold',
-    color: '#333',
-    marginBottom: 16,
-    textAlign: 'center',
+    marginLeft: 8,
   },
   buttonGrid: {
     flexDirection: 'row',
@@ -170,15 +168,23 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     marginBottom: 16,
   },
-  testButton: {
-    width: '48%',
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingVertical: 12,
-    paddingHorizontal: 12,
-    borderRadius: 8,
-    marginBottom: 8,
+  buttonText: {
+    color: '#FFFFFF',
+    fontSize: 12,
+    fontWeight: '600',
+    marginLeft: 6,
+    textAlign: 'center',
+  },
+  container: {
+    backgroundColor: '#FFFFFF',
+    borderRadius: 16,
+    elevation: 4,
+    margin: 16,
+    padding: 20,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 8,
   },
   largeAmountButton: {
     backgroundColor: '#FF3B30',
@@ -192,27 +198,22 @@ const styles = StyleSheet.create({
   roundNumberButton: {
     backgroundColor: '#FFCC00',
   },
-  buttonText: {
-    color: '#FFFFFF',
-    fontSize: 12,
-    fontWeight: '600',
-    marginLeft: 6,
-    textAlign: 'center',
-  },
-  analysisButton: {
-    backgroundColor: '#007AFF',
-    flexDirection: 'row',
+  testButton: {
     alignItems: 'center',
+    borderRadius: 8,
+    flexDirection: 'row',
     justifyContent: 'center',
-    paddingVertical: 14,
-    paddingHorizontal: 20,
-    borderRadius: 12,
+    marginBottom: 8,
+    paddingHorizontal: 12,
+    paddingVertical: 12,
+    width: '48%',
   },
-  analysisButtonText: {
-    color: '#FFFFFF',
+  title: {
+    color: '#333',
     fontSize: 16,
     fontWeight: 'bold',
-    marginLeft: 8,
+    marginBottom: 16,
+    textAlign: 'center',
   },
 });
 

@@ -387,12 +387,13 @@ class SystemIntegrationManager {
           icon: '📊',
           status: component.isMonitoring ? 'MONITORING' : 'READY'
         };
-      case 'intelligentCache':
+      case 'intelligentCache': {
         const stats = component.getStatistics();
         return {
           icon: '💾',
           status: `ACTIVE (${stats.hitRate} hit rate)`
         };
+      }
       default:
         return {
           icon: '⚙️',

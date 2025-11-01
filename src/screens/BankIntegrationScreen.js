@@ -12,7 +12,7 @@ import {
   Switch,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import { BrandConfig } from '../config/BrandConfig';
+import BrandConfig from '../config/BrandConfig';
 import { ThemeContext } from '../context/ThemeContext';
 
 const BankIntegrationScreen = ({ navigation }) => {
@@ -398,152 +398,172 @@ const BankIntegrationScreen = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  content: {
-    padding: 20,
-  },
-  title: {
-    fontSize: 28,
-    fontWeight: 'bold',
-    marginBottom: 8,
-  },
-  subtitle: {
-    fontSize: 16,
-    marginBottom: 30,
-  },
-  section: {
-    marginBottom: 30,
-  },
-  sectionTitle: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    marginBottom: 8,
-  },
-  sectionDescription: {
-    fontSize: 14,
-    marginBottom: 20,
-  },
-  bankCard: {
-    padding: 15,
-    borderRadius: 12,
-    marginBottom: 12,
-    borderWidth: 1,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 3,
-  },
-  bankHeader: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginBottom: 10,
-  },
-  bankLogo: {
-    fontSize: 30,
-    marginRight: 12,
-  },
-  bankInfo: {
-    flex: 1,
-  },
-  bankName: {
-    fontSize: 16,
-    fontWeight: '600',
-    marginBottom: 2,
-  },
-  bankType: {
-    fontSize: 12,
-  },
-  bankFeatures: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-  },
-  featureTag: {
-    fontSize: 10,
-    paddingHorizontal: 8,
-    paddingVertical: 3,
-    borderRadius: 10,
-    marginRight: 6,
-    marginBottom: 4,
-  },
-  connectedBankCard: {
-    padding: 15,
-    borderRadius: 12,
-    marginBottom: 15,
-    borderWidth: 2,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 3,
-  },
-  connectedBankHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'flex-start',
-    marginBottom: 15,
-  },
-  bankStatusInfo: {
-    flex: 1,
-  },
-  connectedBankName: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    marginBottom: 4,
-  },
   accountInfo: {
     fontSize: 14,
     marginBottom: 6,
-  },
-  statusBadge: {
-    fontSize: 12,
-    paddingHorizontal: 8,
-    paddingVertical: 3,
-    borderRadius: 8,
-    alignSelf: 'flex-start',
-  },
-  disconnectButton: {
-    padding: 5,
-  },
-  bankControls: {
-    marginBottom: 15,
-  },
-  controlRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    paddingVertical: 8,
-  },
-  controlLabel: {
-    fontSize: 16,
-    fontWeight: '500',
-  },
-  bankStats: {
-    paddingTop: 15,
-    borderTopWidth: 1,
-    borderTopColor: '#E0E0E0',
-  },
-  balanceLabel: {
-    fontSize: 12,
   },
   balanceAmount: {
     fontSize: 24,
     fontWeight: 'bold',
     marginVertical: 4,
   },
+  balanceLabel: {
+    fontSize: 12,
+  },
+  bankCard: {
+    borderRadius: 12,
+    borderWidth: 1,
+    elevation: 3,
+    marginBottom: 12,
+    padding: 15,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+  },
+  bankControls: {
+    marginBottom: 15,
+  },
+  bankFeatures: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+  },
+  bankHeader: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    marginBottom: 10,
+  },
+  bankInfo: {
+    flex: 1,
+  },
+  bankLogo: {
+    fontSize: 30,
+    marginRight: 12,
+  },
+  bankName: {
+    fontSize: 16,
+    fontWeight: '600',
+    marginBottom: 2,
+  },
+  bankStats: {
+    borderTopColor: '#E0E0E0',
+    borderTopWidth: 1,
+    paddingTop: 15,
+  },
+  bankStatusInfo: {
+    flex: 1,
+  },
+  bankType: {
+    fontSize: 12,
+  },
+  connectButton: {
+    alignItems: 'center',
+    borderRadius: 10,
+    padding: 15,
+  },
+  connectButtonText: {
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+  connectedBankCard: {
+    borderRadius: 12,
+    borderWidth: 2,
+    elevation: 3,
+    marginBottom: 15,
+    padding: 15,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+  },
+  connectedBankHeader: {
+    alignItems: 'flex-start',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginBottom: 15,
+  },
+  connectedBankName: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginBottom: 4,
+  },
+  container: {
+    flex: 1,
+  },
+  content: {
+    padding: 20,
+  },
+  controlLabel: {
+    fontSize: 16,
+    fontWeight: '500',
+  },
+  controlRow: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingVertical: 8,
+  },
+  disconnectButton: {
+    padding: 5,
+  },
+  featureTag: {
+    borderRadius: 10,
+    fontSize: 10,
+    marginBottom: 4,
+    marginRight: 6,
+    paddingHorizontal: 8,
+    paddingVertical: 3,
+  },
+  input: {
+    borderRadius: 10,
+    borderWidth: 1,
+    fontSize: 16,
+    marginBottom: 15,
+    padding: 15,
+  },
   lastSync: {
     fontSize: 12,
   },
-  securityInfo: {
-    padding: 15,
-    borderRadius: 12,
-    borderWidth: 1,
-    marginTop: 20,
+  modalBody: {
+    padding: 20,
   },
-  securityTitle: {
-    fontSize: 16,
+  modalContent: {
+    borderRadius: 20,
+    maxHeight: '80%',
+    padding: 0,
+    width: '90%',
+  },
+  modalDescription: {
+    fontSize: 14,
+    lineHeight: 20,
+    marginBottom: 20,
+  },
+  modalHeader: {
+    alignItems: 'center',
+    borderBottomWidth: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    padding: 20,
+  },
+  modalOverlay: {
+    alignItems: 'center',
+    backgroundColor: 'rgba(0,0,0,0.5)',
+    flex: 1,
+    justifyContent: 'center',
+  },
+  modalTitle: {
+    fontSize: 20,
+    fontWeight: 'bold',
+  },
+  section: {
+    marginBottom: 30,
+  },
+  sectionDescription: {
+    fontSize: 14,
+    marginBottom: 20,
+  },
+  sectionTitle: {
+    fontSize: 20,
     fontWeight: 'bold',
     marginBottom: 8,
   },
@@ -551,65 +571,45 @@ const styles = StyleSheet.create({
     fontSize: 14,
     lineHeight: 20,
   },
-  modalOverlay: {
-    flex: 1,
-    backgroundColor: 'rgba(0,0,0,0.5)',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  modalContent: {
-    width: '90%',
-    maxHeight: '80%',
-    borderRadius: 20,
-    padding: 0,
-  },
-  modalHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    padding: 20,
-    borderBottomWidth: 1,
-  },
-  modalTitle: {
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
-  modalBody: {
-    padding: 20,
-  },
-  modalDescription: {
-    fontSize: 14,
-    marginBottom: 20,
-    lineHeight: 20,
-  },
-  input: {
+  securityInfo: {
+    borderRadius: 12,
     borderWidth: 1,
-    borderRadius: 10,
+    marginTop: 20,
     padding: 15,
-    marginBottom: 15,
+  },
+  securityTitle: {
     fontSize: 16,
+    fontWeight: 'bold',
+    marginBottom: 8,
+  },
+  statusBadge: {
+    alignSelf: 'flex-start',
+    borderRadius: 8,
+    fontSize: 12,
+    paddingHorizontal: 8,
+    paddingVertical: 3,
+  },
+  subtitle: {
+    fontSize: 16,
+    marginBottom: 30,
+  },
+  title: {
+    fontSize: 28,
+    fontWeight: 'bold',
+    marginBottom: 8,
   },
   warningBox: {
-    flexDirection: 'row',
-    padding: 15,
     borderRadius: 10,
     borderWidth: 1,
+    flexDirection: 'row',
     marginBottom: 20,
+    padding: 15,
   },
   warningText: {
     flex: 1,
-    marginLeft: 10,
     fontSize: 12,
     lineHeight: 16,
-  },
-  connectButton: {
-    padding: 15,
-    borderRadius: 10,
-    alignItems: 'center',
-  },
-  connectButtonText: {
-    fontSize: 16,
-    fontWeight: 'bold',
+    marginLeft: 10,
   },
 });
 

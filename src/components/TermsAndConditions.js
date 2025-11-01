@@ -238,134 +238,134 @@ const TermsCheckbox = ({ checked, onToggle, showTerms }) => {
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#FFFFFF',
-  },
-  header: {
-    backgroundColor: '#007AFF',
-    paddingTop: 50,
-    paddingBottom: 20,
-    paddingHorizontal: 20,
+  acceptButton: {
     alignItems: 'center',
+    backgroundColor: '#007AFF',
+    borderRadius: 12,
+    flex: 2,
+    paddingVertical: 14,
   },
-  headerTitle: {
-    fontSize: 20,
-    fontWeight: 'bold',
+  acceptButtonDisabled: {
+    backgroundColor: '#C7C7CC',
+  },
+  acceptButtonText: {
     color: '#FFFFFF',
-    marginBottom: 4,
+    fontSize: 16,
+    fontWeight: '600',
   },
-  headerSubtitle: {
+  acceptButtonTextDisabled: {
+    color: '#8E8E93',
+  },
+  buttonContainer: {
+    flexDirection: 'row',
+    gap: 12,
+  },
+  checkbox: {
+    alignItems: 'center',
+    backgroundColor: '#FFFFFF',
+    borderColor: '#C7C7CC',
+    borderRadius: 4,
+    borderWidth: 2,
+    height: 20,
+    justifyContent: 'center',
+    marginTop: 2,
+    width: 20,
+  },
+  checkboxChecked: {
+    backgroundColor: '#007AFF',
+    borderColor: '#007AFF',
+  },
+  checkboxContainer: {
+    marginVertical: 16,
+  },
+  checkboxRow: {
+    alignItems: 'flex-start',
+    flexDirection: 'row',
+  },
+  checkboxText: {
+    color: '#333333',
     fontSize: 14,
-    color: '#FFFFFF',
-    opacity: 0.9,
+    lineHeight: 20,
   },
-  scrollView: {
+  checkboxTextContainer: {
     flex: 1,
-    backgroundColor: '#F8F9FA',
+    marginLeft: 12,
+  },
+  container: {
+    backgroundColor: '#FFFFFF',
+    flex: 1,
   },
   contentContainer: {
     padding: 20,
   },
-  termsText: {
-    fontSize: 12,
-    lineHeight: 18,
-    color: '#333333',
-    fontFamily: 'monospace',
+  declineButton: {
+    alignItems: 'center',
+    backgroundColor: '#F2F2F7',
+    borderColor: '#E5E5EA',
+    borderRadius: 12,
+    borderWidth: 1,
+    flex: 1,
+    paddingVertical: 14,
+  },
+  declineButtonText: {
+    color: '#8E8E93',
+    fontSize: 16,
+    fontWeight: '600',
   },
   footer: {
     backgroundColor: '#FFFFFF',
-    borderTopWidth: 1,
     borderTopColor: '#E5E5EA',
+    borderTopWidth: 1,
     paddingHorizontal: 20,
     paddingVertical: 16,
+  },
+  header: {
+    alignItems: 'center',
+    backgroundColor: '#007AFF',
+    paddingBottom: 20,
+    paddingHorizontal: 20,
+    paddingTop: 50,
+  },
+  headerSubtitle: {
+    color: '#FFFFFF',
+    fontSize: 14,
+    opacity: 0.9,
+  },
+  headerTitle: {
+    color: '#FFFFFF',
+    fontSize: 20,
+    fontWeight: 'bold',
+    marginBottom: 4,
   },
   scrollIndicator: {
     marginBottom: 16,
     minHeight: 24,
   },
   scrollPrompt: {
-    flexDirection: 'row',
     alignItems: 'center',
+    flexDirection: 'row',
     justifyContent: 'center',
   },
   scrollPromptText: {
-    fontSize: 14,
     color: '#FF9500',
-    marginLeft: 8,
-    fontWeight: '500',
-  },
-  buttonContainer: {
-    flexDirection: 'row',
-    gap: 12,
-  },
-  declineButton: {
-    flex: 1,
-    backgroundColor: '#F2F2F7',
-    borderRadius: 12,
-    paddingVertical: 14,
-    alignItems: 'center',
-    borderWidth: 1,
-    borderColor: '#E5E5EA',
-  },
-  declineButtonText: {
-    fontSize: 16,
-    fontWeight: '600',
-    color: '#8E8E93',
-  },
-  acceptButton: {
-    flex: 2,
-    backgroundColor: '#007AFF',
-    borderRadius: 12,
-    paddingVertical: 14,
-    alignItems: 'center',
-  },
-  acceptButtonDisabled: {
-    backgroundColor: '#C7C7CC',
-  },
-  acceptButtonText: {
-    fontSize: 16,
-    fontWeight: '600',
-    color: '#FFFFFF',
-  },
-  acceptButtonTextDisabled: {
-    color: '#8E8E93',
-  },
-  checkboxContainer: {
-    marginVertical: 16,
-  },
-  checkboxRow: {
-    flexDirection: 'row',
-    alignItems: 'flex-start',
-  },
-  checkbox: {
-    width: 20,
-    height: 20,
-    borderRadius: 4,
-    borderWidth: 2,
-    borderColor: '#C7C7CC',
-    backgroundColor: '#FFFFFF',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginTop: 2,
-  },
-  checkboxChecked: {
-    backgroundColor: '#007AFF',
-    borderColor: '#007AFF',
-  },
-  checkboxTextContainer: {
-    flex: 1,
-    marginLeft: 12,
-  },
-  checkboxText: {
     fontSize: 14,
-    color: '#333333',
-    lineHeight: 20,
+    fontWeight: '500',
+    marginLeft: 8,
+  },
+  scrollView: {
+    backgroundColor: '#F8F9FA',
+    flex: 1,
   },
   termsLink: {
     color: '#007AFF',
-    textDecorationLine: 'underline',
     fontWeight: '500',
+    textDecorationLine: 'underline',
+  },
+  termsText: {
+    color: '#333333',
+    fontFamily: 'monospace',
+    fontSize: 12,
+    lineHeight: 18,
   },
 });
 

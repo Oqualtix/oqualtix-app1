@@ -41,7 +41,7 @@ const PersonalityCustomizer = ({ onPersonalitySelected }) => {
   return (
     <ScrollView style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.title}>🤖 Customize Oxul's Personality</Text>
+        <Text style={styles.title}>🤖 Customize Oxul&apos;s Personality</Text>
         <Text style={styles.subtitle}>
           Choose how Oxul communicates and what expertise to emphasize
         </Text>
@@ -135,133 +135,17 @@ const PersonalityCustomizer = ({ onPersonalitySelected }) => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     backgroundColor: BrandConfig.colors.background,
-  },
-  header: {
-    padding: 20,
-    backgroundColor: BrandConfig.colors.primary,
-  },
-  title: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    color: BrandConfig.colors.textWhite,
-    marginBottom: 8,
-  },
-  subtitle: {
-    fontSize: 16,
-    color: BrandConfig.colors.textWhite,
-    opacity: 0.9,
-  },
-  presetsSection: {
-    padding: 20,
-  },
-  sectionTitle: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    color: BrandConfig.colors.textPrimary,
-    marginBottom: 16,
-  },
-  presetCard: {
-    backgroundColor: BrandConfig.colors.surface,
-    borderRadius: 12,
-    padding: 16,
-    marginBottom: 16,
-    borderWidth: 2,
-    borderColor: BrandConfig.colors.borderLight,
-  },
-  selectedPreset: {
-    borderColor: BrandConfig.colors.primary,
-    backgroundColor: BrandConfig.colors.backgroundSecondary,
-  },
-  presetHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: 12,
-  },
-  presetName: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    color: BrandConfig.colors.textPrimary,
-  },
-  presetDescription: {
-    fontSize: 14,
-    color: BrandConfig.colors.textSecondary,
-    marginBottom: 16,
-    lineHeight: 20,
-  },
-  traitsContainer: {
-    marginBottom: 16,
-  },
-  traitsTitle: {
-    fontSize: 14,
-    fontWeight: '600',
-    color: BrandConfig.colors.textPrimary,
-    marginBottom: 8,
-  },
-  traitsRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-  },
-  trait: {
     flex: 1,
-    marginRight: 16,
-  },
-  traitLabel: {
-    fontSize: 12,
-    color: BrandConfig.colors.textMuted,
-    marginBottom: 4,
-  },
-  traitValue: {
-    fontSize: 14,
-    fontWeight: '500',
-    color: BrandConfig.colors.textSecondary,
-    textTransform: 'capitalize',
-  },
-  expertiseContainer: {
-    marginTop: 8,
-  },
-  expertiseTitle: {
-    fontSize: 14,
-    fontWeight: '600',
-    color: BrandConfig.colors.textPrimary,
-    marginBottom: 8,
-  },
-  expertiseGrid: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-  },
-  expertiseItem: {
-    width: '48%',
-    marginBottom: 8,
-    marginRight: '2%',
-  },
-  expertiseArea: {
-    fontSize: 12,
-    color: BrandConfig.colors.textMuted,
-    marginBottom: 4,
-    textTransform: 'capitalize',
-  },
-  expertiseBar: {
-    height: 24,
-    borderRadius: 12,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  expertisePercent: {
-    fontSize: 11,
-    fontWeight: 'bold',
-    color: BrandConfig.colors.textWhite,
   },
   customButton: {
-    flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center',
     backgroundColor: BrandConfig.colors.primary,
+    borderRadius: 12,
+    flexDirection: 'row',
+    justifyContent: 'center',
     margin: 20,
     padding: 16,
-    borderRadius: 12,
   },
   customButtonText: {
     color: BrandConfig.colors.textWhite,
@@ -269,22 +153,138 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     marginLeft: 8,
   },
-  infoSection: {
-    margin: 20,
-    padding: 16,
-    backgroundColor: BrandConfig.colors.backgroundSecondary,
-    borderRadius: 12,
+  expertiseArea: {
+    color: BrandConfig.colors.textMuted,
+    fontSize: 12,
+    marginBottom: 4,
+    textTransform: 'capitalize',
   },
-  infoTitle: {
-    fontSize: 16,
+  expertiseBar: {
+    alignItems: 'center',
+    borderRadius: 12,
+    height: 24,
+    justifyContent: 'center',
+  },
+  expertiseContainer: {
+    marginTop: 8,
+  },
+  expertiseGrid: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+  },
+  expertiseItem: {
+    marginBottom: 8,
+    marginRight: '2%',
+    width: '48%',
+  },
+  expertisePercent: {
+    color: BrandConfig.colors.textWhite,
+    fontSize: 11,
     fontWeight: 'bold',
+  },
+  expertiseTitle: {
     color: BrandConfig.colors.textPrimary,
+    fontSize: 14,
+    fontWeight: '600',
     marginBottom: 8,
   },
+  header: {
+    backgroundColor: BrandConfig.colors.primary,
+    padding: 20,
+  },
+  infoSection: {
+    backgroundColor: BrandConfig.colors.backgroundSecondary,
+    borderRadius: 12,
+    margin: 20,
+    padding: 16,
+  },
   infoText: {
-    fontSize: 14,
     color: BrandConfig.colors.textSecondary,
+    fontSize: 14,
     lineHeight: 20,
+  },
+  infoTitle: {
+    color: BrandConfig.colors.textPrimary,
+    fontSize: 16,
+    fontWeight: 'bold',
+    marginBottom: 8,
+  },
+  presetCard: {
+    backgroundColor: BrandConfig.colors.surface,
+    borderColor: BrandConfig.colors.borderLight,
+    borderRadius: 12,
+    borderWidth: 2,
+    marginBottom: 16,
+    padding: 16,
+  },
+  presetDescription: {
+    color: BrandConfig.colors.textSecondary,
+    fontSize: 14,
+    lineHeight: 20,
+    marginBottom: 16,
+  },
+  presetHeader: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginBottom: 12,
+  },
+  presetName: {
+    color: BrandConfig.colors.textPrimary,
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
+  presetsSection: {
+    padding: 20,
+  },
+  sectionTitle: {
+    color: BrandConfig.colors.textPrimary,
+    fontSize: 20,
+    fontWeight: 'bold',
+    marginBottom: 16,
+  },
+  selectedPreset: {
+    backgroundColor: BrandConfig.colors.backgroundSecondary,
+    borderColor: BrandConfig.colors.primary,
+  },
+  subtitle: {
+    color: BrandConfig.colors.textWhite,
+    fontSize: 16,
+    opacity: 0.9,
+  },
+  title: {
+    color: BrandConfig.colors.textWhite,
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 8,
+  },
+  trait: {
+    flex: 1,
+    marginRight: 16,
+  },
+  traitLabel: {
+    color: BrandConfig.colors.textMuted,
+    fontSize: 12,
+    marginBottom: 4,
+  },
+  traitValue: {
+    color: BrandConfig.colors.textSecondary,
+    fontSize: 14,
+    fontWeight: '500',
+    textTransform: 'capitalize',
+  },
+  traitsContainer: {
+    marginBottom: 16,
+  },
+  traitsRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  traitsTitle: {
+    color: BrandConfig.colors.textPrimary,
+    fontSize: 14,
+    fontWeight: '600',
+    marginBottom: 8,
   },
 });
 

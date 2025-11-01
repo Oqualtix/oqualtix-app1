@@ -13,7 +13,7 @@ import {
 import Slider from '@react-native-community/slider';
 import { Ionicons } from '@expo/vector-icons';
 import { useAuth } from '../context/AuthContext';
-import { BrandConfig } from '../config/BrandConfig';
+import BrandConfig from '../config/BrandConfig';
 import { ThemeContext } from '../context/ThemeContext';
 import { NotificationContext } from '../context/NotificationContext';
 
@@ -769,50 +769,109 @@ const SettingsScreen = ({ navigation }) => {
           </View>
         </View>
       </Modal>
-
-      {/* Notification Settings Modal */}
-      {NotificationSettingsModal()}
-
-      {/* Quiet Hours Modal */}
-      {QuietHoursModal()}
     </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
+  cancelButton: {
+    backgroundColor: '#6C757D',
+    borderRadius: 8,
+    flex: 1,
+    paddingVertical: 12,
+  },
+  cancelButtonText: {
+    fontSize: 16,
+    fontWeight: '600',
+  },
   container: {
     flex: 1,
   },
-  section: {
-    marginBottom: 30,
+  deleteButton: {
+    padding: 8,
   },
-  sectionTitle: {
-    fontSize: 20,
+  groupTitle: {
+    fontSize: 18,
     fontWeight: 'bold',
-    marginLeft: 20,
     marginBottom: 15,
+  },
+  input: {
+    borderRadius: 10,
+    borderWidth: 1,
+    fontSize: 16,
+    marginBottom: 15,
+    padding: 15,
+  },
+  largeModal: {
+    height: '80%',
+    maxHeight: '90%',
+  },
+  modalBody: {
+    flex: 1,
+  },
+  modalButton: {
+    alignItems: 'center',
+    borderRadius: 10,
+    flex: 1,
+    marginHorizontal: 5,
+    padding: 15,
+  },
+  modalButtons: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     marginTop: 20,
   },
-  profileCard: {
-    marginHorizontal: 20,
-    borderRadius: 12,
-    padding: 20,
-    flexDirection: 'row',
+  modalContent: {
+    borderRadius: 20,
+    maxHeight: '80%',
+    maxWidth: 400,
+    padding: 30,
+    width: '90%',
+  },
+  modalHeader: {
     alignItems: 'center',
+    borderBottomWidth: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginBottom: 15,
+    paddingBottom: 15,
+  },
+  modalOverlay: {
+    alignItems: 'center',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    flex: 1,
+    justifyContent: 'center',
+  },
+  modalTitle: {
+    fontSize: 22,
+    fontWeight: 'bold',
+    marginBottom: 20,
+    textAlign: 'center',
+  },
+  profileAvatar: {
+    alignItems: 'center',
+    borderRadius: 30,
+    height: 60,
+    justifyContent: 'center',
+    marginRight: 15,
+    width: 60,
+  },
+  profileCard: {
+    alignItems: 'center',
+    borderRadius: 12,
+    elevation: 3,
+    flexDirection: 'row',
     marginBottom: 10,
+    marginHorizontal: 20,
+    padding: 20,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
     shadowRadius: 4,
-    elevation: 3,
   },
-  profileAvatar: {
-    width: 60,
-    height: 60,
-    borderRadius: 30,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginRight: 15,
+  profileEmail: {
+    fontSize: 14,
+    marginBottom: 2,
   },
   profileInfo: {
     flex: 1,
@@ -822,84 +881,24 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: 4,
   },
-  profileEmail: {
-    fontSize: 14,
-    marginBottom: 2,
-  },
   profileRole: {
     fontSize: 12,
     fontWeight: '600',
   },
-  settingItem: {
-    marginHorizontal: 20,
-    borderRadius: 12,
-    padding: 15,
-    flexDirection: 'row',
+  roleButton: {
     alignItems: 'center',
-    justifyContent: 'space-between',
-    marginBottom: 10,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 3,
-  },
-  settingLeft: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    borderRadius: 8,
+    borderWidth: 1,
     flex: 1,
+    marginHorizontal: 5,
+    padding: 12,
   },
-  settingIcon: {
-    marginRight: 15,
-  },
-  settingTitle: {
-    fontSize: 16,
-    fontWeight: '600',
-    marginBottom: 2,
-  },
-  settingSubtitle: {
+  roleButtonText: {
     fontSize: 14,
   },
-  modalOverlay: {
-    flex: 1,
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  modalContent: {
-    borderRadius: 20,
-    padding: 30,
-    width: '90%',
-    maxWidth: 400,
-    maxHeight: '80%',
-  },
-  largeModal: {
-    maxHeight: '90%',
-    height: '80%',
-  },
-  modalHeader: {
+  roleButtons: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    alignItems: 'center',
-    paddingBottom: 15,
-    marginBottom: 15,
-    borderBottomWidth: 1,
-  },
-  modalBody: {
-    flex: 1,
-  },
-  modalTitle: {
-    fontSize: 22,
-    fontWeight: 'bold',
-    textAlign: 'center',
-    marginBottom: 20,
-  },
-  input: {
-    borderWidth: 1,
-    borderRadius: 10,
-    padding: 15,
-    marginBottom: 15,
-    fontSize: 16,
   },
   roleContainer: {
     marginBottom: 20,
@@ -909,120 +908,175 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     marginBottom: 10,
   },
-  roleButtons: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-  },
-  roleButton: {
-    flex: 1,
-    padding: 12,
-    borderRadius: 8,
-    borderWidth: 1,
-    marginHorizontal: 5,
-    alignItems: 'center',
-  },
-  roleButtonText: {
-    fontSize: 14,
-  },
-  modalButtons: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginTop: 20,
-  },
-  modalButton: {
-    flex: 1,
-    padding: 15,
-    borderRadius: 10,
-    marginHorizontal: 5,
-    alignItems: 'center',
-  },
-  cancelButton: {
-  },
   saveButton: {
-  },
-  cancelButtonText: {
-    fontSize: 16,
-    fontWeight: '600',
   },
   saveButtonText: {
     fontSize: 16,
     fontWeight: 'bold',
   },
-  usersList: {
-    flex: 1,
-    marginBottom: 20,
+  section: {
+    marginBottom: 30,
   },
-  userItem: {
-    flexDirection: 'row',
+  sectionTitle: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    marginBottom: 15,
+    marginLeft: 20,
+    marginTop: 20,
+  },
+  settingGroup: {
+    marginBottom: 25,
+  },
+  settingIcon: {
+    marginRight: 15,
+  },
+  settingItem: {
     alignItems: 'center',
+    borderRadius: 12,
+    elevation: 3,
+    flexDirection: 'row',
     justifyContent: 'space-between',
+    marginBottom: 10,
+    marginHorizontal: 20,
     padding: 15,
-    borderBottomWidth: 1,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
   },
-  userInfo: {
-    flexDirection: 'row',
-    alignItems: 'center',
+  settingLabel: {
     flex: 1,
+    fontSize: 16,
+    fontWeight: '500',
+  },
+  settingLeft: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    flex: 1,
+  },
+  settingSubtitle: {
+    fontSize: 14,
+  },
+  settingTitle: {
+    fontSize: 16,
+    fontWeight: '600',
+    marginBottom: 2,
+  },
+  slider: {
+    height: 40,
+    width: '100%',
+  },
+  sliderLabel: {
+    fontSize: 16,
+    fontWeight: '500',
+    marginBottom: 5,
+    marginTop: 15,
+  },
+  testButton: {
+    alignItems: 'center',
+    borderRadius: 10,
+    marginTop: 20,
+    padding: 15,
+  },
+  testButtonText: {
+    fontSize: 16,
+    fontWeight: 'bold',
   },
   userAvatar: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
-    justifyContent: 'center',
     alignItems: 'center',
+    borderRadius: 20,
+    height: 40,
+    justifyContent: 'center',
     marginRight: 12,
+    width: 40,
   },
   userDetails: {
     flex: 1,
+  },
+  userEmail: {
+    fontSize: 14,
+    marginBottom: 2,
+  },
+  userInfo: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    flex: 1,
+  },
+  userItem: {
+    alignItems: 'center',
+    borderBottomWidth: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    padding: 15,
   },
   userName: {
     fontSize: 16,
     fontWeight: '600',
     marginBottom: 2,
   },
-  userEmail: {
-    fontSize: 14,
-    marginBottom: 2,
-  },
   userRole: {
     fontSize: 12,
     fontWeight: '500',
   },
-  deleteButton: {
-    padding: 8,
+  usersList: {
+    flex: 1,
+    marginBottom: 20,
   },
-  settingGroup: {
-    marginBottom: 25,
+  codeItem: {
+    borderBottomWidth: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingVertical: 12,
   },
-  groupTitle: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    marginBottom: 15,
-  },
-  settingLabel: {
-    fontSize: 16,
-    fontWeight: '500',
+  codeInfo: {
     flex: 1,
   },
-  testButton: {
-    padding: 15,
-    borderRadius: 10,
-    alignItems: 'center',
-    marginTop: 20,
-  },
-  testButtonText: {
+  codeText: {
     fontSize: 16,
-    fontWeight: 'bold',
+    fontWeight: '600',
+    marginBottom: 4,
   },
-  sliderLabel: {
+  codeDetails: {
+    fontSize: 12,
+    marginBottom: 2,
+  },
+  revokeButton: {
+    borderRadius: 6,
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+  },
+  revokeButtonText: {
+    color: '#FFFFFF',
+    fontSize: 12,
+    fontWeight: '600',
+  },
+  emptyText: {
     fontSize: 16,
-    fontWeight: '500',
-    marginTop: 15,
-    marginBottom: 5,
+    textAlign: 'center',
+    padding: 20,
   },
-  slider: {
-    width: '100%',
-    height: 40,
+  fieldLabel: {
+    fontSize: 16,
+    fontWeight: '600',
+    marginBottom: 8,
+  },
+  helpText: {
+    fontSize: 12,
+    marginTop: 8,
+    marginBottom: 20,
+  },
+  primaryButton: {
+    backgroundColor: '#007AFF',
+    borderRadius: 8,
+    flex: 1,
+    paddingVertical: 12,
+  },
+  primaryButtonText: {
+    color: '#FFFFFF',
+    fontSize: 16,
+    fontWeight: '600',
+    textAlign: 'center',
   },
 });
 

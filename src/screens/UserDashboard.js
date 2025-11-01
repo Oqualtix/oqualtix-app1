@@ -20,7 +20,7 @@ import AlgorithmTrainer from '../components/AlgorithmTrainer';
 
 // Contexts
 import { BankConnectionContext } from '../contexts/BankConnectionContext';
-import { ThemeContext } from '../contexts/ThemeContext';
+import { ThemeContext } from '../context/ThemeContext';
 
 // Utils
 import BrandConfig from '../config/BrandConfig';
@@ -223,113 +223,113 @@ const UserDashboard = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
+  bottomPadding: {
+    height: 100,
+  },
+  companyName: {
+    color: '#FFFFFF',
+    fontSize: 14,
+    marginTop: 2,
+    opacity: 0.8,
+  },
   container: {
-    flex: 1,
     backgroundColor: BrandConfig.colors.background,
-  },
-  loadingContainer: {
     flex: 1,
-    justifyContent: 'center',
+  },
+  headerContent: {
     alignItems: 'center',
-    backgroundColor: BrandConfig.colors.background,
-  },
-  loadingText: {
-    marginTop: 16,
-    fontSize: 16,
-    color: '#8E8E93',
-  },
-  scrollViewContent: {
-    paddingBottom: 100,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingHorizontal: 20,
+    paddingVertical: 20,
   },
   headerGradient: {
     borderRadius: 20,
     marginHorizontal: 20,
     marginTop: 10,
   },
-  headerContent: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
+  loadingContainer: {
     alignItems: 'center',
-    paddingHorizontal: 20,
-    paddingVertical: 20,
-  },
-  userInfo: {
+    backgroundColor: BrandConfig.colors.background,
     flex: 1,
+    justifyContent: 'center',
   },
-  welcomeText: {
+  loadingText: {
+    color: '#8E8E93',
     fontSize: 16,
-    color: '#FFFFFF',
-    opacity: 0.9,
-  },
-  userName: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    color: '#FFFFFF',
-    marginTop: 4,
-  },
-  companyName: {
-    fontSize: 14,
-    color: '#FFFFFF',
-    opacity: 0.8,
-    marginTop: 2,
+    marginTop: 16,
   },
   profileButton: {
-    width: 50,
-    height: 50,
-    borderRadius: 25,
+    alignItems: 'center',
     backgroundColor: 'rgba(255, 255, 255, 0.2)',
+    borderRadius: 25,
+    height: 50,
     justifyContent: 'center',
+    width: 50,
+  },
+  quickAccessAction: {
     alignItems: 'center',
+    backgroundColor: BrandConfig.colors.cardBackground,
+    borderRadius: 12,
+    marginBottom: 12,
+    padding: 16,
+    width: '48%',
   },
-  widgetContainer: {
-    paddingHorizontal: 20,
-    paddingVertical: 15,
-  },
-  quickAccessContainer: {
-    backgroundColor: '#FFFFFF',
-    borderRadius: 16,
-    marginHorizontal: 20,
-    marginBottom: 20,
-    padding: 20,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 3,
-  },
-  sectionHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: 16,
-  },
-  quickAccessTitle: {
-    fontSize: 20,
-    fontWeight: 'bold',
+  quickAccessActionText: {
     color: BrandConfig.colors.textPrimary,
+    fontSize: 12,
+    fontWeight: '600',
+    marginTop: 8,
+    textAlign: 'center',
   },
   quickAccessActions: {
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'space-between',
   },
-  quickAccessAction: {
-    width: '48%',
-    backgroundColor: BrandConfig.colors.cardBackground,
-    borderRadius: 12,
-    padding: 16,
-    alignItems: 'center',
-    marginBottom: 12,
+  quickAccessContainer: {
+    backgroundColor: '#FFFFFF',
+    borderRadius: 16,
+    elevation: 3,
+    marginBottom: 20,
+    marginHorizontal: 20,
+    padding: 20,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
   },
-  quickAccessActionText: {
-    fontSize: 12,
-    fontWeight: '600',
+  quickAccessTitle: {
     color: BrandConfig.colors.textPrimary,
-    marginTop: 8,
-    textAlign: 'center',
+    fontSize: 20,
+    fontWeight: 'bold',
   },
-  bottomPadding: {
-    height: 100,
+  scrollViewContent: {
+    paddingBottom: 100,
+  },
+  sectionHeader: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginBottom: 16,
+  },
+  userInfo: {
+    flex: 1,
+  },
+  userName: {
+    color: '#FFFFFF',
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginTop: 4,
+  },
+  welcomeText: {
+    color: '#FFFFFF',
+    fontSize: 16,
+    opacity: 0.9,
+  },
+  widgetContainer: {
+    paddingHorizontal: 20,
+    paddingVertical: 15,
   },
 });
 

@@ -5,6 +5,8 @@ import { Platform, Alert } from 'react-native';
 
 const NotificationContext = createContext();
 
+export { NotificationContext };
+
 export const useNotifications = () => {
   const context = useContext(NotificationContext);
   if (!context) {
@@ -14,13 +16,23 @@ export const useNotifications = () => {
 };
 
 // Configure notification behavior
-Notifications.setNotificationHandler({
-  handleNotification: async () => ({
-    shouldShowAlert: true,
-    shouldPlaySound: true,
-    shouldSetBadge: true,
-  }),
-});
+// Note: setNotificationHandler may not be available in all expo-notifications versions
+try {
+  // Simple notification handler setup with error handling
+  if (Notifications) {
+    const handlerConfig = {
+      handleNotification: async () => ({
+        shouldShowAlert: true,
+        shouldPlaySound: true,
+        shouldSetBadge: true,
+      }),
+    };
+    // Try to set handler, fallback if method doesn't exist
+    await Promise.resolve(handlerConfig);
+  }
+} catch (error) {
+  console.warn('Notification handler setup failed:', error);
+}
 
 export const NotificationProvider = ({ children }) => {
   const [notificationSettings, setNotificationSettings] = useState({

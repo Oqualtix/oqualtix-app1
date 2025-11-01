@@ -328,121 +328,72 @@ const FraudComparisonScreen = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  header: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    paddingHorizontal: 16,
-    paddingVertical: 12,
-    paddingTop: 48,
-  },
-  headerTitle: {
-    fontSize: 18,
-    fontWeight: 'bold',
-  },
-  tabContainer: {
-    flexDirection: 'row',
-    paddingHorizontal: 16,
-    paddingVertical: 8,
-  },
-  tab: {
-    flex: 1,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingVertical: 8,
-    paddingHorizontal: 12,
-    borderRadius: 8,
-    marginHorizontal: 4,
-  },
-  tabText: {
-    fontSize: 14,
-    fontWeight: '600',
-    marginLeft: 4,
-  },
-  content: {
-    flex: 1,
-    paddingHorizontal: 16,
-  },
-  comparisonContainer: {
-    paddingVertical: 16,
-  },
-  comparisonItem: {
-    borderRadius: 12,
-    padding: 16,
-    marginBottom: 16,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 3,
-  },
-  featureTitle: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    marginBottom: 12,
-  },
-  comparisonRow: {
-    flexDirection: 'row',
-    marginBottom: 12,
-  },
-  comparisonColumn: {
-    flex: 1,
-    paddingHorizontal: 8,
-  },
-  columnHeader: {
-    fontSize: 14,
-    fontWeight: '600',
-    marginBottom: 4,
-  },
-  comparisonText: {
-    fontSize: 13,
-    lineHeight: 18,
-  },
   advantageContainer: {
-    flexDirection: 'row',
     alignItems: 'center',
-    paddingTop: 8,
-    borderTopWidth: 1,
     borderTopColor: '#F0F0F0',
+    borderTopWidth: 1,
+    flexDirection: 'row',
+    paddingTop: 8,
   },
   advantageText: {
     fontSize: 13,
     fontWeight: '600',
     marginLeft: 6,
   },
-  detectionContainer: {
+  columnHeader: {
+    fontSize: 14,
+    fontWeight: '600',
+    marginBottom: 4,
+  },
+  comparisonColumn: {
+    flex: 1,
+    paddingHorizontal: 8,
+  },
+  comparisonContainer: {
     paddingVertical: 16,
   },
-  detectionItem: {
+  comparisonItem: {
     borderRadius: 12,
-    padding: 16,
+    elevation: 3,
     marginBottom: 16,
+    padding: 16,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
     shadowRadius: 4,
-    elevation: 3,
   },
-  detectionType: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    marginBottom: 4,
+  comparisonRow: {
+    flexDirection: 'row',
+    marginBottom: 12,
+  },
+  comparisonText: {
+    fontSize: 13,
+    lineHeight: 18,
+  },
+  container: {
+    flex: 1,
+  },
+  content: {
+    flex: 1,
+    paddingHorizontal: 16,
+  },
+  detectionContainer: {
+    paddingVertical: 16,
   },
   detectionDescription: {
     fontSize: 13,
-    marginBottom: 12,
     lineHeight: 18,
+    marginBottom: 12,
   },
-  detectionStats: {
-    flexDirection: 'row',
-  },
-  detectionStat: {
-    flex: 1,
-    alignItems: 'center',
+  detectionItem: {
+    borderRadius: 12,
+    elevation: 3,
+    marginBottom: 16,
+    padding: 16,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
   },
   detectionLabel: {
     fontSize: 12,
@@ -453,59 +404,108 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
   },
-  featuresContainer: {
-    paddingVertical: 16,
+  detectionStat: {
+    alignItems: 'center',
+    flex: 1,
   },
-  statsCard: {
-    borderRadius: 12,
-    padding: 16,
-    marginBottom: 16,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 3,
-  },
-  statsTitle: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    marginBottom: 16,
-  },
-  statsGrid: {
+  detectionStats: {
     flexDirection: 'row',
   },
-  statItem: {
-    flex: 1,
-    alignItems: 'center',
-  },
-  statValue: {
-    fontSize: 24,
+  detectionType: {
+    fontSize: 16,
     fontWeight: 'bold',
     marginBottom: 4,
   },
-  statLabel: {
-    fontSize: 12,
-    textAlign: 'center',
-  },
   featureCard: {
     borderRadius: 12,
-    padding: 16,
+    elevation: 3,
     marginBottom: 12,
+    padding: 16,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
     shadowRadius: 4,
-    elevation: 3,
   },
   featureHeader: {
-    flexDirection: 'row',
     alignItems: 'center',
+    flexDirection: 'row',
     marginBottom: 8,
   },
   featureImpact: {
     fontSize: 13,
     fontWeight: '500',
     marginLeft: 32,
+  },
+  featureTitle: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    marginBottom: 12,
+  },
+  featuresContainer: {
+    paddingVertical: 16,
+  },
+  header: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingHorizontal: 16,
+    paddingTop: 48,
+    paddingVertical: 12,
+  },
+  headerTitle: {
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
+  statItem: {
+    alignItems: 'center',
+    flex: 1,
+  },
+  statLabel: {
+    fontSize: 12,
+    textAlign: 'center',
+  },
+  statValue: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 4,
+  },
+  statsCard: {
+    borderRadius: 12,
+    elevation: 3,
+    marginBottom: 16,
+    padding: 16,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+  },
+  statsGrid: {
+    flexDirection: 'row',
+  },
+  statsTitle: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    marginBottom: 16,
+  },
+  tab: {
+    alignItems: 'center',
+    borderRadius: 8,
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    marginHorizontal: 4,
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+  },
+  tabContainer: {
+    flexDirection: 'row',
+    paddingHorizontal: 16,
+    paddingVertical: 8,
+  },
+  tabText: {
+    fontSize: 14,
+    fontWeight: '600',
+    marginLeft: 4,
   },
 });
 

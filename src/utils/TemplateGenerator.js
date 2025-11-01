@@ -1,6 +1,14 @@
-import * as FileSystem from 'expo-file-system';
-import * as Sharing from 'expo-sharing';
+// Optional FileSystem and Sharing imports - only if available
 import { Alert } from 'react-native';
+
+let FileSystem = null;
+let Sharing = null;
+try {
+  FileSystem = require('expo-file-system');
+  Sharing = require('expo-sharing');
+} catch (e) {
+  console.log('Expo file operations not available - using fallback methods');
+}
 
 export const TemplateGenerator = {
   

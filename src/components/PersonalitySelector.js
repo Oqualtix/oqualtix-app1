@@ -44,7 +44,7 @@ const PersonalitySelector = ({ visible, onClose, onSelectPersonality, currentPer
       name: 'Data-Driven Analyst',
       icon: 'analytics-outline',
       description: 'Numbers-focused with statistical insights and quantitative analysis',
-      greeting: '📊 Hello. I\'m Oxul, your AI forensic analyst specializing in quantitative financial investigations. I process data patterns, statistical anomalies, and risk metrics. Ready to dive into the numbers?',
+      greeting: '📊 Hello. I&apos;m Oxul, your AI forensic analyst specializing in quantitative financial investigations. I process data patterns, statistical anomalies, and risk metrics. Ready to dive into the numbers?',
       style: {
         tone: 'Precise and data-focused',
         language: 'Statistical terminology',
@@ -111,7 +111,7 @@ const PersonalitySelector = ({ visible, onClose, onSelectPersonality, currentPer
           <TouchableOpacity onPress={onClose} style={styles.closeButton}>
             <Ionicons name="close" size={24} color={BrandConfig.colors.textPrimary} />
           </TouchableOpacity>
-          <Text style={styles.title}>Customize Oxul's Personality</Text>
+          <Text style={styles.title}>Customize Oxul&apos;s Personality</Text>
           <TouchableOpacity onPress={handleConfirm} style={styles.confirmButton}>
             <Text style={styles.confirmText}>Apply</Text>
           </TouchableOpacity>
@@ -175,7 +175,7 @@ const PersonalitySelector = ({ visible, onClose, onSelectPersonality, currentPer
           <View style={styles.tipContainer}>
             <Ionicons name="bulb-outline" size={20} color={BrandConfig.colors.accent} />
             <Text style={styles.tipText}>
-              💡 Tip: You can change Oxul's personality anytime from the Settings menu. 
+              💡 Tip: You can change Oxul&apos;s personality anytime from the Settings menu. 
               Each personality maintains the same AI capabilities but adjusts communication style.
             </Text>
           </View>
@@ -186,142 +186,142 @@ const PersonalitySelector = ({ visible, onClose, onSelectPersonality, currentPer
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: BrandConfig.colors.background,
-  },
-  header: {
-    flexDirection: 'row',
+  cardHeader: {
     alignItems: 'center',
-    justifyContent: 'space-between',
-    paddingHorizontal: 20,
-    paddingVertical: 16,
-    borderBottomWidth: 1,
-    borderBottomColor: BrandConfig.colors.border,
-    backgroundColor: BrandConfig.colors.surface,
+    flexDirection: 'row',
+    marginBottom: 12,
+  },
+  cardTitle: {
+    flex: 1,
   },
   closeButton: {
     padding: 8,
   },
-  title: {
-    fontSize: 18,
-    fontWeight: '600',
-    color: BrandConfig.colors.textPrimary,
-    flex: 1,
-    textAlign: 'center',
-  },
   confirmButton: {
     backgroundColor: BrandConfig.colors.primary,
+    borderRadius: 8,
     paddingHorizontal: 16,
     paddingVertical: 8,
-    borderRadius: 8,
   },
   confirmText: {
     color: BrandConfig.colors.textWhite,
     fontWeight: '600',
   },
+  container: {
+    backgroundColor: BrandConfig.colors.background,
+    flex: 1,
+  },
   content: {
     flex: 1,
     paddingHorizontal: 20,
-  },
-  subtitle: {
-    fontSize: 16,
-    color: BrandConfig.colors.textSecondary,
-    marginVertical: 20,
-    lineHeight: 22,
-  },
-  personalityCard: {
-    backgroundColor: BrandConfig.colors.surface,
-    borderRadius: 12,
-    padding: 16,
-    marginBottom: 16,
-    borderWidth: 2,
-    borderColor: BrandConfig.colors.border,
-  },
-  selectedCard: {
-    borderColor: BrandConfig.colors.primary,
-    backgroundColor: BrandConfig.colors.backgroundTertiary,
-  },
-  cardHeader: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginBottom: 12,
-  },
-  iconContainer: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
-    backgroundColor: BrandConfig.colors.backgroundSecondary,
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginRight: 12,
-  },
-  cardTitle: {
-    flex: 1,
-  },
-  personalityName: {
-    fontSize: 16,
-    fontWeight: '600',
-    color: BrandConfig.colors.textPrimary,
-    marginBottom: 4,
-  },
-  selectedText: {
-    color: BrandConfig.colors.primary,
-  },
-  personalityDescription: {
-    fontSize: 14,
-    color: BrandConfig.colors.textSecondary,
-    lineHeight: 18,
   },
   greetingContainer: {
     marginBottom: 12,
   },
   greetingLabel: {
+    color: BrandConfig.colors.textPrimary,
     fontSize: 14,
     fontWeight: '500',
-    color: BrandConfig.colors.textPrimary,
     marginBottom: 6,
   },
   greetingText: {
-    fontSize: 14,
+    backgroundColor: BrandConfig.colors.backgroundSecondary,
+    borderRadius: 8,
     color: BrandConfig.colors.textSecondary,
+    fontSize: 14,
     fontStyle: 'italic',
     lineHeight: 20,
     padding: 12,
+  },
+  header: {
+    alignItems: 'center',
+    backgroundColor: BrandConfig.colors.surface,
+    borderBottomColor: BrandConfig.colors.border,
+    borderBottomWidth: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingHorizontal: 20,
+    paddingVertical: 16,
+  },
+  iconContainer: {
+    alignItems: 'center',
     backgroundColor: BrandConfig.colors.backgroundSecondary,
-    borderRadius: 8,
+    borderRadius: 20,
+    height: 40,
+    justifyContent: 'center',
+    marginRight: 12,
+    width: 40,
+  },
+  personalityCard: {
+    backgroundColor: BrandConfig.colors.surface,
+    borderColor: BrandConfig.colors.border,
+    borderRadius: 12,
+    borderWidth: 2,
+    marginBottom: 16,
+    padding: 16,
+  },
+  personalityDescription: {
+    color: BrandConfig.colors.textSecondary,
+    fontSize: 14,
+    lineHeight: 18,
+  },
+  personalityName: {
+    color: BrandConfig.colors.textPrimary,
+    fontSize: 16,
+    fontWeight: '600',
+    marginBottom: 4,
+  },
+  selectedCard: {
+    backgroundColor: BrandConfig.colors.backgroundTertiary,
+    borderColor: BrandConfig.colors.primary,
+  },
+  selectedText: {
+    color: BrandConfig.colors.primary,
   },
   styleContainer: {
     marginTop: 8,
   },
+  styleItem: {
+    color: BrandConfig.colors.textSecondary,
+    fontSize: 13,
+    lineHeight: 18,
+  },
   styleLabel: {
+    color: BrandConfig.colors.textPrimary,
     fontSize: 14,
     fontWeight: '500',
-    color: BrandConfig.colors.textPrimary,
     marginBottom: 6,
   },
   styleRow: {
     gap: 4,
   },
-  styleItem: {
-    fontSize: 13,
+  subtitle: {
     color: BrandConfig.colors.textSecondary,
-    lineHeight: 18,
+    fontSize: 16,
+    lineHeight: 22,
+    marginVertical: 20,
   },
   tipContainer: {
-    flexDirection: 'row',
     alignItems: 'flex-start',
     backgroundColor: BrandConfig.colors.backgroundSecondary,
-    padding: 16,
     borderRadius: 12,
-    marginVertical: 20,
+    flexDirection: 'row',
     gap: 12,
+    marginVertical: 20,
+    padding: 16,
   },
   tipText: {
+    color: BrandConfig.colors.textSecondary,
     flex: 1,
     fontSize: 14,
-    color: BrandConfig.colors.textSecondary,
     lineHeight: 20,
+  },
+  title: {
+    color: BrandConfig.colors.textPrimary,
+    flex: 1,
+    fontSize: 18,
+    fontWeight: '600',
+    textAlign: 'center',
   },
 });
 

@@ -3,7 +3,7 @@
  * Provides secure access control for the fraud detection system
  */
 
-import LicenseAuthenticationService from './LicenseAuthenticationService.js';
+import LicenseAuthenticationService from '../services/LicenseAuthenticationService.js';
 
 class AuthenticationMiddleware {
   constructor() {

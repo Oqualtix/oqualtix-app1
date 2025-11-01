@@ -2,7 +2,7 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { StatusBar } from 'expo-status-bar';
 
-const ThemeContext = createContext();
+export const ThemeContext = createContext();
 
 export const useTheme = () => {
   const context = useContext(ThemeContext);

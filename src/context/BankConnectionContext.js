@@ -2,7 +2,7 @@ import React, { createContext, useContext, useState, useEffect, useRef } from 'r
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import FraudDetectionUtil from '../utils/FraudDetectionUtil';
 import LocationFraudDetection from '../utils/LocationFraudDetection';
-import { useNotification } from './NotificationContext';
+import { useNotifications } from './NotificationContext';
 import { Alert } from 'react-native';
 
 const BankConnectionContext = createContext();
@@ -24,7 +24,7 @@ export const BankConnectionProvider = ({ children }) => {
   const [currentLocation, setCurrentLocation] = useState(null);
   const [connectionStatus, setConnectionStatus] = useState('idle'); // idle, connecting, connected, error
   const [lastSyncTime, setLastSyncTime] = useState(null);
-  const { scheduleNotification } = useNotification();
+  const { scheduleNotification } = useNotifications();
 
   // Load saved bank connections on app start
   useEffect(() => {

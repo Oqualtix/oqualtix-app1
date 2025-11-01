@@ -11,14 +11,16 @@ import LocationFraudDetection from './LocationFraudDetection';
 
 export class FraudDetectionUtil {
   // Standard fraud detection thresholds
-  static THRESHOLDS = {
-    REPORTING_LIMITS: [5000, 10000, 25000, 50000],
-    EVASION_BUFFER: 100, // Amount below threshold to flag
-    MIN_TRANSACTIONS_FOR_STATS: 3,
-    HIGH_RISK_SCORE: 80,
-    MEDIUM_RISK_SCORE: 60,
-    ROUND_DOLLAR_MIN: 1000,
-  };
+  static getThresholds() {
+    return {
+      REPORTING_LIMITS: [5000, 10000, 25000, 50000],
+      EVASION_BUFFER: 100, // Amount below threshold to flag
+      MIN_TRANSACTIONS_FOR_STATS: 3,
+      HIGH_RISK_SCORE: 80,
+      MEDIUM_RISK_SCORE: 60,
+      ROUND_DOLLAR_MIN: 1000,
+    };
+  }
 
   /**
    * Calculate statistical measures for transaction amounts
@@ -57,7 +59,7 @@ export class FraudDetectionUtil {
     ).map(t => Math.abs(t.amount));
 
     // Statistical outlier detection
-    if (relevantHistory.length >= this.THRESHOLDS.MIN_TRANSACTIONS_FOR_STATS) {
+    if (relevantHistory.length >= this.getThresholds().MIN_TRANSACTIONS_FOR_STATS) {
       const stats = this.calculateStats(relevantHistory);
       
       if (amount > stats.threshold3Sigma) {
@@ -73,7 +75,7 @@ export class FraudDetectionUtil {
     }
 
     // Round dollar detection
-    if (amount >= this.THRESHOLDS.ROUND_DOLLAR_MIN && amount % 1000 === 0) {
+    if (amount >= this.getThresholds().ROUND_DOLLAR_MIN && amount % 1000 === 0) {
       anomalies.push({
         type: 'Round Dollar Pattern',
         severity: 'MEDIUM',
@@ -84,8 +86,8 @@ export class FraudDetectionUtil {
     }
 
     // Threshold evasion detection
-    for (const threshold of this.THRESHOLDS.REPORTING_LIMITS) {
-      if (threshold - this.THRESHOLDS.EVASION_BUFFER <= amount && amount < threshold) {
+    for (const threshold of this.getThresholds().REPORTING_LIMITS) {
+      if (threshold - this.getThresholds().EVASION_BUFFER <= amount && amount < threshold) {
         anomalies.push({
           type: 'Threshold Evasion',
           severity: 'HIGH',
@@ -164,7 +166,7 @@ export class FraudDetectionUtil {
       anomalies,
       riskScore: finalRiskScore,
       riskLevel: this.getRiskLevel(finalRiskScore),
-      requiresReview: finalRiskScore >= this.THRESHOLDS.MEDIUM_RISK_SCORE,
+      requiresReview: finalRiskScore >= this.getThresholds().MEDIUM_RISK_SCORE,
       
       // FX-specific data
       fxAnalysis: fxAnalysis.isFXTransaction ? fxAnalysis : null,
@@ -200,8 +202,8 @@ export class FraudDetectionUtil {
    */
   static getRiskLevel(score) {
     if (score >= 90) return 'CRITICAL';
-    if (score >= this.THRESHOLDS.HIGH_RISK_SCORE) return 'HIGH';
-    if (score >= this.THRESHOLDS.MEDIUM_RISK_SCORE) return 'MEDIUM';
+    if (score >= this.getThresholds().HIGH_RISK_SCORE) return 'HIGH';
+    if (score >= this.getThresholds().MEDIUM_RISK_SCORE) return 'MEDIUM';
     if (score >= 30) return 'LOW';
     return 'NORMAL';
   }
@@ -517,7 +519,7 @@ export class FraudDetectionUtil {
    */
   static shouldTriggerAlert(analysis) {
     // Basic threshold check
-    const basicTrigger = analysis.riskScore >= this.THRESHOLDS.MEDIUM_RISK_SCORE || 
+    const basicTrigger = analysis.riskScore >= this.getThresholds().MEDIUM_RISK_SCORE || 
                         analysis.anomalies.some(a => a.severity === 'CRITICAL');
     
     // Advanced triggering for enhanced analysis

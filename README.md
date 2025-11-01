@@ -353,21 +353,23 @@ Oqualtix Forensics is an enterprise-grade financial fraud detection platform pow
 ## Demo Accounts
 
 ### Admin Account
-- **Email**: admin@oqualtix.com
-- **Password**: admin123
+- **Email**: Oqualtix@outlook.com
+- **Password**: OqualtixAdmin2025!
 - **Access**: Global admin with full system access
-- **Permissions**: User management, company oversight, system configuration
+- **Permissions**: User management, access code generation, system configuration
 
-### Company A User
-- **Email**: john.doe@companyA.com
-- **Password**: user123
-- **Company**: Tech Solutions Inc.
-- **Role**: Financial Analyst
-- **Access**: Company A data only
+### User Access (Code-Based System)
+- **Email**: Any valid email address
+- **Access Code**: DEMO2025 (Demo code)
+- **Instructions**: Enter your email and access code from admin
+- **Auto-Registration**: Account created automatically on first valid login
 
-### Company B User
-- **Email**: mike.wilson@companyB.com
-- **Password**: user123
+### How It Works
+1. **Admin generates access codes** for new users through admin panel
+2. **Users receive codes** via secure channel (email, SMS, etc.)
+3. **First login creates account** using email + access code
+4. **Subsequent logins** use email + same access code
+5. **Codes expire** after 30 days and become single-use per email
 - **Company**: Manufacturing Corp
 - **Role**: Senior Auditor
 - **Access**: Company B data only

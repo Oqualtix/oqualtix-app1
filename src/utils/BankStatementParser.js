@@ -396,7 +396,7 @@ class BankStatementParser {
     lines.forEach((line, index) => {
       try {
         // Look for date patterns and amounts
-        const dateMatch = line.match(/(\d{1,2}[\/\-]\d{1,2}[\/\-]\d{2,4})/);
+        const dateMatch = line.match(/(\d{1,2}[/-]\d{1,2}[/-]\d{2,4})/);
         const amountMatch = line.match(/\$?([\d,]+\.?\d*)/);
 
         if (dateMatch && amountMatch) {

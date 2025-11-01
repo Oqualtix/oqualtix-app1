@@ -381,291 +381,291 @@ const AlgorithmTrainer = ({ visible, onClose, onSaveCustomAlgorithm }) => {
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: BrandConfig.colors.background,
-  },
-  header: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    paddingHorizontal: 20,
-    paddingVertical: 16,
-    borderBottomWidth: 1,
-    borderBottomColor: BrandConfig.colors.border,
-    backgroundColor: BrandConfig.colors.surface,
-  },
-  closeButton: {
-    padding: 8,
-  },
-  title: {
-    fontSize: 18,
-    fontWeight: '600',
-    color: BrandConfig.colors.textPrimary,
-  },
-  placeholder: {
-    width: 40,
-  },
-  progressSteps: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingVertical: 20,
-    backgroundColor: BrandConfig.colors.backgroundSecondary,
-  },
-  progressStep: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  progressStepCircle: {
-    width: 32,
-    height: 32,
-    borderRadius: 16,
-    backgroundColor: BrandConfig.colors.border,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
   activeStep: {
     backgroundColor: BrandConfig.colors.primary,
   },
-  progressStepText: {
-    fontSize: 14,
-    fontWeight: '600',
-    color: BrandConfig.colors.textMuted,
-  },
   activeStepText: {
     color: BrandConfig.colors.textWhite,
-  },
-  progressStepLine: {
-    width: 40,
-    height: 2,
-    backgroundColor: BrandConfig.colors.border,
-    marginHorizontal: 8,
-  },
-  content: {
-    flex: 1,
-    paddingHorizontal: 20,
-  },
-  stepContainer: {
-    paddingVertical: 20,
-  },
-  stepTitle: {
-    fontSize: 24,
-    fontWeight: '700',
-    color: BrandConfig.colors.textPrimary,
-    marginBottom: 8,
-  },
-  stepDescription: {
-    fontSize: 16,
-    color: BrandConfig.colors.textSecondary,
-    lineHeight: 22,
-    marginBottom: 24,
-  },
-  templatesContainer: {
-    maxHeight: 400,
-  },
-  templateCard: {
-    backgroundColor: BrandConfig.colors.surface,
-    borderRadius: 12,
-    padding: 16,
-    marginBottom: 16,
-    borderWidth: 2,
-    borderColor: BrandConfig.colors.border,
-  },
-  selectedTemplate: {
-    borderColor: BrandConfig.colors.primary,
-    backgroundColor: BrandConfig.colors.backgroundTertiary,
-  },
-  templateHeader: {
-    flexDirection: 'row',
-    alignItems: 'flex-start',
-    marginBottom: 12,
-  },
-  templateIcon: {
-    width: 48,
-    height: 48,
-    borderRadius: 24,
-    backgroundColor: BrandConfig.colors.backgroundSecondary,
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginRight: 12,
-  },
-  templateInfo: {
-    flex: 1,
-  },
-  templateName: {
-    fontSize: 16,
-    fontWeight: '600',
-    color: BrandConfig.colors.textPrimary,
-    marginBottom: 4,
-  },
-  templateDescription: {
-    fontSize: 14,
-    color: BrandConfig.colors.textSecondary,
-    lineHeight: 18,
-  },
-  templateDetails: {
-    gap: 8,
-  },
-  templateRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  templateLabel: {
-    fontSize: 14,
-    fontWeight: '500',
-    color: BrandConfig.colors.textPrimary,
-    width: 120,
-  },
-  templateValue: {
-    fontSize: 14,
-    color: BrandConfig.colors.textSecondary,
-    flex: 1,
-  },
-  uploadButton: {
-    backgroundColor: BrandConfig.colors.surface,
-    borderRadius: 12,
-    padding: 40,
-    alignItems: 'center',
-    borderWidth: 2,
-    borderColor: BrandConfig.colors.primary,
-    borderStyle: 'dashed',
-    marginBottom: 24,
-  },
-  uploadButtonText: {
-    fontSize: 18,
-    fontWeight: '600',
-    color: BrandConfig.colors.primary,
-    marginTop: 8,
-  },
-  uploadButtonSubtext: {
-    fontSize: 14,
-    color: BrandConfig.colors.textSecondary,
-    marginTop: 4,
-  },
-  filesContainer: {
-    marginBottom: 24,
-  },
-  filesHeader: {
-    fontSize: 16,
-    fontWeight: '600',
-    color: BrandConfig.colors.textPrimary,
-    marginBottom: 12,
-  },
-  fileItem: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: BrandConfig.colors.surface,
-    padding: 12,
-    borderRadius: 8,
-    marginBottom: 8,
-    gap: 12,
-  },
-  fileInfo: {
-    flex: 1,
-  },
-  fileName: {
-    fontSize: 14,
-    color: BrandConfig.colors.textPrimary,
-    fontWeight: '500',
-  },
-  fileSize: {
-    fontSize: 12,
-    color: BrandConfig.colors.textSecondary,
   },
   algorithmConfig: {
     gap: 16,
     marginBottom: 24,
   },
-  input: {
+  closeButton: {
+    padding: 8,
+  },
+  container: {
+    backgroundColor: BrandConfig.colors.background,
+    flex: 1,
+  },
+  content: {
+    flex: 1,
+    paddingHorizontal: 20,
+  },
+  deployButton: {
+    alignItems: 'center',
+    backgroundColor: BrandConfig.colors.success,
+    borderRadius: 8,
+    padding: 16,
+  },
+  deployButtonText: {
+    color: BrandConfig.colors.textWhite,
+    fontSize: 16,
+    fontWeight: '600',
+  },
+  fileInfo: {
+    flex: 1,
+  },
+  fileItem: {
+    alignItems: 'center',
     backgroundColor: BrandConfig.colors.surface,
     borderRadius: 8,
+    flexDirection: 'row',
+    gap: 12,
+    marginBottom: 8,
     padding: 12,
-    fontSize: 16,
-    color: BrandConfig.colors.textPrimary,
-    borderWidth: 1,
-    borderColor: BrandConfig.colors.border,
   },
-  textArea: {
-    height: 80,
-    textAlignVertical: 'top',
+  fileName: {
+    color: BrandConfig.colors.textPrimary,
+    fontSize: 14,
+    fontWeight: '500',
+  },
+  fileSize: {
+    color: BrandConfig.colors.textSecondary,
+    fontSize: 12,
+  },
+  filesContainer: {
+    marginBottom: 24,
+  },
+  filesHeader: {
+    color: BrandConfig.colors.textPrimary,
+    fontSize: 16,
+    fontWeight: '600',
+    marginBottom: 12,
+  },
+  header: {
+    alignItems: 'center',
+    backgroundColor: BrandConfig.colors.surface,
+    borderBottomColor: BrandConfig.colors.border,
+    borderBottomWidth: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingHorizontal: 20,
+    paddingVertical: 16,
+  },
+  input: {
+    backgroundColor: BrandConfig.colors.surface,
+    borderColor: BrandConfig.colors.border,
+    borderRadius: 8,
+    borderWidth: 1,
+    color: BrandConfig.colors.textPrimary,
+    fontSize: 16,
+    padding: 12,
+  },
+  placeholder: {
+    width: 40,
+  },
+  progressBar: {
+    backgroundColor: BrandConfig.colors.border,
+    borderRadius: 4,
+    height: 8,
+    marginBottom: 12,
+    overflow: 'hidden',
+  },
+  progressContainer: {
+    marginBottom: 32,
+  },
+  progressFill: {
+    backgroundColor: BrandConfig.colors.primary,
+    height: '100%',
+  },
+  progressStep: {
+    alignItems: 'center',
+    flexDirection: 'row',
+  },
+  progressStepCircle: {
+    alignItems: 'center',
+    backgroundColor: BrandConfig.colors.border,
+    borderRadius: 16,
+    height: 32,
+    justifyContent: 'center',
+    width: 32,
+  },
+  progressStepLine: {
+    backgroundColor: BrandConfig.colors.border,
+    height: 2,
+    marginHorizontal: 8,
+    width: 40,
+  },
+  progressStepText: {
+    color: BrandConfig.colors.textMuted,
+    fontSize: 14,
+    fontWeight: '600',
+  },
+  progressSteps: {
+    alignItems: 'center',
+    backgroundColor: BrandConfig.colors.backgroundSecondary,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    paddingVertical: 20,
+  },
+  progressText: {
+    color: BrandConfig.colors.textPrimary,
+    fontSize: 16,
+    fontWeight: '600',
+    textAlign: 'center',
+  },
+  resultItem: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  resultLabel: {
+    color: BrandConfig.colors.textSecondary,
+    fontSize: 16,
+  },
+  resultValue: {
+    color: BrandConfig.colors.primary,
+    fontSize: 18,
+    fontWeight: '600',
+  },
+  resultsContainer: {
+    backgroundColor: BrandConfig.colors.surface,
+    borderRadius: 12,
+    gap: 16,
+    marginBottom: 24,
+    padding: 20,
+  },
+  selectedTemplate: {
+    backgroundColor: BrandConfig.colors.backgroundTertiary,
+    borderColor: BrandConfig.colors.primary,
   },
   startTrainingButton: {
+    alignItems: 'center',
     backgroundColor: BrandConfig.colors.primary,
     borderRadius: 8,
     padding: 16,
-    alignItems: 'center',
   },
   startTrainingButtonText: {
     color: BrandConfig.colors.textWhite,
     fontSize: 16,
     fontWeight: '600',
   },
-  progressContainer: {
-    marginBottom: 32,
+  stepContainer: {
+    paddingVertical: 20,
   },
-  progressBar: {
-    height: 8,
-    backgroundColor: BrandConfig.colors.border,
-    borderRadius: 4,
-    overflow: 'hidden',
+  stepDescription: {
+    color: BrandConfig.colors.textSecondary,
+    fontSize: 16,
+    lineHeight: 22,
+    marginBottom: 24,
+  },
+  stepTitle: {
+    color: BrandConfig.colors.textPrimary,
+    fontSize: 24,
+    fontWeight: '700',
+    marginBottom: 8,
+  },
+  templateCard: {
+    backgroundColor: BrandConfig.colors.surface,
+    borderColor: BrandConfig.colors.border,
+    borderRadius: 12,
+    borderWidth: 2,
+    marginBottom: 16,
+    padding: 16,
+  },
+  templateDescription: {
+    color: BrandConfig.colors.textSecondary,
+    fontSize: 14,
+    lineHeight: 18,
+  },
+  templateDetails: {
+    gap: 8,
+  },
+  templateHeader: {
+    alignItems: 'flex-start',
+    flexDirection: 'row',
     marginBottom: 12,
   },
-  progressFill: {
-    height: '100%',
-    backgroundColor: BrandConfig.colors.primary,
-  },
-  progressText: {
-    textAlign: 'center',
-    fontSize: 16,
-    fontWeight: '600',
-    color: BrandConfig.colors.textPrimary,
-  },
-  trainingInfo: {
-    flexDirection: 'row',
+  templateIcon: {
     alignItems: 'center',
     backgroundColor: BrandConfig.colors.backgroundSecondary,
-    padding: 16,
-    borderRadius: 8,
-    gap: 12,
+    borderRadius: 24,
+    height: 48,
+    justifyContent: 'center',
+    marginRight: 12,
+    width: 48,
   },
-  trainingInfoText: {
+  templateInfo: {
+    flex: 1,
+  },
+  templateLabel: {
+    color: BrandConfig.colors.textPrimary,
+    fontSize: 14,
+    fontWeight: '500',
+    width: 120,
+  },
+  templateName: {
+    color: BrandConfig.colors.textPrimary,
+    fontSize: 16,
+    fontWeight: '600',
+    marginBottom: 4,
+  },
+  templateRow: {
+    alignItems: 'center',
+    flexDirection: 'row',
+  },
+  templateValue: {
+    color: BrandConfig.colors.textSecondary,
     flex: 1,
     fontSize: 14,
-    color: BrandConfig.colors.textSecondary,
-    lineHeight: 20,
   },
-  resultsContainer: {
-    backgroundColor: BrandConfig.colors.surface,
-    borderRadius: 12,
-    padding: 20,
-    marginBottom: 24,
-    gap: 16,
+  templatesContainer: {
+    maxHeight: 400,
   },
-  resultItem: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
+  textArea: {
+    height: 80,
+    textAlignVertical: 'top',
   },
-  resultLabel: {
-    fontSize: 16,
-    color: BrandConfig.colors.textSecondary,
-  },
-  resultValue: {
+  title: {
+    color: BrandConfig.colors.textPrimary,
     fontSize: 18,
     fontWeight: '600',
-    color: BrandConfig.colors.primary,
   },
-  deployButton: {
-    backgroundColor: BrandConfig.colors.success,
-    borderRadius: 8,
-    padding: 16,
+  trainingInfo: {
     alignItems: 'center',
+    backgroundColor: BrandConfig.colors.backgroundSecondary,
+    borderRadius: 8,
+    flexDirection: 'row',
+    gap: 12,
+    padding: 16,
   },
-  deployButtonText: {
-    color: BrandConfig.colors.textWhite,
-    fontSize: 16,
+  trainingInfoText: {
+    color: BrandConfig.colors.textSecondary,
+    flex: 1,
+    fontSize: 14,
+    lineHeight: 20,
+  },
+  uploadButton: {
+    alignItems: 'center',
+    backgroundColor: BrandConfig.colors.surface,
+    borderColor: BrandConfig.colors.primary,
+    borderRadius: 12,
+    borderStyle: 'dashed',
+    borderWidth: 2,
+    marginBottom: 24,
+    padding: 40,
+  },
+  uploadButtonSubtext: {
+    color: BrandConfig.colors.textSecondary,
+    fontSize: 14,
+    marginTop: 4,
+  },
+  uploadButtonText: {
+    color: BrandConfig.colors.primary,
+    fontSize: 18,
     fontWeight: '600',
+    marginTop: 8,
   },
 });
 

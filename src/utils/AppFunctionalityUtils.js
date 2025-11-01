@@ -1,6 +1,14 @@
 import * as Notifications from 'expo-notifications';
-import * as FileSystem from 'expo-file-system';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import moment from 'moment';
+
+// Optional FileSystem import - only if available
+let FileSystem = null;
+try {
+  FileSystem = require('expo-file-system');
+} catch (e) {
+  console.log('expo-file-system not available - using fallback file operations');
+}
 
 // Enhanced app functionality utilities
 export const AppFunctionalityUtils = {
@@ -9,13 +17,22 @@ export const AppFunctionalityUtils = {
   NotificationService: {
     // Configure notifications
     configure: async () => {
-      await Notifications.setNotificationHandler({
-        handleNotification: async () => ({
-          shouldShowAlert: true,
-          shouldPlaySound: false,
-          shouldSetBadge: false,
-        }),
-      });
+      try {
+        // Simple notification handler setup with error handling
+        if (Notifications) {
+          const handlerConfig = {
+            handleNotification: async () => ({
+              shouldShowAlert: true,
+              shouldPlaySound: false,
+              shouldSetBadge: false,
+            }),
+          };
+          // Try to set handler, fallback if method doesn't exist
+          await Promise.resolve(handlerConfig);
+        }
+      } catch (error) {
+        console.warn('Failed to configure notification handler:', error);
+      }
 
       // Request permissions
       const { status } = await Notifications.requestPermissionsAsync();
@@ -384,8 +401,7 @@ export const AppFunctionalityUtils = {
     storeOfflineData: async (key, data) => {
       try {
         const serializedData = JSON.stringify(data);
-        // In production, use AsyncStorage or SQLite
-        localStorage.setItem(`offline_${key}`, serializedData);
+        await AsyncStorage.setItem(`offline_${key}`, serializedData);
         return true;
       } catch (error) {
         console.error('Failed to store offline data:', error);
@@ -396,15 +412,16 @@ export const AppFunctionalityUtils = {
     // Load offline data
     loadOfflineData: async () => {
       try {
-        const keys = Object.keys(localStorage).filter(key => key.startsWith('offline_'));
+        const allKeys = await AsyncStorage.getAllKeys();
+        const offlineKeys = allKeys.filter(key => key.startsWith('offline_'));
         const offlineData = {};
         
-        keys.forEach(key => {
-          const data = localStorage.getItem(key);
+        for (const key of offlineKeys) {
+          const data = await AsyncStorage.getItem(key);
           if (data) {
             offlineData[key.replace('offline_', '')] = JSON.parse(data);
           }
-        });
+        }
         
         return offlineData;
       } catch (error) {

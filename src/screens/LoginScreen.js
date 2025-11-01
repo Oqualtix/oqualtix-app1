@@ -106,8 +106,9 @@ const LoginScreen = ({ navigation }) => {
               {/* Demo Credentials */}
               <View style={styles.demoContainer}>
                 <Text style={styles.demoTitle}>Demo Credentials:</Text>
-                <Text style={styles.demoText}>Admin: admin@oqualtix.com / admin123</Text>
-                <Text style={styles.demoText}>User: user@oqualtix.com / user123</Text>
+                <Text style={styles.demoText}>Admin: Oqualtix@outlook.com / OqualtixAdmin2025!</Text>
+                <Text style={styles.demoText}>User: Any email + Access Code (Demo: DEMO2025)</Text>
+                <Text style={styles.demoSmallText}>Users enter their email and access code from admin</Text>
               </View>
             </View>
           </View>
@@ -121,35 +122,41 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-  gradient: {
-    flex: 1,
-  },
-  keyboardView: {
-    flex: 1,
-  },
   content: {
     flex: 1,
     justifyContent: 'center',
     paddingHorizontal: 30,
   },
-  logoContainer: {
-    alignItems: 'center',
-    marginBottom: 50,
+  demoContainer: {
+    backgroundColor: '#f5f5f5',
+    borderRadius: 10,
+    marginTop: 30,
+    padding: 15,
   },
-  logoText: {
-    fontSize: 32,
-    fontWeight: 'bold',
-    color: '#fff',
-    marginTop: 10,
+  demoText: {
+    color: '#666',
+    fontSize: 12,
+    marginBottom: 2,
   },
-  tagline: {
-    fontSize: 16,
-    color: '#E3F2FD',
+  demoSmallText: {
+    color: '#888',
+    fontSize: 10,
+    fontStyle: 'italic',
     marginTop: 5,
+  },
+  demoTitle: {
+    color: '#333',
+    fontSize: 14,
+    fontWeight: 'bold',
+    marginBottom: 5,
+  },
+  eyeIcon: {
+    padding: 5,
   },
   formContainer: {
     backgroundColor: '#fff',
     borderRadius: 20,
+    elevation: 5,
     padding: 30,
     shadowColor: '#000',
     shadowOffset: {
@@ -158,42 +165,37 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
-    elevation: 5,
   },
-  welcomeText: {
-    fontSize: 24,
-    fontWeight: 'bold',
+  gradient: {
+    flex: 1,
+  },
+  input: {
     color: '#333',
-    textAlign: 'center',
-    marginBottom: 30,
+    flex: 1,
+    fontSize: 16,
   },
   inputContainer: {
-    flexDirection: 'row',
     alignItems: 'center',
-    borderWidth: 1,
     borderColor: '#ddd',
     borderRadius: 10,
+    borderWidth: 1,
+    flexDirection: 'row',
+    height: 50,
     marginBottom: 20,
     paddingHorizontal: 15,
-    height: 50,
   },
   inputIcon: {
     marginRight: 10,
   },
-  input: {
+  keyboardView: {
     flex: 1,
-    fontSize: 16,
-    color: '#333',
-  },
-  eyeIcon: {
-    padding: 5,
   },
   loginButton: {
+    alignItems: 'center',
     backgroundColor: '#2196F3',
     borderRadius: 10,
     height: 50,
     justifyContent: 'center',
-    alignItems: 'center',
     marginTop: 10,
   },
   loginButtonDisabled: {
@@ -204,22 +206,27 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
   },
-  demoContainer: {
-    marginTop: 30,
-    padding: 15,
-    backgroundColor: '#f5f5f5',
-    borderRadius: 10,
+  logoContainer: {
+    alignItems: 'center',
+    marginBottom: 50,
   },
-  demoTitle: {
-    fontSize: 14,
+  logoText: {
+    color: '#fff',
+    fontSize: 32,
     fontWeight: 'bold',
-    color: '#333',
-    marginBottom: 5,
+    marginTop: 10,
   },
-  demoText: {
-    fontSize: 12,
-    color: '#666',
-    marginBottom: 2,
+  tagline: {
+    color: '#E3F2FD',
+    fontSize: 16,
+    marginTop: 5,
+  },
+  welcomeText: {
+    color: '#333',
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 30,
+    textAlign: 'center',
   },
 });
 

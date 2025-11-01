@@ -249,220 +249,20 @@ const CorporateDashboard = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
-  container: {
+  actionButton: {
+    alignItems: 'center',
+    backgroundColor: BrandConfig.colors.primary,
+    borderRadius: 12,
     flex: 1,
-    backgroundColor: '#F8F9FA',
-  },
-  header: {
-    padding: 20,
-    paddingTop: 50,
-    borderBottomLeftRadius: 30,
-    borderBottomRightRadius: 30,
-  },
-  headerTitle: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    color: 'white',
-    marginBottom: 5,
-  },
-  headerSubtitle: {
-    fontSize: 16,
-    color: 'rgba(255, 255, 255, 0.9)',
-    marginBottom: 20,
-  },
-  quickStats: {
     flexDirection: 'row',
-    justifyContent: 'space-around',
-    backgroundColor: 'rgba(255, 255, 255, 0.1)',
-    borderRadius: 15,
+    justifyContent: 'center',
+    marginHorizontal: 5,
     padding: 15,
   },
-  quickStat: {
-    alignItems: 'center',
-  },
-  quickStatValue: {
-    fontSize: 20,
-    fontWeight: 'bold',
+  actionButtonText: {
     color: 'white',
-  },
-  quickStatLabel: {
-    fontSize: 12,
-    color: 'rgba(255, 255, 255, 0.8)',
-    marginTop: 2,
-  },
-  consolidatedContainer: {
-    padding: 20,
-  },
-  sectionTitle: {
-    fontSize: 20,
     fontWeight: 'bold',
-    color: BrandConfig.colors.text,
-    marginBottom: 15,
-  },
-  sectionSubtitle: {
-    fontSize: 14,
-    color: BrandConfig.colors.textSecondary,
-    marginBottom: 15,
-  },
-  metricsGrid: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    justifyContent: 'space-between',
-    marginBottom: 20,
-  },
-  gridItem: {
-    width: '48%',
-    marginBottom: 15,
-  },
-  metricGradient: {
-    padding: 20,
-    borderRadius: 15,
-    alignItems: 'center',
-  },
-  gridValue: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    color: 'white',
-    marginTop: 10,
-  },
-  gridLabel: {
-    fontSize: 12,
-    color: 'rgba(255, 255, 255, 0.9)',
-    marginTop: 5,
-    textAlign: 'center',
-  },
-  crossEntitySection: {
-    backgroundColor: 'white',
-    borderRadius: 15,
-    padding: 20,
-    marginTop: 10,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 3,
-  },
-  crossEntityTitle: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    color: BrandConfig.colors.text,
-    marginBottom: 15,
-  },
-  patternAlert: {
-    flexDirection: 'row',
-    alignItems: 'flex-start',
-    backgroundColor: BrandConfig.colors.background,
-    padding: 15,
-    borderRadius: 10,
-    borderLeftWidth: 4,
-    borderLeftColor: BrandConfig.colors.primary,
-  },
-  patternContent: {
-    flex: 1,
-    marginLeft: 10,
-  },
-  patternText: {
-    fontSize: 14,
-    fontWeight: '600',
-    color: BrandConfig.colors.text,
-    marginBottom: 5,
-  },
-  patternSubtext: {
-    fontSize: 12,
-    color: BrandConfig.colors.textSecondary,
-  },
-  entitiesSection: {
-    padding: 20,
-  },
-  entityCard: {
-    backgroundColor: 'white',
-    borderRadius: 15,
-    padding: 20,
-    marginBottom: 15,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 3,
-    borderLeftWidth: 4,
-    borderLeftColor: '#34C759',
-  },
-  highRiskCard: {
-    borderLeftColor: '#FF3B30',
-  },
-  mediumRiskCard: {
-    borderLeftColor: '#FF9500',
-  },
-  entityHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: 10,
-  },
-  entityName: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    color: BrandConfig.colors.text,
-    flex: 1,
-  },
-  riskBadge: {
-    paddingHorizontal: 10,
-    paddingVertical: 4,
-    borderRadius: 10,
-    backgroundColor: '#FF3B30',
-  },
-  highRiskBadge: {
-    backgroundColor: '#FF3B30',
-  },
-  mediumRiskBadge: {
-    backgroundColor: '#FF9500',
-  },
-  lowRiskBadge: {
-    backgroundColor: '#34C759',
-  },
-  riskText: {
-    fontSize: 10,
-    fontWeight: 'bold',
-    color: 'white',
-  },
-  lowRiskText: {
-    color: 'white',
-  },
-  entityLocation: {
-    fontSize: 12,
-    color: BrandConfig.colors.textSecondary,
-    marginBottom: 15,
-  },
-  entityMetrics: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-  },
-  metric: {
-    alignItems: 'center',
-  },
-  metricValue: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    color: BrandConfig.colors.text,
-  },
-  metricLabel: {
-    fontSize: 12,
-    color: BrandConfig.colors.textSecondary,
-    marginTop: 2,
-  },
-  alertBanner: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: '#FFF2F2',
-    padding: 10,
-    borderRadius: 8,
-    marginTop: 15,
-  },
-  alertText: {
-    fontSize: 12,
-    color: '#FF3B30',
-    fontWeight: '600',
-    marginLeft: 5,
+    marginLeft: 8,
   },
   actionButtons: {
     flexDirection: 'row',
@@ -470,20 +270,220 @@ const styles = StyleSheet.create({
     padding: 20,
     paddingBottom: 40,
   },
-  actionButton: {
-    flex: 1,
-    backgroundColor: BrandConfig.colors.primary,
-    flexDirection: 'row',
+  alertBanner: {
     alignItems: 'center',
-    justifyContent: 'center',
-    padding: 15,
-    borderRadius: 12,
-    marginHorizontal: 5,
+    backgroundColor: '#FFF2F2',
+    borderRadius: 8,
+    flexDirection: 'row',
+    marginTop: 15,
+    padding: 10,
   },
-  actionButtonText: {
-    color: 'white',
+  alertText: {
+    color: '#FF3B30',
+    fontSize: 12,
+    fontWeight: '600',
+    marginLeft: 5,
+  },
+  consolidatedContainer: {
+    padding: 20,
+  },
+  container: {
+    backgroundColor: '#F8F9FA',
+    flex: 1,
+  },
+  crossEntitySection: {
+    backgroundColor: 'white',
+    borderRadius: 15,
+    elevation: 3,
+    marginTop: 10,
+    padding: 20,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+  },
+  crossEntityTitle: {
+    color: BrandConfig.colors.text,
+    fontSize: 16,
     fontWeight: 'bold',
-    marginLeft: 8,
+    marginBottom: 15,
+  },
+  entitiesSection: {
+    padding: 20,
+  },
+  entityCard: {
+    backgroundColor: 'white',
+    borderLeftColor: '#34C759',
+    borderLeftWidth: 4,
+    borderRadius: 15,
+    elevation: 3,
+    marginBottom: 15,
+    padding: 20,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+  },
+  entityHeader: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginBottom: 10,
+  },
+  entityLocation: {
+    color: BrandConfig.colors.textSecondary,
+    fontSize: 12,
+    marginBottom: 15,
+  },
+  entityMetrics: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  entityName: {
+    color: BrandConfig.colors.text,
+    flex: 1,
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+  gridItem: {
+    marginBottom: 15,
+    width: '48%',
+  },
+  gridLabel: {
+    color: 'rgba(255, 255, 255, 0.9)',
+    fontSize: 12,
+    marginTop: 5,
+    textAlign: 'center',
+  },
+  gridValue: {
+    color: 'white',
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginTop: 10,
+  },
+  header: {
+    borderBottomLeftRadius: 30,
+    borderBottomRightRadius: 30,
+    padding: 20,
+    paddingTop: 50,
+  },
+  headerSubtitle: {
+    color: 'rgba(255, 255, 255, 0.9)',
+    fontSize: 16,
+    marginBottom: 20,
+  },
+  headerTitle: {
+    color: 'white',
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 5,
+  },
+  highRiskBadge: {
+    backgroundColor: '#FF3B30',
+  },
+  highRiskCard: {
+    borderLeftColor: '#FF3B30',
+  },
+  lowRiskBadge: {
+    backgroundColor: '#34C759',
+  },
+  lowRiskText: {
+    color: 'white',
+  },
+  mediumRiskBadge: {
+    backgroundColor: '#FF9500',
+  },
+  mediumRiskCard: {
+    borderLeftColor: '#FF9500',
+  },
+  metric: {
+    alignItems: 'center',
+  },
+  metricGradient: {
+    alignItems: 'center',
+    borderRadius: 15,
+    padding: 20,
+  },
+  metricLabel: {
+    color: BrandConfig.colors.textSecondary,
+    fontSize: 12,
+    marginTop: 2,
+  },
+  metricValue: {
+    color: BrandConfig.colors.text,
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+  metricsGrid: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between',
+    marginBottom: 20,
+  },
+  patternAlert: {
+    alignItems: 'flex-start',
+    backgroundColor: BrandConfig.colors.background,
+    borderLeftColor: BrandConfig.colors.primary,
+    borderLeftWidth: 4,
+    borderRadius: 10,
+    flexDirection: 'row',
+    padding: 15,
+  },
+  patternContent: {
+    flex: 1,
+    marginLeft: 10,
+  },
+  patternSubtext: {
+    color: BrandConfig.colors.textSecondary,
+    fontSize: 12,
+  },
+  patternText: {
+    color: BrandConfig.colors.text,
+    fontSize: 14,
+    fontWeight: '600',
+    marginBottom: 5,
+  },
+  quickStat: {
+    alignItems: 'center',
+  },
+  quickStatLabel: {
+    color: 'rgba(255, 255, 255, 0.8)',
+    fontSize: 12,
+    marginTop: 2,
+  },
+  quickStatValue: {
+    color: 'white',
+    fontSize: 20,
+    fontWeight: 'bold',
+  },
+  quickStats: {
+    backgroundColor: 'rgba(255, 255, 255, 0.1)',
+    borderRadius: 15,
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    padding: 15,
+  },
+  riskBadge: {
+    backgroundColor: '#FF3B30',
+    borderRadius: 10,
+    paddingHorizontal: 10,
+    paddingVertical: 4,
+  },
+  riskText: {
+    color: 'white',
+    fontSize: 10,
+    fontWeight: 'bold',
+  },
+  sectionSubtitle: {
+    color: BrandConfig.colors.textSecondary,
+    fontSize: 14,
+    marginBottom: 15,
+  },
+  sectionTitle: {
+    color: BrandConfig.colors.text,
+    fontSize: 20,
+    fontWeight: 'bold',
+    marginBottom: 15,
   },
 });
 
