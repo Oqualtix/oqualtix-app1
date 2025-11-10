@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "Oqualtix App",
+    "name": "Oqualtix App", 
     "slug": "oqualtix-app",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -41,17 +41,17 @@
     "platforms": ["ios", "android", "web"],
     "plugins": [
       [
-        "expo-notifications",
+        "oqualtix-notifications",
         {
           "icon": "./assets/notification-icon.png",
-          "color": "#0000FF",
+          "color": "#0000FF", 
           "defaultChannel": "default"
         }
       ]
     ],
     "extra": {
-      "eas": {
-        "projectId": "your-project-id-will-be-generated"
+      "oqualtix": {
+        "projectId": "oqualtix-proprietary-project"
       }
     },
     "owner": "oqualtix"
